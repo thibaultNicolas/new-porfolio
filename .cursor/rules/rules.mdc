@@ -1,0 +1,538 @@
+---
+alwaysApply: true
+---
+
+# 📋 Règles du Projet - Portfolio Next.js
+
+## 🎯 OBJECTIF DU PROJET
+
+Portfolio personnel moderne en Next.js (App Router) visant une **qualité production SaaS** :
+
+- ✅ Code maintenable et lisible
+- ✅ Architecture scalable et modulaire
+- ✅ Performance optimale (Core Web Vitals)
+- ✅ Accessibilité (WCAG 2.1 AA minimum)
+- ✅ SEO optimisé
+- ✅ **Simplicité avant complexité** (KISS principle)
+
+---
+
+## 🛠️ STACK TECHNIQUE OBLIGATOIRE
+
+### Core
+
+- **Next.js 16+** avec App Router (`src/app/`)
+- **TypeScript** strict mode
+- **React 19+** (Server Components par défaut)
+- **TailwindCSS v4** pour le styling
+
+### Outils & Validation
+
+- **Zod** pour validation runtime (données externes, formulaires)
+- **ESLint** + **Prettier** (formatage automatique)
+- **TypeScript strict** : `noImplicitAny`, `strictNullChecks`
+
+### Interdictions strictes
+
+- ❌ Pas de `any` (même pas `as any`)
+- ❌ Pas de Pages Router (uniquement App Router)
+- ❌ Pas de CSS-in-JS (uniquement TailwindCSS)
+- ❌ Pas de librairies UI complètes (shadcn/ui OK si nécessaire)
+
+---
+
+## 📁 ARCHITECTURE DES DOSSIERS
+
+```
+src/
+├── app/                    # App Router - Routes et layouts
+│   ├── layout.tsx          # Layout racine
+│   ├── page.tsx             # Page d'accueil
+│   ├── globals.css         # Styles globaux
+│   ├── projects/           # Route /projects
+│   │   ├── page.tsx
+│   │   └── loading.tsx     # État de chargement
+│   └── error.tsx           # Gestion d'erreurs globales
+│
+├── components/
+│   ├── ui/                 # Composants UI réutilisables (purement visuels)
+│   │   ├── Button.tsx
+│   │   ├── Card.tsx
+│   │   ├── Modal.tsx
+│   │   └── index.ts        # Exports centralisés
+│   ├── sections/           # Sections de page (composés)
+│   │   ├── HeroSection.tsx
+│   │   ├── ProjectsSection.tsx
+│   │   └── index.ts
+│   └── layout/             # Composants de layout
+│       ├── Header.tsx
+│       └── Footer.tsx
+│
+├── lib/
+│   ├── actions/            # Server Actions (mutations)
+│   ├── hooks/              # Custom React Hooks
+│   ├── utils/              # Fonctions utilitaires
+│   └── validations/        # Schémas Zod
+│
+└── types/                  # Types TypeScript globaux
+    └── index.ts
+```
+
+### Règles d'architecture
+
+- **`/app`** : Routes uniquement, aucune logique métier
+- **`/components/ui`** : Composants purement visuels, réutilisables, sans logique
+- **`/components/sections`** : Sections composées (peuvent contenir de la logique)
+- **`/lib`** : Toute la logique métier, appels API, helpers
+- **`/types`** : Interfaces et types globaux uniquement
+- **Exports centralisés** : Utiliser `index.ts` pour simplifier les imports
+
+---
+
+## ⚛️ RÈGLES NEXT.JS
+
+### Server Components par défaut
+
+```tsx
+// ✅ Server Component (par défaut)
+export default function Page() {
+  return <div>Content</div>;
+}
+
+// ❌ Client Component (seulement si nécessaire)
+"use client";
+export default function InteractiveComponent() {
+  const [state, setState] = useState();
+  return <button onClick={...}>Click</button>;
+}
+```
+
+### Quand utiliser `"use client"` ?
+
+✅ **Autorisé pour** :
+
+- Formulaires avec état
+- Animations (framer-motion, etc.)
+- Interactions utilisateur (onClick, onChange, etc.)
+- Hooks React (useState, useEffect, etc.)
+- Event listeners
+
+❌ **Interdit pour** :
+
+- Affichage simple de données
+- Layouts statiques
+- Composants UI sans interaction
+
+### Data Fetching
+
+```tsx
+// ✅ Dans Server Components
+export default async function Page() {
+  const data = await fetch(...);
+  return <div>{data}</div>;
+}
+
+// ✅ Dans /lib/actions
+export async function getProjects() {
+  // ...
+}
+
+// ❌ Jamais dans un composant UI
+export default function Button() {
+  const data = await fetch(...); // ❌ INTERDIT
+}
+```
+
+### Routes et Layouts
+
+- **`page.tsx`** : Route accessible publiquement
+- **`layout.tsx`** : Layout partagé (nested layouts OK)
+- **`loading.tsx`** : État de chargement (Suspense automatique)
+- **`error.tsx`** : Gestion d'erreurs (Error Boundary)
+- **`not-found.tsx`** : Page 404 personnalisée
+
+---
+
+## 📝 CONVENTIONS DE NOMMAGE
+
+| Type                      | Convention           | Exemple                               |
+| ------------------------- | -------------------- | ------------------------------------- |
+| **Composants React**      | PascalCase           | `Button.tsx`, `HeroSection.tsx`       |
+| **Hooks personnalisés**   | camelCase avec `use` | `useScroll.ts`, `useProjects.ts`      |
+| **Fonctions utilitaires** | camelCase            | `formatDate.ts`, `cn.ts`              |
+| **Types/Interfaces**      | PascalCase           | `Project`, `UserData`                 |
+| **Constantes**            | UPPER_SNAKE_CASE     | `MAX_ITEMS`, `API_URL`                |
+| **Fichiers de config**    | kebab-case           | `next.config.ts`, `eslint.config.mjs` |
+| **Dossiers**              | kebab-case           | `components/`, `lib/actions/`         |
+
+### Exemples
+
+```tsx
+// ✅ Composant
+export default function ProjectCard() {}
+
+// ✅ Hook
+export function useScroll() {}
+
+// ✅ Utilitaire
+export function formatDate(date: Date): string {}
+
+// ✅ Type
+export interface Project {}
+
+// ✅ Constante
+export const MAX_PROJECTS = 10;
+```
+
+---
+
+## 🧹 RÈGLES CLEAN CODE
+
+### Limites strictes
+
+- **Max 200 lignes** par fichier (refactoriser si dépassé)
+- **Max 4 niveaux** d'imbrication (extraction de fonctions)
+- **Max 5 props** par composant (utiliser un objet de config si nécessaire)
+
+### Principes
+
+- **Une fonction = une responsabilité** (Single Responsibility)
+- **Pas de logique conditionnelle complexe dans le JSX**
+
+  ```tsx
+  // ❌ Mauvais
+  {
+    user?.profile?.settings?.theme === "dark" && user.isActive ? (
+      <DarkMode />
+    ) : (
+      <LightMode />
+    );
+  }
+
+  // ✅ Bon
+  const isDarkMode = user?.profile?.settings?.theme === "dark" && user.isActive;
+  {
+    isDarkMode ? <DarkMode /> : <LightMode />;
+  }
+  ```
+
+- **JSX lisible avant DRY** (éviter l'over-engineering)
+- **Early returns** pour réduire l'imbrication
+- **Extraction de constantes** pour les valeurs magiques
+
+---
+
+## 🔷 TYPESCRIPT STRICT
+
+### Règles absolues
+
+- ❌ **Jamais de `any`** (utiliser `unknown` si nécessaire)
+- ✅ **Tous les retours de fonctions typés**
+- ✅ **Toutes les props typées** (interfaces ou types)
+- ✅ **Validation runtime avec Zod** sur toute donnée externe (API, formulaires, localStorage)
+
+### Exemples
+
+```tsx
+// ✅ Bon
+interface ButtonProps {
+  children: React.ReactNode;
+  variant?: "primary" | "secondary";
+  onClick?: () => void;
+}
+
+export default function Button({ children, variant, onClick }: ButtonProps) {
+  // ...
+}
+
+// ❌ Mauvais
+export default function Button(props: any) {
+  // ...
+}
+
+// ✅ Validation Zod
+import { z } from "zod";
+
+const ProjectSchema = z.object({
+  id: z.string(),
+  title: z.string().min(1),
+  description: z.string(),
+});
+
+type Project = z.infer<typeof ProjectSchema>;
+```
+
+---
+
+## 🧩 COMPOSANTS
+
+### Règles de conception
+
+Chaque composant doit :
+
+- ✅ **Avoir un rôle clair et unique**
+- ✅ **Être testable** (pas de dépendances cachées)
+- ✅ **Avoir des props minimales** (max 5, sinon utiliser un objet)
+- ✅ **Ne jamais muter le state parent** (props down, events up)
+- ✅ **Être réutilisable** (composants UI) ou **spécialisé** (sections)
+
+### Structure d'un composant
+
+```tsx
+// 1. Imports
+import { ... } from "...";
+
+// 2. Types/Interfaces
+interface ComponentProps {
+  // ...
+}
+
+// 3. Composant
+export default function Component({ ... }: ComponentProps) {
+  // 4. Hooks
+  // 5. Logique
+  // 6. Render
+  return (...);
+}
+```
+
+### Props et enfants
+
+```tsx
+// ✅ Props typées
+interface CardProps {
+  title: string;
+  children: React.ReactNode;
+  className?: string;
+}
+
+// ✅ Utilisation de cn() pour les classes
+import { cn } from "@/lib/utils";
+
+export default function Card({ title, children, className }: CardProps) {
+  return (
+    <div className={cn("rounded-lg border p-4", className)}>
+      <h3>{title}</h3>
+      {children}
+    </div>
+  );
+}
+```
+
+---
+
+## ♿ ACCESSIBILITÉ & UX
+
+### Règles obligatoires
+
+- ✅ **Tous les boutons = `<button>` natif** (jamais `<div onClick>`)
+- ✅ **Labels obligatoires** sur tous les formulaires
+- ✅ **`aria-label`** si icône seule ou action non évidente
+- ✅ **Navigation au clavier** fonctionnelle (Tab, Enter, Escape)
+- ✅ **Contraste des couleurs** (WCAG AA minimum)
+- ✅ **Focus visible** sur tous les éléments interactifs
+
+### Exemples
+
+```tsx
+// ✅ Bon
+<button
+  onClick={handleClick}
+  aria-label="Fermer le menu"
+  className="focus:outline-none focus:ring-2 focus:ring-primary"
+>
+  <CloseIcon />
+</button>
+
+// ❌ Mauvais
+<div onClick={handleClick}>
+  <CloseIcon />
+</div>
+
+// ✅ Formulaires
+<label htmlFor="email">
+  Email
+  <input
+    id="email"
+    type="email"
+    required
+    aria-describedby="email-error"
+  />
+</label>
+```
+
+---
+
+## ⚡ PERFORMANCE
+
+### Optimisations obligatoires
+
+- ✅ **Server Components par défaut** (moins de JavaScript client)
+- ✅ **Lazy loading** des sections lourdes (`React.lazy` ou `dynamic`)
+- ✅ **Images optimisées** (`next/image` uniquement)
+- ✅ **Pas de librairies inutiles** (vérifier le bundle size)
+- ✅ **Code splitting automatique** (Next.js le fait, ne pas le casser)
+
+### Exemples
+
+```tsx
+// ✅ Lazy loading
+import dynamic from "next/dynamic";
+
+const HeavyComponent = dynamic(() => import("./HeavyComponent"), {
+  loading: () => <Skeleton />,
+  ssr: false, // Seulement si nécessaire
+});
+
+// ✅ Images optimisées
+import Image from "next/image";
+
+<Image
+  src="/project.jpg"
+  alt="Projet"
+  width={800}
+  height={600}
+  priority // Pour above-the-fold
+/>;
+```
+
+---
+
+## 📦 IMPORTS
+
+### Ordre des imports
+
+1. **React/Next.js** (imports externes)
+2. **Librairies tierces**
+3. **Composants internes** (`@/components`)
+4. **Utils/Hooks** (`@/lib`)
+5. **Types** (`@/types`)
+6. **Styles** (relatifs)
+
+### Exemples
+
+```tsx
+// ✅ Bon ordre
+import { useState } from "react";
+import Link from "next/link";
+import { z } from "zod";
+
+import { Button } from "@/components/ui";
+import { HeroSection } from "@/components/sections";
+import { formatDate } from "@/lib/utils";
+import { useScroll } from "@/lib/hooks";
+import { Project } from "@/types";
+
+import "./styles.css";
+```
+
+### Alias de chemins
+
+- Utiliser `@/` pour les imports depuis `src/`
+- Configuré dans `tsconfig.json`
+
+---
+
+## 🧪 TESTS (Futur)
+
+### Structure recommandée
+
+- Tests unitaires : `__tests__/` à côté des fichiers
+- Tests d'intégration : `tests/` à la racine
+- Utiliser **Vitest** + **React Testing Library**
+
+---
+
+## 🚨 GESTION D'ERREURS
+
+### Error Boundaries
+
+- Utiliser `error.tsx` dans chaque route si nécessaire
+- Logs d'erreurs côté serveur uniquement
+- Messages utilisateur clairs et utiles
+
+### Validation
+
+- **Zod** pour toutes les données externes
+- Try/catch pour les opérations async
+- Gestion gracieuse des erreurs (fallback UI)
+
+---
+
+## 🎨 STYLING
+
+### TailwindCSS uniquement
+
+- ✅ Utiliser les classes Tailwind
+- ✅ Utiliser `cn()` pour combiner les classes conditionnelles
+- ✅ Variables CSS pour les thèmes (déjà configuré)
+- ❌ Pas de CSS modules
+- ❌ Pas de styled-components
+
+### Exemples
+
+```tsx
+import { cn } from "@/lib/utils";
+
+<div className={cn(
+  "rounded-lg p-4",
+  isActive && "bg-primary",
+  className
+)}>
+```
+
+---
+
+## 📝 STYLE DE RÉPONSE CURSOR
+
+Quand tu génères du code pour ce projet :
+
+1. ✅ **Respecte cette architecture** strictement
+2. ✅ **Propose le fichier complet** (pas de snippets partiels)
+3. ✅ **Explique brièvement** la décision technique
+4. ✅ **Utilise les conventions** de nommage définies
+5. ❌ **Ne proposes jamais de hack rapide** ou de solution temporaire
+6. ✅ **Priorise la maintenabilité** sur la vitesse d'implémentation
+7. ✅ **Documente les choix** techniques complexes
+8. ✅ **Vérifie les erreurs ESLint** avant de proposer
+
+### Format de réponse attendu
+
+```tsx
+// Explication brève de la décision technique
+// Ex: "Composant Server Component pour optimiser les performances"
+
+export default function Component() {
+  // Code complet et fonctionnel
+}
+```
+
+---
+
+## 🔄 WORKFLOW
+
+### Avant de commiter
+
+1. ✅ `npm run lint` (pas d'erreurs)
+2. ✅ TypeScript compile sans erreurs
+3. ✅ Code formaté avec Prettier
+4. ✅ Tests passent (si implémentés)
+
+### Structure de commit
+
+```
+feat: ajout du composant ProjectCard
+fix: correction du bug de navigation mobile
+refactor: extraction de la logique dans useProjects
+style: amélioration du responsive du Header
+```
+
+---
+
+## 📚 RESSOURCES
+
+- [Next.js Documentation](https://nextjs.org/docs)
+- [React Server Components](https://react.dev/blog/2023/03/22/react-labs-what-we-have-been-working-on-march-2023#react-server-components)
+- [TypeScript Handbook](https://www.typescriptlang.org/docs/)
+- [TailwindCSS Documentation](https://tailwindcss.com/docs)
+- [Zod Documentation](https://zod.dev/)
