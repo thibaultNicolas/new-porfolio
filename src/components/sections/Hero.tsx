@@ -13,7 +13,7 @@ export default function Hero() {
             <div className="hero-header-content flex flex-col flex-none justify-center items-start max-w-[415px] pb-[55px] z-10">
               {/* Header block */}
               <div className="header-block mb-6">
-                <h1 className="display-header text-5xl md:text-6xl lg:text-7xl font-normal text-[#F0EBD8] leading-[1.1]">
+                <h1 className="display-header text-5xl md:text-6xl lg:text-7xl  text-[#F0EBD8] leading-[1.1]">
                   <span>Je transforme vos </span>
                   <span className="main-span italic">idées</span> en{" "}
                   <span className="main-span italic">solutions digitales.</span>

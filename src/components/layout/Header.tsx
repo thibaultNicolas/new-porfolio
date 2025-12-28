@@ -31,9 +31,7 @@ export default function Header() {
         {/* Logo à gauche - visible sur mobile et desktop */}
         <div className="navbar-brand-block flex items-center shrink-0">
           <Logo
-            mainText="THIBAULT"
-            subText="DEV"
-            subTextColor="text-[#748CAB]"
+            mainText="THIBAULT."
             onClick={handleLinkClick}
             className="text-[#F0EBD8]"
           />
