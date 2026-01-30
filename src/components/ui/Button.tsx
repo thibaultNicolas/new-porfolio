@@ -1,39 +1,86 @@
 "use client";
 
+import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
 
-interface ButtonProps {
+interface BaseButtonProps {
   children: React.ReactNode;
-  variant?: "primary" | "secondary" | "cta";
-  onClick?: () => void;
+  variant?: "primary" | "secondary" | "ghost";
+  size?: "sm" | "md" | "lg";
   className?: string;
-  type?: "button" | "submit" | "reset";
 }
 
-export default function Button({
-  children,
-  variant = "primary",
-  onClick,
-  className,
-  type = "button",
-}: ButtonProps) {
+interface ButtonAsButton extends BaseButtonProps {
+  as?: "button";
+  type?: "button" | "submit" | "reset";
+  onClick?: () => void;
+}
+
+interface ButtonAsLink extends BaseButtonProps {
+  as: "a";
+  href: string;
+  target?: string;
+  rel?: string;
+}
+
+type ButtonProps = ButtonAsButton | ButtonAsLink;
+
+export function Button(props: ButtonProps) {
+  const {
+    children,
+    variant = "primary",
+    size = "md",
+    className,
+  } = props;
+
+  const baseClasses = "relative font-medium transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-white focus:ring-black inline-flex items-center justify-center";
+
   const variantClasses = {
-    primary: "bg-[#3E5C76] text-[#F0EBD8] hover:bg-[#748CAB]",
-    secondary: "bg-[#1D2D44] text-[#F0EBD8] hover:bg-[#3E5C76]",
-    cta: "bg-[#3E5C76] text-[#F0EBD8] hover:bg-[#748CAB] font-medium",
+    primary:
+      "bg-black text-white hover:bg-gray-900 hover:shadow-lg",
+    secondary:
+      "bg-transparent border-2 border-black text-black hover:bg-black hover:text-white",
+    ghost:
+      "bg-transparent text-gray-700 hover:text-black hover:bg-gray-50",
   };
 
+  const sizeClasses = {
+    sm: "px-4 py-2 text-sm rounded-lg",
+    md: "px-6 py-3 text-base rounded-xl",
+    lg: "px-8 py-4 text-lg rounded-xl",
+  };
+
+  const classes = cn(
+    baseClasses,
+    variantClasses[variant],
+    sizeClasses[size],
+    className
+  );
+
+  if (props.as === "a") {
+    return (
+      <motion.a
+        href={props.href}
+        target={props.target}
+        rel={props.rel}
+        whileHover={{ scale: 1.02 }}
+        whileTap={{ scale: 0.98 }}
+        className={classes}
+      >
+        {children}
+      </motion.a>
+    );
+  }
+
   return (
-    <button
-      type={type}
-      onClick={onClick}
-      className={cn(
-        "px-4 py-2 rounded-3xl transition-colors",
-        variantClasses[variant],
-        className
-      )}
+    <motion.button
+      type={props.type || "button"}
+      onClick={props.onClick}
+      whileHover={{ scale: 1.02 }}
+      whileTap={{ scale: 0.98 }}
+      className={classes}
     >
       {children}
-    </button>
+    </motion.button>
   );
 }

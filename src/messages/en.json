@@ -1,0 +1,155 @@
+{
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "experience": "Experience",
+    "projects": "Projects",
+    "stack": "Stack",
+    "contact": "Contact"
+  },
+  "hero": {
+    "headline": "Product-focused design-aware developer",
+    "headline2": "Building premium digital experiences",
+    "subheadline": "Transforming complex requirements into elegant, performant solutions.",
+    "role": "Senior Full Stack Developer",
+    "specialization": "specializing in modern web technologies.",
+    "ctaPrimary": "View Projects",
+    "ctaSecondary": "Contact"
+  },
+  "about": {
+    "title": "About Me",
+    "paragraph1": "I'm a senior full stack developer who bridges the gap between design and engineering. My approach is product-first: every line of code serves a business goal.",
+    "paragraph2": "I've spent the last 8+ years building applications that users love and businesses rely on. From early-stage startups to enterprise platforms, I've seen what works—and what doesn't.",
+    "paragraph3": "What sets me apart? I think like a product builder, not just a coder. I ask \"why\" before \"how\", prioritize impact over complexity, and ship with confidence.",
+    "highlights": {
+      "experience": {
+        "number": "8+",
+        "label": "Years of Experience",
+        "description": "Building production-ready applications"
+      },
+      "projects": {
+        "number": "50+",
+        "label": "Projects Delivered",
+        "description": "From startups to enterprise"
+      },
+      "satisfaction": {
+        "number": "100%",
+        "label": "Client Satisfaction",
+        "description": "Long-term partnerships"
+      }
+    }
+  },
+  "experience": {
+    "title": "Experience",
+    "subtitle": "Building impactful products and leading technical teams",
+    "items": {
+      "exp-1": {
+        "company": "InputKit",
+        "role": "Full Stack Developer",
+        "period": "Apr 2025 - Present",
+        "description": [
+          "Development and maintenance of a customer and employee experience management SaaS",
+          "Design and development of modular web features with Vue.js and Node.js",
+          "API and database optimization for performance and scalability",
+          "User-centered interface design to improve experience and ergonomics",
+          "Prompt engineering and integration of AI models (OpenAI, Lovable, Cursor) for automatic generation of specific content"
+        ]
+      },
+      "exp-2": {
+        "company": "Desjardins",
+        "role": "Analyst-Programmer",
+        "period": "Apr 2024 - Apr 2025",
+        "description": [
+          "Participation in the design and development of complex projects within internal systems",
+          "Backend (.NET, APIs) and frontend development for robust and performant applications",
+          "Mentoring interns and collaborating with the team to ensure skill development",
+          "Code reviews and implementation of best practices to ensure code quality and maintainability",
+          "Contribution to system optimization and scalability"
+        ]
+      },
+      "exp-3": {
+        "company": "Desjardins",
+        "role": "Developer",
+        "period": "Apr 2023 - Apr 2024",
+        "description": [
+          "Operation, maintenance and development of systems and infrastructures",
+          "Development of internal applications with .NET",
+          "Collaboration with teams to ensure system stability"
+        ]
+      },
+      "exp-4": {
+        "company": "Imago Communication",
+        "role": "Developer",
+        "period": "May 2022 - Apr 2023",
+        "description": [
+          "Development and integration of websites on WordPress, Shopify and Prestashop from graphic mockups",
+          "Server and DNS management, regular maintenance and updates of sites",
+          "Collaboration with teams to deliver custom and functional web projects",
+          "Performance optimization and technical problem resolution to ensure site stability"
+        ]
+      },
+      "exp-5": {
+        "company": "Imago Communication",
+        "role": "Web Development Intern",
+        "period": "Mar 2022 - May 2022",
+        "description": [
+          "WordPress website development",
+          "Learning web development best practices",
+          "Collaboration with the development team"
+        ]
+      },
+      "exp-6": {
+        "company": "Imago Communication",
+        "role": "Web Development Intern",
+        "period": "Mar 2021 - May 2021",
+        "description": [
+          "WordPress website development",
+          "Introduction to web development and CMS",
+          "Support to senior developers"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "title": "Projects",
+    "subtitle": "Selected work showcasing product thinking and technical excellence",
+    "viewProject": "View Project →"
+  },
+  "stack": {
+    "title": "Tech Stack",
+    "subtitle": "Modern tools and technologies I use to build exceptional products"
+  },
+  "process": {
+    "title": "How I Work",
+    "subtitle": "A structured approach that delivers results, not just code",
+    "steps": {
+      "understand": {
+        "title": "Understand",
+        "description": "Deep dive into your business goals, user needs, and technical constraints. Ask the right questions to uncover what really matters."
+      },
+      "design": {
+        "title": "Design",
+        "description": "Create solutions that balance user experience, technical feasibility, and business impact. No over-engineering, just the right approach."
+      },
+      "build": {
+        "title": "Build",
+        "description": "Write clean, maintainable code with performance and scalability in mind. Ship incrementally, test continuously, iterate based on feedback."
+      },
+      "deliver": {
+        "title": "Deliver",
+        "description": "Ensure smooth deployment, comprehensive documentation, and knowledge transfer. Your success is my success."
+      }
+    }
+  },
+  "contact": {
+    "title": "Let's Work Together",
+    "description": "Have a project in mind? I'd love to hear about it. Send me a message and let's create something exceptional.",
+    "copyEmail": "Copy Email",
+    "emailCopied": "Email Copied!",
+    "available": "Available for freelance projects and full-time opportunities"
+  },
+  "footer": {
+    "role": "Senior Full Stack Developer",
+    "copyright": "All rights reserved."
+  }
+}

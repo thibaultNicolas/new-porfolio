@@ -1,34 +1,36 @@
-/**
- * Types TypeScript pour le portfolio
- */
-
-export interface NavItem {
-  href: string;
-  label: string;
-  hasDropdown?: boolean;
-}
+// Types globaux du projet
 
 export interface Project {
   id: string;
   title: string;
   description: string;
+  longDescription?: string;
   image: string;
   technologies: string[];
+  role: string;
+  impact: string;
   link?: string;
   github?: string;
-}
-
-export interface Skill {
-  name: string;
-  level: "beginner" | "intermediate" | "advanced";
-  category: "frontend" | "backend" | "tools" | "other";
+  featured?: boolean;
 }
 
 export interface Experience {
   id: string;
-  title: string;
   company: string;
-  startDate: string;
-  endDate?: string;
+  role: string;
+  period: string;
   description: string[];
+  technologies: string[];
+  achievements?: string[];
+}
+
+export interface Skill {
+  category: string;
+  items: string[];
+}
+
+export interface ContactForm {
+  name: string;
+  email: string;
+  message: string;
 }

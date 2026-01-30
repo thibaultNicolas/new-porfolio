@@ -1,65 +1,140 @@
-import Image from "next/image";
+"use client";
 
-import HeroCTA from "./HeroCTA";
+import { motion } from "framer-motion";
+import { useEffect, useRef } from "react";
+import { useTranslations } from "next-intl";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { Button } from "@/components/ui/Button";
+import { fadeInUp, textReveal, textRevealChar } from "@/lib/utils/animations";
 
-export default function Hero() {
+if (typeof window !== "undefined") {
+  gsap.registerPlugin(ScrollTrigger);
+}
+
+export function Hero() {
+  const t = useTranslations("hero");
+  const backgroundRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (!backgroundRef.current) return;
+
+    // Subtle parallax effect on background
+    gsap.to(backgroundRef.current, {
+      y: 50,
+      scrollTrigger: {
+        trigger: backgroundRef.current,
+        start: "top top",
+        end: "bottom top",
+        scrub: 1,
+      },
+    });
+  }, []);
+
   return (
-    <section className="hero-section relative h-screen overflow-hidden w-full bg-gradient-to-r from-[#0D1321] via-[#1D2D44] to-[#3E5C76]">
-      {/* Hero inner */}
-      <div className="hero-inner relative h-full flex overflow-hidden">
-        <div className="w-layout-blockcontainer main-container container mx-auto px-6 md:px-12 lg:px-16">
-          <div className="hero-content-block relative flex justify-between items-center gap-4 h-full">
-            {/* Contenu texte à gauche */}
-            <div className="hero-header-content flex flex-col flex-none justify-center items-start max-w-[415px] pb-[55px] z-10">
-              {/* Header block */}
-              <div className="header-block mb-6">
-                <h1 className="display-header text-5xl md:text-6xl lg:text-7xl  text-[#F0EBD8] leading-[1.1]">
-                  <span>Je transforme vos </span>
-                  <span className="main-span italic">idées</span> en{" "}
-                  <span className="main-span italic">solutions digitales.</span>
-                </h1>
-              </div>
-
-              {/* Summary block */}
-              <div className="summery-block top-20px mb-8">
-                <p className="body-text-default text-lg md:text-xl text-[#F0EBD8]/90 font-light leading-[1.4]">
-                  Développeur Full Stack passionné, je crée des applications web
-                  modernes et performantes. De la conception à la mise en
-                  production, je transforme vos besoins en expériences
-                  utilisateur exceptionnelles.
-                </p>
-              </div>
-
-              {/* Button block */}
-              <div className="button-block top-52px">
-                <HeroCTA />
-              </div>
-            </div>
-
-            {/* Image block à droite */}
-            <div className="hero-image-block relative z-10 w-[91%] transition-[filter] duration-400 h-full flex items-center">
-              <div className="relative w-full h-full min-h-[500px]">
-                <Image
-                  src="/images/person-1.webp"
-                  alt="Nicolas Thibault - Développeur Full Stack"
-                  fill
-                  priority
-                  className="hero-image object-cover h-full static overflow-visible"
-                  quality={90}
-                />
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* Formes de fond décoratives */}
-        <div className="hero-bg-shape left absolute top-0 left-0 w-1/2 h-full z-0 pointer-events-none">
-          <div className="bg-circle w-full h-full rounded-full bg-gradient-to-r from-transparent via-[#748CAB]/20 to-[#748CAB]/30 blur-[80px]"></div>
-        </div>
-        <div className="hero-bg-shape right absolute top-0 w-[40%] h-full -right-[25%] z-0 pointer-events-none">
-          <div className="bg-circle right w-full h-full rounded-full bg-gradient-to-l from-transparent via-[#F0EBD8]/20 to-[#F0EBD8]/30 blur-[80px]"></div>
-        </div>
+    <section
+      id="home"
+      className="relative min-h-screen flex items-center justify-center overflow-hidden bg-white"
+    >
+      {/* Subtle Animated Background */}
+      <div
+        ref={backgroundRef}
+        className="absolute inset-0 opacity-[0.02]"
+        aria-hidden="true"
+      >
+        <div className="absolute inset-0 bg-gradient-to-br from-gray-50 via-white to-gray-50" />
+        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-black rounded-full blur-[120px]" />
+        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-black rounded-full blur-[120px]" />
       </div>
+
+      {/* Content */}
+      <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-12 lg:px-16 py-32">
+        <motion.div
+          initial="hidden"
+          animate="visible"
+          variants={fadeInUp}
+          className="text-center space-y-8"
+        >
+          {/* Main Headline */}
+          <motion.h1
+            variants={textReveal}
+            className="text-balance font-bold leading-[1.1] text-black"
+          >
+            {t("headline").split(" ").map((word, index) => (
+              <span key={index} className="inline-block mr-3">
+                {word.split("").map((char, charIndex) => (
+                  <motion.span
+                    key={charIndex}
+                    variants={textRevealChar}
+                    className="inline-block"
+                  >
+                    {char === " " ? "\u00A0" : char}
+                  </motion.span>
+                ))}
+              </span>
+            ))}
+            <br />
+            <motion.span
+              variants={textReveal}
+              className="gradient-text inline-block mt-4"
+            >
+              {t("headline2").split("").map((char, index) => (
+                <motion.span
+                  key={index}
+                  variants={textRevealChar}
+                  className="inline-block"
+                >
+                  {char === " " ? "\u00A0" : char}
+                </motion.span>
+              ))}
+            </motion.span>
+          </motion.h1>
+
+          {/* Subheadline */}
+          <motion.p
+            variants={fadeInUp}
+            className="text-xl md:text-2xl text-gray-600 max-w-2xl mx-auto font-light"
+          >
+            {t("subheadline")}
+            <br />
+            <span className="text-black font-medium">{t("role")}</span>{" "}
+            {t("specialization")}
+          </motion.p>
+
+          {/* CTAs */}
+          <motion.div
+            variants={fadeInUp}
+            className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-8"
+          >
+            <Button variant="primary" size="lg" as="a" href="#projects">
+              {t("ctaPrimary")}
+            </Button>
+            <Button variant="secondary" size="lg" as="a" href="#contact">
+              {t("ctaSecondary")}
+            </Button>
+          </motion.div>
+        </motion.div>
+      </div>
+
+      {/* Scroll Indicator */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 2, duration: 1 }}
+        className="absolute bottom-8 left-1/2 -translate-x-1/2"
+      >
+        <motion.div
+          animate={{ y: [0, 10, 0] }}
+          transition={{ duration: 2, repeat: Infinity }}
+          className="w-6 h-10 border-2 border-gray-300 rounded-full flex justify-center"
+        >
+          <motion.div
+            animate={{ y: [0, 12, 0] }}
+            transition={{ duration: 2, repeat: Infinity }}
+            className="w-1 h-3 bg-black rounded-full mt-2"
+          />
+        </motion.div>
+      </motion.div>
     </section>
   );
 }

@@ -1,0 +1,155 @@
+{
+  "nav": {
+    "home": "Accueil",
+    "about": "À propos",
+    "experience": "Expérience",
+    "projects": "Projets",
+    "stack": "Stack",
+    "contact": "Contact"
+  },
+  "hero": {
+    "headline": "Développeur orienté produit et design",
+    "headline2": "Créant des expériences digitales premium",
+    "subheadline": "Transformer des besoins complexes en solutions élégantes et performantes.",
+    "role": "Développeur Full Stack Senior",
+    "specialization": "spécialisé dans les technologies web modernes.",
+    "ctaPrimary": "Voir les projets",
+    "ctaSecondary": "Contact"
+  },
+  "about": {
+    "title": "À propos de moi",
+    "paragraph1": "Je suis un développeur full stack senior qui fait le pont entre le design et l'ingénierie. Mon approche est orientée produit : chaque ligne de code sert un objectif business.",
+    "paragraph2": "J'ai passé les 8+ dernières années à construire des applications que les utilisateurs adorent et sur lesquelles les entreprises comptent. Des startups en phase de démarrage aux plateformes d'entreprise, j'ai vu ce qui fonctionne—et ce qui ne fonctionne pas.",
+    "paragraph3": "Ce qui me distingue ? Je pense comme un constructeur de produits, pas seulement comme un codeur. Je demande \"pourquoi\" avant \"comment\", je priorise l'impact sur la complexité, et je livre avec confiance.",
+    "highlights": {
+      "experience": {
+        "number": "8+",
+        "label": "Années d'expérience",
+        "description": "Construction d'applications prêtes pour la production"
+      },
+      "projects": {
+        "number": "50+",
+        "label": "Projets livrés",
+        "description": "Des startups à l'entreprise"
+      },
+      "satisfaction": {
+        "number": "100%",
+        "label": "Satisfaction client",
+        "description": "Partenariats à long terme"
+      }
+    }
+  },
+  "experience": {
+    "title": "Expérience",
+    "subtitle": "Construire des produits impactants et diriger des équipes techniques",
+    "items": {
+      "exp-1": {
+        "company": "InputKit",
+        "role": "Développeur Full Stack",
+        "period": "avr. 2025 - aujourd'hui",
+        "description": [
+          "Développement et maintenance d'un SaaS de gestion de l'expérience client et employé",
+          "Conception et développement de fonctionnalités web modulaires avec Vue.js et Node.js",
+          "Optimisation des APIs et bases de données pour la performance et la scalabilité",
+          "Design d'interfaces centrées utilisateur pour améliorer l'expérience et l'ergonomie",
+          "Prompt engineering et intégration de modèles d'IA (OpenAI, Lovable, Cursor) pour la génération automatique de contenu spécifique"
+        ]
+      },
+      "exp-2": {
+        "company": "Desjardins",
+        "role": "Analyste-programmeur",
+        "period": "avr. 2024 - avr. 2025",
+        "description": [
+          "Participation à la conception et au développement de projets complexes au sein des systèmes internes",
+          "Développement backend (.NET, APIs) et frontend pour des applications robustes et performantes",
+          "Accompagnement des stagiaires et collaboration avec l'équipe pour assurer la montée en compétences",
+          "Réalisation de code reviews et mise en place de bonnes pratiques pour garantir la qualité et la maintenabilité du code",
+          "Contribution à l'optimisation et à la scalabilité des systèmes"
+        ]
+      },
+      "exp-3": {
+        "company": "Desjardins",
+        "role": "Développeur",
+        "period": "avr. 2023 - avr. 2024",
+        "description": [
+          "Exploitation, maintenance et développement des systèmes et des infrastructures",
+          "Développement d'applications internes avec .NET",
+          "Collaboration avec les équipes pour assurer la stabilité des systèmes"
+        ]
+      },
+      "exp-4": {
+        "company": "Imago Communication",
+        "role": "Développeur",
+        "period": "mai 2022 - avr. 2023",
+        "description": [
+          "Développement et intégration de sites web sur WordPress, Shopify et Prestashop à partir de maquettes graphiques",
+          "Gestion des serveurs et DNS, maintenance et mises à jour régulières des sites",
+          "Collaboration avec les équipes pour livrer des projets web sur mesure et fonctionnels",
+          "Optimisation des performances et résolution des problèmes techniques pour garantir la stabilité des sites"
+        ]
+      },
+      "exp-5": {
+        "company": "Imago Communication",
+        "role": "Stagiaire en développement Web",
+        "period": "mars 2022 - mai 2022",
+        "description": [
+          "Développement de sites internet WordPress",
+          "Apprentissage des bonnes pratiques de développement web",
+          "Collaboration avec l'équipe de développement"
+        ]
+      },
+      "exp-6": {
+        "company": "Imago Communication",
+        "role": "Stagiaire en développement Web",
+        "period": "mars 2021 - mai 2021",
+        "description": [
+          "Développement de sites internet WordPress",
+          "Initiation au développement web et aux CMS",
+          "Support aux développeurs seniors"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "title": "Projets",
+    "subtitle": "Travaux sélectionnés mettant en avant la réflexion produit et l'excellence technique",
+    "viewProject": "Voir le projet →"
+  },
+  "stack": {
+    "title": "Stack technique",
+    "subtitle": "Outils et technologies modernes que j'utilise pour créer des produits exceptionnels"
+  },
+  "process": {
+    "title": "Comment je travaille",
+    "subtitle": "Une approche structurée qui livre des résultats, pas seulement du code",
+    "steps": {
+      "understand": {
+        "title": "Comprendre",
+        "description": "Plonger en profondeur dans vos objectifs business, besoins utilisateurs et contraintes techniques. Poser les bonnes questions pour découvrir ce qui compte vraiment."
+      },
+      "design": {
+        "title": "Concevoir",
+        "description": "Créer des solutions qui équilibrent expérience utilisateur, faisabilité technique et impact business. Pas de sur-ingénierie, juste la bonne approche."
+      },
+      "build": {
+        "title": "Construire",
+        "description": "Écrire du code propre et maintenable avec performance et scalabilité en tête. Livrer de manière incrémentale, tester continuellement, itérer basé sur les retours."
+      },
+      "deliver": {
+        "title": "Livrer",
+        "description": "Assurer un déploiement fluide, une documentation complète et un transfert de connaissances. Votre succès est mon succès."
+      }
+    }
+  },
+  "contact": {
+    "title": "Travaillons ensemble",
+    "description": "Vous avez un projet en tête ? J'aimerais en entendre parler. Envoyez-moi un message et créons quelque chose d'exceptionnel.",
+    "copyEmail": "Copier l'email",
+    "emailCopied": "Email copié !",
+    "available": "Disponible pour projets freelance et opportunités à temps plein"
+  },
+  "footer": {
+    "role": "Développeur Full Stack Senior",
+    "copyright": "Tous droits réservés."
+  }
+}

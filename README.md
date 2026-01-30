@@ -1,36 +1,192 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Portfolio Premium - Nicolas Thibault
 
-## Getting Started
+Portfolio développeur premium de niveau 2026, conçu pour impressionner les clients premium, recruteurs senior et fondateurs/CTOs.
 
-First, run the development server:
+## 🚀 Stack Technique
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+- **Next.js 16+** avec App Router
+- **TypeScript** strict mode
+- **React 19+** (Server Components par défaut)
+- **TailwindCSS v4** pour le styling
+- **Framer Motion** + **GSAP** pour les animations premium
+- **Lenis** pour le smooth scrolling
+- **Zod** pour la validation runtime
+
+## 🎨 Design System
+
+### Couleurs Premium (Light Mode First)
+- **Fond** : Blanc (#ffffff) avec accents gris subtils
+- **Accent Noir** : #000000 (premium, editorial)
+- **Typography** : Geist Sans (moderne, clean)
+- **Spacing** : Scale éditoriale généreuse
+
+### Animations
+- Animations intentionnelles et raffinées
+- Text reveal (caractère par caractère)
+- Scroll-triggered animations avec GSAP
+- Hover effects premium (scale, border, opacity)
+- Parallax subtil
+
+## 📁 Structure du Projet
+
+```
+src/
+├── app/
+│   ├── layout.tsx          # Layout racine avec Lenis
+│   ├── page.tsx            # Page d'accueil avec toutes les sections
+│   └── globals.css         # Design system & styles globaux
+│
+├── components/
+│   ├── ui/                 # Composants UI réutilisables
+│   │   ├── Button.tsx      # Button avec variants premium
+│   │   └── index.ts
+│   ├── sections/           # Sections de page
+│   │   ├── Hero.tsx        # Hero avec animations premium
+│   │   ├── About.tsx       # Section About avec scroll animations
+│   │   ├── Experience.tsx  # Timeline verticale animée
+│   │   ├── Projects.tsx     # Grid de projets avec hover effects
+│   │   ├── TechStack.tsx   # Stack technique avec micro-interactions
+│   │   ├── Process.tsx     # Processus de travail
+│   │   ├── Contact.tsx     # Section contact avec CTA
+│   │   └── index.ts
+│   ├── layout/              # Composants de layout
+│   │   ├── Header.tsx      # Navigation sticky avec menu mobile
+│   │   ├── Footer.tsx       # Footer minimal avec social links
+│   │   └── index.ts
+│   └── providers/          # Providers React
+│       └── SmoothScrollProvider.tsx
+│
+├── data/                   # Données du portfolio (data-driven)
+│   ├── projects.ts        # Projets
+│   ├── experience.ts      # Expériences professionnelles
+│   └── skills.ts          # Compétences techniques
+│
+├── lib/
+│   ├── hooks/              # Custom React Hooks
+│   │   └── useScrollAnimation.ts
+│   └── utils/
+│       ├── animations.ts   # Variants Framer Motion
+│       └── cn.ts           # Utility pour classes Tailwind
+│
+└── types/                  # Types TypeScript globaux
+    └── index.ts
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## ✨ Sections Implémentées
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### ✅ Header / Navigation
+- Sticky header avec backdrop blur
+- Navigation smooth scroll
+- Menu mobile animé
+- Hover states premium
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### ✅ Hero Section
+- Animation d'entrée fluide
+- Text reveal caractère par caractère
+- Background dynamique avec parallax
+- CTAs avec hover effects premium
+- Scroll indicator animé
 
-## Learn More
+### ✅ About Section
+- Scroll-triggered animations (GSAP)
+- Grid de highlights avec hover effects
+- Typography premium avec hierarchy claire
 
-To learn more about Next.js, take a look at the following resources:
+### ✅ Experience Section
+- Timeline verticale animée
+- Alternance gauche/droite sur desktop
+- Cards avec hover effects
+- Technologies et achievements
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### ✅ Projects Section
+- Grid de projets avec hover reveal
+- Overlay animé au hover
+- Metadata (role, impact, stack)
+- Cards premium avec border animations
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### ✅ Tech Stack Section
+- Layout moderne par catégories
+- Micro-interactions sur hover
+- Tags animés avec stagger
 
-## Deploy on Vercel
+### ✅ Process Section
+- 4 étapes du processus de travail
+- Cards avec hover effects
+- Numérotation premium
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### ✅ Contact Section
+- CTA fort et clair
+- Copy email to clipboard
+- Links vers LinkedIn et GitHub
+- Design minimal et frictionless
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### ✅ Footer
+- Minimal et élégant
+- Name + role
+- Social links avec animations
+- Copyright
+
+## 🛠️ Commandes Disponibles
+
+```bash
+# Développement
+npm run dev
+
+# Build de production
+npm run build
+
+# Démarrer le serveur de production
+npm start
+
+# Linter
+npm run lint
+```
+
+## 📝 Personnalisation
+
+### Modifier le Contenu
+
+Les données sont centralisées dans `/src/data/` :
+
+- **`projects.ts`** : Ajoutez/modifiez vos projets
+- **`experience.ts`** : Mettez à jour votre expérience
+- **`skills.ts`** : Personnalisez votre stack technique
+
+### Modifier les Couleurs
+
+Les couleurs sont définies dans `src/app/globals.css` via les variables CSS :
+
+```css
+--color-white: #ffffff;
+--color-black: #000000;
+--color-accent: #000000;
+```
+
+### Modifier les Animations
+
+Les variants d'animation sont dans `src/lib/utils/animations.ts`. Personnalisez-les selon vos besoins.
+
+## 🎯 Fonctionnalités Premium
+
+- ✅ **Smooth Scrolling** : Lenis pour un scroll fluide
+- ✅ **Animations Intentionnelles** : Framer Motion + GSAP
+- ✅ **Performance** : Server Components, optimisations Next.js
+- ✅ **SEO-Ready** : Metadata complète, structure sémantique
+- ✅ **Accessible** : ARIA labels, focus states, navigation clavier
+- ✅ **Responsive** : Mobile-first, breakpoints optimisés
+- ✅ **Data-Driven** : Contenu facilement modifiable
+
+## 💡 Philosophie
+
+Chaque décision de design et technique renforce la crédibilité senior et la qualité premium. Le portfolio est conçu pour :
+
+- ✅ Impressionner les clients premium
+- ✅ Attirer les recruteurs senior
+- ✅ Convaincre les fondateurs/CTOs
+- ✅ Démontrer un niveau de compétence élevé
+
+**Pas de template générique** — Tout est personnalisé, intentionnel et premium.
+
+---
+
+**Note** : Ce portfolio suit les standards 2026 pour les portfolios développeur premium. Prêt pour un niveau Awwwards.
