@@ -41,7 +41,7 @@ export function Header() {
           href="/"
           className="text-brand-navy font-jakarta font-black text-xl tracking-tighter"
         >
-          N<span className="text-brand-blue">.</span>T
+          Thibault<span className="text-brand-blue">.</span>
         </Link>
       </div>
 
