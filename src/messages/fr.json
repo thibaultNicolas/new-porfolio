@@ -139,6 +139,36 @@
       "description": "Plateforme de commerce et de réservation spécialisée pour le sport élite.",
       "longDescription": "Conception d'une boutique Shopify optimisée pour la vente de produits et la gestion de services de réservation.",
       "impact": "Automatisation du processus de réservation et meilleure visibilité des programmes."
+    },
+    "chaparral_ev": {
+      "role": "Développeur Web & Spécialiste SEO",
+      "description": "Plateforme vitrine pour un leader québécois des véhicules électriques de loisir.",
+      "longDescription": "Conception d'un site web complet sur WordPress pour maximiser la conversion locale. J'ai optimisé l'architecture de l'information et le référencement organique (SEO) pour assurer une visibilité optimale sur le marché des véhicules électriques.",
+      "impact": "Augmentation de la visibilité numérique et création d'une interface intuitive pour la présentation de modèles haut de gamme."
+    },
+    "optimize_id": {
+      "role": "Développeur Web & Consultant Technique",
+      "description": "Site vitrine haute performance pour une agence spécialisée en image de marque.",
+      "longDescription": "Développement d'une plateforme agile permettant de mettre en valeur les services de branding et d'enseignes. L'accent a été mis sur la vitesse de chargement et l'optimisation du référencement local pour attirer une clientèle B2B.",
+      "impact": "Positionnement solide sur le marché québécois et interface d'administration simplifiée pour l'équipe."
+    },
+    "mleau": {
+      "role": "Développeur WordPress (Optimisation)",
+      "description": "Améliorations techniques et SEO pour un spécialiste en traitement d'eau.",
+      "longDescription": "Intervention ciblée sur un site WordPress existant. Optimisation du tunnel de conversion, amélioration de la navigation mobile et mise en place d'une stratégie SEO technique pour augmenter la portée organique.",
+      "impact": "Expérience utilisateur fluidifiée et meilleur positionnement sur les moteurs de recherche sans interruption de service."
+    },
+    "gamechanger_hockey": {
+      "role": "Développeur Shopify & E-commerce",
+      "description": "Boutique en ligne complète spécialisée dans l'équipement de hockey de performance.",
+      "longDescription": "Développement d'une expérience Shopify sur mesure pour une marque d'accessoires de hockey. Inclus le développement de sections personnalisées en Liquid, l'optimisation du tunnel d'achat et la configuration avancée de la gestion des stocks et des paiements.",
+      "impact": "Lancement d'une plateforme de vente robuste avec une navigation intuitive, favorisant la conversion et la fidélisation client."
+    },
+    "espace_beaute_cp": {
+      "role": "Développeur E-commerce & LMS",
+      "description": "Plateforme hybride combinant boutique de produits professionnels et académie de cours en ligne.",
+      "longDescription": "Développement d'une solution Shopify sur mesure incluant un système de gestion de l'apprentissage (LMS). J'ai conçu des sections personnalisées pour fluidifier l'accès aux formations tout en optimisant le tunnel de vente pour les produits physiques.",
+      "impact": "Centralisation de l'offre éducative et commerciale, simplifiant la gestion des inscriptions et boostant les ventes croisées."
     }
   },
   "stack": {

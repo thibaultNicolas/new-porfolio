@@ -139,6 +139,36 @@
       "description": "Specialized e-commerce and booking platform for elite sports training.",
       "longDescription": "Designed an optimized Shopify store for product sales and service management. Tailored the user experience to simplify complex bookings while maintaining a clean interface for parents and athletes.",
       "impact": "Automated the booking process and significantly increased visibility for training programs."
+    },
+    "chaparral_ev": {
+      "role": "Web Developer & SEO Specialist",
+      "description": "Showcase platform for a Quebec leader in recreational electric vehicles.",
+      "longDescription": "Developed a full-featured WordPress site tailored for lead generation. Focused on information architecture and Organic SEO optimization to establish a strong digital presence in the EV market.",
+      "impact": "Enhanced digital reach and created an intuitive browsing experience for high-end vehicle models."
+    },
+    "optimize_id": {
+      "role": "Web Developer & Technical Consultant",
+      "description": "High-performance showcase site for a branding and visual identity agency.",
+      "longDescription": "Built an agile platform to highlight professional branding and signage services. Focused on page speed and local SEO optimization to drive B2B lead generation.",
+      "impact": "Established a strong presence in the Quebec market and delivered a simplified management interface for the client."
+    },
+    "mleau": {
+      "role": "WordPress Developer (Optimization)",
+      "description": "Technical and SEO enhancements for a water treatment specialist.",
+      "longDescription": "Targeted improvements on an existing WordPress site. Optimized the conversion funnel, enhanced mobile navigation, and implemented a technical SEO strategy to boost organic reach.",
+      "impact": "Smoother user experience and improved search engine rankings without service interruption."
+    },
+    "gamechanger_hockey": {
+      "role": "Shopify & E-commerce Developer",
+      "description": "Full-featured online store specializing in performance hockey equipment.",
+      "longDescription": "Built a custom Shopify experience for a hockey accessory brand. Developed custom Liquid sections, optimized the checkout funnel, and implemented advanced inventory and payment management systems.",
+      "impact": "Launched a robust sales platform with intuitive navigation, driving conversion and customer loyalty."
+    },
+    "espace_beaute_cp": {
+      "role": "E-commerce & LMS Developer",
+      "description": "Hybrid platform combining a professional product store with an online course academy.",
+      "longDescription": "Developed a custom Shopify solution featuring a Learning Management System (LMS) integration. Created custom sections to streamline course access while optimizing the sales funnel for physical products.",
+      "impact": "Centralized educational and commercial offerings, simplifying registration management and boosting cross-selling opportunities."
     }
   },
   "stack": {
