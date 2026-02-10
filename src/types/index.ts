@@ -4,6 +4,7 @@ export interface Project {
   id: string;
   title: string;
   descriptionKey: string;
+  seoDescriptionKey?: string;
   longDescriptionKey: string;
   roleKey: string;
   impactKey: string;

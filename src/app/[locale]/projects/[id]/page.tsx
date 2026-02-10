@@ -20,14 +20,39 @@ export async function generateMetadata({
   if (!project) return { title: "Project Not Found" };
 
   const t = await getTranslations({ locale });
+  const title = `${project.title} | Nicolas Thibault — Full‑stack Developer`;
+  const description = project.seoDescriptionKey
+    ? t(project.seoDescriptionKey)
+    : t(project.descriptionKey);
+  const imageUrl = project.image || "/images/og.jpeg";
 
   return {
-    title: `${project.title} | Nicolas Thibault`,
-    description: t(project.descriptionKey),
+    title,
+    description,
     openGraph: {
       title: project.title,
-      description: t(project.descriptionKey),
-      images: [project.image],
+      description,
+      images: [
+        {
+          url: imageUrl,
+          width: 1200,
+          height: 630,
+          alt: project.title,
+        },
+      ],
+    },
+    alternates: {
+      canonical: `/${locale}/projects/${project.id}`,
+      languages: {
+        fr: `/fr/projects/${project.id}`,
+        en: `/en/projects/${project.id}`,
+      },
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: project.title,
+      description,
+      images: [imageUrl],
     },
   };
 }

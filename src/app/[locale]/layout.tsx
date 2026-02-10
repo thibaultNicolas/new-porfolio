@@ -1,12 +1,13 @@
 // Refined by Gemini for nicolasthibault@hotmail.ca
 import { NextIntlClientProvider } from "next-intl";
-import { getMessages } from "next-intl/server";
+import { getMessages, getTranslations } from "next-intl/server";
 import { notFound } from "next/navigation";
 import { routing } from "@/i18n/routing";
 import { Geist, Geist_Mono, Inter, Plus_Jakarta_Sans } from "next/font/google";
 import { SmoothScrollProvider } from "@/components/providers/SmoothScrollProvider";
 import { Header, Footer } from "@/components/layout"; // Importation des composants globaux
 import "../globals.css";
+import type { Metadata } from "next";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -28,6 +29,62 @@ const plusJakarta = Plus_Jakarta_Sans({
   subsets: ["latin"],
   weight: ["400", "500", "600", "700", "800"],
 });
+
+const siteUrl = "https://www.nicolas-thibault.ca";
+const ogImage = "/images/og.jpeg";
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  const t = await getTranslations({ locale });
+
+  const title = t("seo.siteTitle");
+  const description = t("seo.siteDescription");
+
+  return {
+    metadataBase: new URL(siteUrl),
+    title: {
+      default: title,
+      template: `%s | ${title}`,
+    },
+    description,
+    alternates: {
+      canonical: `/${locale}`,
+      languages: {
+        fr: "/fr",
+        en: "/en",
+      },
+    },
+    icons: {
+      icon: "/images/projects/nt-favicon.png",
+    },
+    openGraph: {
+      type: "website",
+      url: `/${locale}`,
+      title,
+      description,
+      siteName: title,
+      images: [
+        {
+          url: ogImage,
+          width: 1200,
+          height: 630,
+          alt: title,
+        },
+      ],
+      locale,
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description,
+      images: [ogImage],
+    },
+  };
+}
 
 export default async function LocaleLayout({
   children,

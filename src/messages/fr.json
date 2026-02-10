@@ -15,6 +15,14 @@
     "specialization": "spécialisé dans les technologies web modernes.",
     "ctaPrimary": "Voir les projets"
   },
+  "seo": {
+    "siteTitle": "Nicolas Thibault — Développeur full‑stack",
+    "siteDescription": "Portfolio de Nicolas Thibault, développeur full‑stack spécialisé en produits web modernes, performants et centrés utilisateur.",
+    "homeTitle": "Développeur full‑stack au Québec",
+    "homeDescription": "Développeur full‑stack senior créant des produits web modernes, des UX immersives et des architectures scalables.",
+    "projectsTitle": "Projets",
+    "projectsDescription": "Projets sélectionnés mettant en avant la réflexion produit, la scalabilité et les technos modernes."
+  },
   "about": {
     "title": "À propos de moi",
     "paragraph1": "Je suis un développeur full stack senior qui fait le pont entre le design et l'ingénierie. Mon approche est orientée produit : chaque ligne de code sert un objectif business.",
@@ -125,18 +133,21 @@
     "lexya": {
       "role": "Lead Développeur Full Stack",
       "description": "Refonte majeure d'une plateforme leader de vente de livres scolaires au Québec.",
+      "seoDescription": "Refonte complète de la plateforme Lexya au Québec, orientée performance, UX et gestion de contenu scalable.",
       "longDescription": "Collaboration étroite avec l'agence MamboMambo pour transformer l'identité visuelle de Lexya. Orchestration de la transition vers PayloadCMS et Next.js.",
       "impact": "Architecture modernisée et gestion de contenu simplifiée pour l'équipe éditoriale."
     },
     "achete_ton_cell": {
       "role": "Spécialiste E-commerce",
       "description": "Écosystème hybride liant boutique en ligne et points de vente physiques.",
+      "seoDescription": "Écosystème Shopify reliant ventes en ligne et retail, optimisé pour la conversion et la synchronisation d’inventaire.",
       "longDescription": "Développement d'une solution Shopify sur mesure avec synchronisation complexe d'inventaire POS.",
       "impact": "Unification de l'expérience client entre le Web et le retail physique."
     },
     "hockey_academie": {
       "role": "Développeur Full Stack",
       "description": "Plateforme de commerce et de réservation spécialisée pour le sport élite.",
+      "seoDescription": "Plateforme Shopify de réservation et e‑commerce pour programmes sportifs d’élite, pensée pour simplifier les inscriptions.",
       "longDescription": "Conception d'une boutique Shopify optimisée pour la vente de produits et la gestion de services de réservation.",
       "impact": "Automatisation du processus de réservation et meilleure visibilité des programmes."
     },

@@ -15,6 +15,14 @@
     "specialization": "specializing in modern web technologies.",
     "ctaPrimary": "View Projects"
   },
+  "seo": {
+    "siteTitle": "Nicolas Thibault — Full‑stack Developer",
+    "siteDescription": "Portfolio of Nicolas Thibault, a full‑stack developer building modern, high‑performance web experiences with React, Next.js, Node.js, and a product‑first mindset.",
+    "homeTitle": "Full‑stack Developer in Quebec",
+    "homeDescription": "Senior full‑stack developer crafting modern web products, immersive UX, and scalable architectures for startups and businesses.",
+    "projectsTitle": "Projects",
+    "projectsDescription": "Selected projects showcasing product thinking, scalable engineering, and modern web technologies."
+  },
   "about": {
     "title": "About Me",
     "paragraph1": "I'm a senior full stack developer who bridges the gap between design and engineering. My approach is product-first: every line of code serves a business goal.",
@@ -125,18 +133,21 @@
     "lexya": {
       "role": "Lead Full Stack Developer",
       "description": "Major overhaul of a leading textbook e-commerce platform in Quebec.",
+      "seoDescription": "Complete redesign and rebuild of Lexya’s textbook e‑commerce platform in Quebec, focused on performance, UX, and scalable content management.",
       "longDescription": "Close collaboration with MamboMambo agency to transform Lexya's visual identity into a cutting-edge digital experience. Orchestrated the transition to PayloadCMS and Next.js for total editorial flexibility and peak performance.",
       "impact": "Modernized technical architecture, enabling seamless content management and an ultra-fast shopping experience."
     },
     "achete_ton_cell": {
       "role": "E-commerce Specialist",
       "description": "Hybrid e-commerce ecosystem linking online store and physical retail locations.",
+      "seoDescription": "Custom Shopify ecosystem connecting online and in‑store sales, optimized for conversion, inventory sync, and retail operations.",
       "longDescription": "Developed a custom Shopify solution featuring complex inventory synchronization with in-store POS systems. Focused on mobile conversion and checkout optimization for a highly competitive electronics market.",
       "impact": "Unified the customer experience between Web and physical retail, optimized through precise conversion data analysis."
     },
     "hockey_academie": {
       "role": "Full Stack Developer",
       "description": "Specialized e-commerce and booking platform for elite sports training.",
+      "seoDescription": "Shopify‑based booking and e‑commerce platform for elite training programs, built to simplify reservations and drive visibility.",
       "longDescription": "Designed an optimized Shopify store for product sales and service management. Tailored the user experience to simplify complex bookings while maintaining a clean interface for parents and athletes.",
       "impact": "Automated the booking process and significantly increased visibility for training programs."
     },

@@ -4,8 +4,31 @@
 import { useState } from "react";
 import { motion, AnimatePresence, useSpring } from "framer-motion";
 import { useTranslations, useLocale } from "next-intl";
+import { getTranslations } from "next-intl/server";
+import type { Metadata } from "next";
 import { projects } from "@/data/projects";
 import { Link } from "@/i18n/routing";
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  const t = await getTranslations({ locale });
+
+  return {
+    title: t("seo.projectsTitle"),
+    description: t("seo.projectsDescription"),
+    alternates: {
+      canonical: `/${locale}/projects`,
+      languages: {
+        fr: "/fr/projects",
+        en: "/en/projects",
+      },
+    },
+  };
+}
 
 export default function AllProjectsPage() {
   const t = useTranslations();
