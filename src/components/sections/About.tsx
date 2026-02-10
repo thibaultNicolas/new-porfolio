@@ -71,7 +71,7 @@ export function About() {
     <section
       ref={sectionRef}
       id="about"
-      className="relative bg-white py-32 md:py-48 lg:py-64 overflow-hidden"
+      className="relative py-32 md:py-48 lg:py-64 overflow-hidden bg-[radial-gradient(900px_circle_at_10%_20%,rgba(61,90,128,0.1),transparent_55%),radial-gradient(900px_circle_at_80%_80%,rgba(152,193,217,0.18),transparent_60%),linear-gradient(180deg,#ffffff_0%,#eaf2f7_100%)]"
     >
       {/* Texture grainée très subtile pour la continuité avec le Hero */}
       <div className="absolute inset-0 pointer-events-none opacity-[0.03] mix-blend-multiply">
@@ -92,18 +92,18 @@ export function About() {
           {/* LEFT COLUMN: Large Title & Accents */}
           <div className="lg:col-span-5 flex flex-col justify-between">
             <div className="overflow-hidden">
-              <h2 className="reveal-text text-6xl md:text-8xl font-extrabold text-brand-navy font-jakarta tracking-[-0.06em] leading-[0.85]">
+              <h2 className="reveal-text text-6xl md:text-8xl font-extrabold text-jet-black font-jakarta tracking-[-0.06em] leading-[0.85]">
                 {t("title")}
               </h2>
             </div>
 
             {/* Visual element: A large, soft blue circle in the background of the text */}
-            <div className="hidden lg:block w-32 h-32 rounded-full bg-brand-blue/5 blur-3xl mt-12" />
+            <div className="hidden lg:block w-32 h-32 rounded-full bg-burnt-peach/5 blur-3xl mt-12" />
           </div>
 
           {/* RIGHT COLUMN: Bio Content */}
           <div className="lg:col-span-7 flex flex-col justify-center">
-            <div className="space-y-10 text-xl md:text-2xl text-brand-navy/80 font-jakarta font-medium leading-[1.4] tracking-tight">
+            <div className="space-y-10 text-xl md:text-2xl text-jet-black/80 font-jakarta font-medium leading-[1.4] tracking-tight">
               <div className="overflow-hidden">
                 <p className="reveal-text">{t("paragraph1")}</p>
               </div>
@@ -122,17 +122,20 @@ export function About() {
         </div>
 
         {/* BOTTOM SECTION: Minimalist Highlights */}
-        <div className="stats-container mt-32 md:mt-48 grid grid-cols-1 md:grid-cols-3 border-t border-brand-navy/5 pt-16 gap-12">
+        <div className="stats-container mt-32 md:mt-48 grid grid-cols-1 md:grid-cols-3 border-t border-jet-black/5 pt-16 gap-12">
           {highlights.map((highlight, index) => (
-            <div key={index} className="stat-item group">
+            <div
+              key={index}
+              className="stat-item group glass-panel rounded-[32px] p-8 md:p-10"
+            >
               <div className="flex flex-col gap-2">
-                <span className="text-sm font-bold uppercase tracking-[0.2em] text-brand-blue/60 font-jakarta">
+                <span className="text-sm font-bold uppercase tracking-[0.2em] text-burnt-peach/60 font-jakarta">
                   {highlight.label}
                 </span>
-                <div className="text-7xl md:text-8xl font-extrabold text-brand-navy font-jakarta tracking-[-0.07em] leading-none group-hover:scale-105 transition-transform duration-500 origin-left">
+                <div className="text-7xl md:text-8xl font-extrabold text-jet-black font-jakarta tracking-[-0.07em] leading-none group-hover:scale-105 transition-transform duration-500 origin-left">
                   {highlight.number}
                 </div>
-                <p className="text-brand-navy/40 font-jakarta font-medium text-base max-w-[200px] mt-2">
+                <p className="text-jet-black/40 font-jakarta font-medium text-base max-w-[200px] mt-2">
                   {highlight.description}
                 </p>
               </div>

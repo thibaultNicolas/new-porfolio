@@ -1,91 +1,140 @@
 // Refined by Gemini for nicolasthibault@hotmail.ca
 "use client";
 
-import { motion } from "framer-motion";
+import { useEffect, useRef } from "react";
 import { useTranslations } from "next-intl";
 import { skills } from "@/data/skills";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+if (typeof window !== "undefined") {
+  gsap.registerPlugin(ScrollTrigger);
+}
 
 export function TechStack() {
   const t = useTranslations("stack");
+  const sectionRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (!sectionRef.current) return;
+
+    const ctx = gsap.context(() => {
+      gsap.from(".stack-title", {
+        y: 30,
+        duration: 0.9,
+        ease: "power3.out",
+        scrollTrigger: {
+          trigger: sectionRef.current,
+          start: "top 80%",
+        },
+      });
+
+      gsap.from(".stack-subtitle", {
+        y: 20,
+        duration: 0.8,
+        ease: "power3.out",
+        scrollTrigger: {
+          trigger: sectionRef.current,
+          start: "top 78%",
+        },
+      });
+
+      gsap.from(".stack-card", {
+        y: 50,
+        duration: 0.9,
+        ease: "power3.out",
+        stagger: 0.12,
+        scrollTrigger: {
+          trigger: ".stack-grid",
+          start: "top 80%",
+        },
+      });
+    }, sectionRef);
+
+    return () => ctx.revert();
+  }, []);
 
   return (
     <section
       id="stack"
-      className="py-32 md:py-48 bg-brand-navy/[0.02] overflow-hidden"
+      ref={sectionRef}
+      className="py-32 md:py-48 overflow-hidden bg-[radial-gradient(1000px_circle_at_15%_10%,rgba(61,90,128,0.12),transparent_55%),radial-gradient(900px_circle_at_80%_70%,rgba(152,193,217,0.22),transparent_55%),linear-gradient(180deg,#ffffff_0%,#eaf2f7_100%)]"
     >
       <div className="max-w-7xl mx-auto px-6 lg:px-16">
-        {/* Header : Plus Jakarta Sans & Ton Navy */}
         <div className="text-center max-w-3xl mx-auto mb-24">
-          <motion.h2
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-5xl md:text-7xl font-extrabold text-brand-navy font-jakarta tracking-tighter mb-8"
-          >
+          <h2 className="stack-title text-5xl md:text-7xl font-extrabold text-jet-black font-jakarta tracking-tighter mb-8">
             {t("title")}
-            <span className="text-brand-blue">.</span>
-          </motion.h2>
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.1 }}
-            className="text-lg md:text-xl text-brand-navy/60 font-jakarta leading-relaxed"
-          >
+            <span className="text-burnt-peach">.</span>
+          </h2>
+          <p className="stack-subtitle text-lg md:text-xl text-jet-black/60 font-jakarta leading-relaxed">
             {t("subtitle")}
-          </motion.p>
+          </p>
         </div>
 
-        {/* Grille Statique : 3 colonnes */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12">
+        <div className="stack-grid grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12">
           {skills.map((category, idx) => (
-            <motion.div
+            <div
               key={category.category}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{
-                delay: idx * 0.1,
-                duration: 0.8,
-                ease: [0.21, 1, 0.36, 1],
-              }}
-              className="bg-white rounded-[40px] p-12 flex flex-col items-center text-center border border-brand-navy/5 shadow-sm hover:shadow-xl hover:border-brand-blue/20 transition-all duration-500 group"
+              className="stack-card glass-panel rounded-[40px] p-12 flex flex-col items-center text-center border border-white/60 shadow-xl hover:shadow-2xl transition-all duration-500 group"
             >
-              {/* Icône avec ton Brand Blue */}
-              <div className="w-24 h-24 rounded-3xl bg-brand-blue/5 flex items-center justify-center mb-10 group-hover:bg-brand-blue group-hover:scale-110 transition-all duration-500">
-                <div className="text-brand-blue group-hover:text-white transition-colors">
-                  <svg
-                    width="40"
-                    height="40"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="1.5"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  >
-                    <path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z" />
-                  </svg>
+              <div className="w-24 h-24 rounded-3xl bg-burnt-peach/10 flex items-center justify-center mb-10 group-hover:bg-burnt-peach group-hover:scale-110 transition-all duration-500">
+                <div className="text-burnt-peach group-hover:text-white transition-colors">
+                  {category.category === "Frontend" && (
+                    <svg
+                      width="40"
+                      height="40"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="1.5"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    >
+                      <polyline points="16 18 22 12 16 6" />
+                      <polyline points="8 6 2 12 8 18" />
+                    </svg>
+                  )}
+                  {category.category === "Backend" && (
+                    <svg
+                      width="40"
+                      height="40"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="1.5"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    >
+                      <ellipse cx="12" cy="5" rx="9" ry="3" />
+                      <path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3" />
+                      <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5" />
+                    </svg>
+                  )}
+                  {category.category === "Tools & Others" && (
+                    <svg
+                      width="40"
+                      height="40"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="1.5"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    >
+                      <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z" />
+                    </svg>
+                  )}
                 </div>
               </div>
 
-              {/* Titre Catégorie */}
-              <h3 className="text-2xl md:text-3xl font-extrabold text-brand-navy font-jakarta mb-6 tracking-tight">
+              <h3 className="text-2xl md:text-3xl font-extrabold text-jet-black font-jakarta mb-6 tracking-tight">
                 {category.category}
               </h3>
 
-              {/* Liste des technos */}
-              <p className="text-brand-navy/60 font-jakarta font-medium leading-relaxed text-sm md:text-base">
+              <p className="text-jet-black/60 font-jakarta font-medium leading-relaxed text-sm md:text-base">
                 {category.items.join(" • ")}
               </p>
-
-              {/* Bas de carte : Juste le bouton interactif épuré */}
-              <div className="mt-8 pt-8 border-t border-brand-navy/5 w-full flex justify-center items-center">
-                <div className="w-10 h-10 rounded-full border border-brand-navy/10 flex items-center justify-center text-brand-navy/30 group-hover:border-brand-blue group-hover:text-brand-blue group-hover:rotate-90 transition-all duration-500">
-                  <span className="text-xl font-light">+</span>
-                </div>
-              </div>
-            </motion.div>
+            </div>
           ))}
         </div>
       </div>

@@ -6,9 +6,8 @@ import { useTranslations, useLocale } from "next-intl";
 import { Link } from "@/i18n/routing";
 
 const socialLinks = [
-  { name: "LinkedIn", href: "https://linkedin.com" },
-  { name: "GitHub", href: "https://github.com" },
-  { name: "Instagram", href: "https://instagram.com" },
+  { name: "LinkedIn", href: "https://www.linkedin.com/in/thibault-nicolas29/" },
+  { name: "GitHub", href: "https://github.com/thibaultNicolas" },
 ];
 
 export function Footer() {
@@ -17,7 +16,7 @@ export function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-brand-navy text-white pt-32 pb-12 overflow-hidden relative">
+    <footer className="bg-jet-black text-white pt-32 pb-12 overflow-hidden relative">
       <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-16">
         {/* TOP SECTION: Title + Multi-column Nav */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-16">
@@ -43,19 +42,19 @@ export function Footer() {
               <nav className="flex flex-col gap-4 font-jakarta font-bold text-lg">
                 <Link
                   href="/"
-                  className="hover:text-brand-blue transition-colors w-fit"
+                  className="hover:text-burnt-peach transition-colors w-fit"
                 >
                   Index
                 </Link>
                 <Link
                   href="/projects"
-                  className="hover:text-brand-blue transition-colors w-fit"
+                  className="hover:text-burnt-peach transition-colors w-fit"
                 >
                   Projects
                 </Link>
                 <Link
                   href="/about"
-                  className="hover:text-brand-blue transition-colors w-fit"
+                  className="hover:text-burnt-peach transition-colors w-fit"
                 >
                   About
                 </Link>
@@ -73,7 +72,7 @@ export function Footer() {
                     key={link.name}
                     href={link.href}
                     target="_blank"
-                    className="hover:text-brand-blue transition-colors w-fit"
+                    className="hover:text-burnt-peach transition-colors w-fit"
                   >
                     {link.name}
                   </a>
@@ -93,7 +92,7 @@ export function Footer() {
             </p>
             <a
               href="mailto:nicolasthibault@hotmail.ca"
-              className="group text-2xl md:text-4xl font-bold font-jakarta border-b-2 border-brand-blue pb-2 hover:text-brand-blue transition-all"
+              className="group text-2xl md:text-4xl font-bold font-jakarta border-b-2 border-burnt-peach pb-2 hover:text-burnt-peach transition-all"
             >
               nicolasthibault@hotmail.ca
             </a>

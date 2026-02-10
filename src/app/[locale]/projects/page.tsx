@@ -34,19 +34,19 @@ export default function AllProjectsPage() {
         {/* Header Dynamique */}
         <header className="mb-32">
           <div className="flex flex-col gap-4">
-            <span className="text-brand-blue font-jakarta font-bold uppercase tracking-[0.4em] text-xs">
+            <span className="text-burnt-peach font-jakarta font-bold uppercase tracking-[0.4em] text-xs">
               {/* Traduction du badge (ex: 00 — FULL DIRECTORY) */}
               00 — {t("viewMore")}
             </span>
             <motion.h1
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
-              className="text-8xl md:text-[12vw] font-extrabold text-brand-navy font-jakarta tracking-[-0.06em] leading-[0.75]"
+              className="text-8xl md:text-[12vw] font-extrabold text-jet-black font-jakarta tracking-[-0.06em] leading-[0.75]"
             >
               {t("portfolio")}
-              <span className="text-brand-blue">.</span>
+              <span className="text-burnt-peach">.</span>
             </motion.h1>
-            <p className="mt-8 text-brand-navy/40 font-jakarta max-w-md text-lg italic leading-relaxed">
+            <p className="mt-8 text-jet-black/40 font-jakarta max-w-md text-lg italic leading-relaxed">
               {/* Assure-toi d'avoir la clé "subtitle" dans ton JSON projects */}
               {t("subtitle")}
             </p>
@@ -54,18 +54,18 @@ export default function AllProjectsPage() {
         </header>
 
         {/* Liste des projets sous forme de répertoire */}
-        <div className="flex flex-col border-t border-brand-navy/10">
+        <div className="flex flex-col border-t border-jet-black/10">
           {projects.map((project, index) => (
             <Link
               key={project.id}
               href={`/projects/${project.id}`}
               onMouseEnter={() => setHoveredId(project.id)}
               onMouseLeave={() => setHoveredId(null)}
-              className="group grid grid-cols-1 md:grid-cols-12 gap-4 items-center py-12 border-b border-brand-navy/5 relative z-10"
+              className="group grid grid-cols-1 md:grid-cols-12 gap-4 items-center py-12 border-b border-jet-black/5 relative z-10"
             >
               {/* Numéro [01] */}
               <div className="col-span-1 hidden md:block">
-                <span className="text-sm font-jakarta font-bold text-brand-navy/10 group-hover:text-brand-blue transition-colors">
+                <span className="text-sm font-jakarta font-bold text-jet-black/10 group-hover:text-burnt-peach transition-colors">
                   [{index < 9 ? `0${index + 1}` : index + 1}]
                 </span>
               </div>
@@ -73,11 +73,11 @@ export default function AllProjectsPage() {
               {/* Titre du projet */}
               <div className="col-span-1 md:col-span-8">
                 <div className="flex flex-col gap-1 transition-all duration-500 group-hover:pl-6">
-                  <h2 className="text-4xl md:text-6xl lg:text-7xl font-extrabold text-brand-navy font-jakarta tracking-[-0.04em]">
+                  <h2 className="text-4xl md:text-6xl lg:text-7xl font-extrabold text-jet-black font-jakarta tracking-[-0.04em]">
                     {project.title}
                   </h2>
                   {/* Role visible sur mobile seulement sous le titre */}
-                  <span className="md:hidden text-xs font-bold uppercase tracking-widest text-brand-blue">
+                  <span className="md:hidden text-xs font-bold uppercase tracking-widest text-burnt-peach">
                     {project.role}
                   </span>
                 </div>
@@ -85,7 +85,7 @@ export default function AllProjectsPage() {
 
               {/* Role / Expertise (Desktop) */}
               <div className="col-span-3 text-right hidden md:block">
-                <span className="text-sm font-bold uppercase tracking-widest text-brand-navy/20 font-jakarta group-hover:text-brand-navy/60 transition-colors">
+                <span className="text-sm font-bold uppercase tracking-widest text-jet-black/20 font-jakarta group-hover:text-jet-black/60 transition-colors">
                   {project.role}
                 </span>
               </div>
@@ -109,11 +109,11 @@ export default function AllProjectsPage() {
               }}
               exit={{ opacity: 0, scale: 0.9, rotate: 2 }}
               transition={{ type: "spring", stiffness: 100, damping: 15 }}
-              className="absolute w-[350px] h-[450px] rounded-3xl overflow-hidden shadow-2xl bg-brand-navy border-[12px] border-white"
+              className="absolute w-[350px] h-[450px] rounded-3xl overflow-hidden shadow-2xl bg-jet-black border-[12px] border-white"
             >
               <div className="w-full h-full relative bg-[#F8F9FA] flex items-center justify-center p-8 text-center">
-                <div className="absolute inset-0 bg-gradient-to-tr from-brand-blue/20 to-transparent" />
-                <h3 className="text-3xl font-black text-brand-navy uppercase tracking-tighter">
+                <div className="absolute inset-0 bg-gradient-to-tr from-burnt-peach/20 to-transparent" />
+                <h3 className="text-3xl font-black text-jet-black uppercase tracking-tighter">
                   {hoveredProject?.title}
                 </h3>
               </div>
@@ -125,7 +125,7 @@ export default function AllProjectsPage() {
       {/* --- CUSTOM CURSOR (AVEC TEXTE DYNAMIQUE) --- */}
       <motion.div
         style={{ x: mouseX, y: mouseY }}
-        className="fixed top-0 left-0 w-4 h-4 bg-brand-blue rounded-full z-[60] pointer-events-none mix-blend-difference flex items-center justify-center"
+        className="fixed top-0 left-0 w-4 h-4 bg-burnt-peach rounded-full z-[60] pointer-events-none mix-blend-difference flex items-center justify-center"
         animate={{
           scale: hoveredId ? 5 : 1,
         }}

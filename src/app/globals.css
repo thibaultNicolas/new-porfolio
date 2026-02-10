@@ -17,7 +17,7 @@ html {
 
 body {
   background: #ffffff;
-  color: #000000;
+  color: #293241;
   font-family: var(--font-geist-sans), -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   line-height: 1.6;
   overflow-x: hidden;
@@ -68,8 +68,8 @@ h3 {
 
 /* Selection */
 ::selection {
-  background: #000000;
-  color: #ffffff;
+  background: #ee6c4d;
+  color: #e0fbfc;
 }
 
 /* Scrollbar */
@@ -82,17 +82,17 @@ h3 {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #d4d4d4;
+  background: #98c1d9;
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #000000;
+  background: #3d5a80;
 }
 
 /* Focus States */
 :focus-visible {
-  outline: 2px solid #000000;
+  outline: 2px solid #3d5a80;
   outline-offset: 4px;
 }
 
@@ -102,10 +102,19 @@ h3 {
 }
 
 .gradient-text {
-  background: linear-gradient(135deg, #000000 0%, #262626 100%);
+  background: linear-gradient(135deg, #293241 0%, #3d5a80 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+}
+
+/* Glass utility for transparent cards */
+.glass-panel {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.65), rgba(255, 255, 255, 0.25));
+  border: 1px solid rgba(255, 255, 255, 0.55);
+  box-shadow: 0 30px 80px rgba(15, 23, 42, 0.14);
+  backdrop-filter: blur(20px) saturate(140%);
+  -webkit-backdrop-filter: blur(20px) saturate(140%);
 }
 
 /* Section Spacing */

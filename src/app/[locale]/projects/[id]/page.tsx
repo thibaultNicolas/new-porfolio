@@ -65,7 +65,7 @@ export default async function ProjectPage({
         <div className="mb-12">
           <Link
             href="/projects"
-            className="group inline-flex items-center gap-3 text-brand-navy/40 hover:text-brand-blue transition-colors font-jakarta font-bold text-sm uppercase tracking-widest"
+            className="group inline-flex items-center gap-3 text-jet-black/40 hover:text-burnt-peach transition-colors font-jakarta font-bold text-sm uppercase tracking-widest"
           >
             <span className="inline-block transition-transform group-hover:-translate-x-2 duration-300">
               ←
@@ -76,20 +76,20 @@ export default async function ProjectPage({
 
         {/* Hero Section */}
         <div className="space-y-6 max-w-4xl">
-          <span className="text-brand-blue font-jakarta font-bold uppercase tracking-[0.2em] text-sm">
+          <span className="text-burnt-peach font-jakarta font-bold uppercase tracking-[0.2em] text-sm">
             {project.role}
           </span>
-          <h1 className="text-6xl md:text-8xl font-extrabold text-brand-navy font-jakarta tracking-tighter leading-[0.9]">
+          <h1 className="text-6xl md:text-8xl font-extrabold text-jet-black font-jakarta tracking-tighter leading-[0.9]">
             {project.title}
           </h1>
-          <p className="text-xl md:text-2xl text-brand-navy/60 font-medium leading-relaxed pt-4">
+          <p className="text-xl md:text-2xl text-jet-black/60 font-medium leading-relaxed pt-4">
             {project.impact}
           </p>
         </div>
 
         {/* Placeholder pour Image / Mockup */}
-        <div className="mt-20 aspect-[16/8] bg-[#F8F9FA] rounded-[40px] overflow-hidden border border-brand-navy/5 relative">
-          <div className="absolute inset-0 bg-gradient-to-br from-brand-blue/5 to-transparent" />
+        <div className="mt-20 aspect-[16/8] bg-[#F8F9FA] rounded-[40px] overflow-hidden border border-jet-black/5 relative">
+          <div className="absolute inset-0 bg-gradient-to-br from-burnt-peach/5 to-transparent" />
           {/* Note : Utilise <Image /> de next/image ici quand tes assets seront prêts 
             pour profiter de l'optimisation automatique de Next.js.
           */}
@@ -100,14 +100,14 @@ export default async function ProjectPage({
           {/* Sidebar : Stack & Links */}
           <aside className="lg:col-span-4 space-y-12">
             <div>
-              <h4 className="text-[10px] font-bold uppercase tracking-widest text-brand-navy/30 mb-4">
+              <h4 className="text-[10px] font-bold uppercase tracking-widest text-jet-black/30 mb-4">
                 Stack
               </h4>
               <div className="flex flex-wrap gap-2">
                 {project.technologies.map((tech) => (
                   <span
                     key={tech}
-                    className="px-3 py-1 bg-brand-navy/5 text-brand-navy text-xs font-bold rounded-md"
+                    className="px-3 py-1 bg-jet-black/5 text-jet-black text-xs font-bold rounded-md"
                   >
                     {tech}
                   </span>
@@ -121,7 +121,7 @@ export default async function ProjectPage({
                   href={project.link}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-brand-navy font-bold border-b border-brand-navy/20 pb-1 hover:border-brand-blue transition-colors inline-block w-fit"
+                  className="text-jet-black font-bold border-b border-jet-black/20 pb-1 hover:border-burnt-peach transition-colors inline-block w-fit"
                 >
                   Live Preview ↗
                 </a>
@@ -131,7 +131,7 @@ export default async function ProjectPage({
                   href={project.github}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-brand-navy/40 font-medium text-sm hover:text-brand-navy transition-colors inline-block w-fit"
+                  className="text-jet-black/40 font-medium text-sm hover:text-jet-black transition-colors inline-block w-fit"
                 >
                   View Source Code
                 </a>
@@ -141,10 +141,10 @@ export default async function ProjectPage({
 
           {/* Main Content : Long Description */}
           <article className="lg:col-span-8">
-            <h4 className="text-[10px] font-bold uppercase tracking-widest text-brand-navy/30 mb-6">
+            <h4 className="text-[10px] font-bold uppercase tracking-widest text-jet-black/30 mb-6">
               About the project
             </h4>
-            <div className="prose prose-xl font-jakarta text-brand-navy/80 leading-relaxed max-w-none">
+            <div className="prose prose-xl font-jakarta text-jet-black/80 leading-relaxed max-w-none">
               <p className="whitespace-pre-line">
                 {project.longDescription || project.description}
               </p>
@@ -154,15 +154,15 @@ export default async function ProjectPage({
       </section>
 
       {/* Infinite Scroll Footer */}
-      <section className="mt-32 border-t border-brand-navy/10">
+      <section className="mt-32 border-t border-jet-black/10">
         <Link
           href={`/projects/${nextProject.id}`}
-          className="group block py-40 px-6 text-center hover:bg-brand-navy/[0.01] transition-colors"
+          className="group block py-40 px-6 text-center hover:bg-jet-black/[0.01] transition-colors"
         >
-          <span className="text-sm font-bold uppercase tracking-widest text-brand-navy/40 group-hover:text-brand-blue transition-colors">
+          <span className="text-sm font-bold uppercase tracking-widest text-jet-black/40 group-hover:text-burnt-peach transition-colors">
             Next Project
           </span>
-          <h2 className="text-5xl md:text-8xl font-extrabold text-brand-navy font-jakarta tracking-tighter mt-4 group-hover:scale-105 transition-transform duration-500 ease-out">
+          <h2 className="text-5xl md:text-8xl font-extrabold text-jet-black font-jakarta tracking-tighter mt-4 group-hover:scale-105 transition-transform duration-500 ease-out">
             {nextProject.title} →
           </h2>
         </Link>

@@ -39,9 +39,9 @@ export function Header() {
       <div className="fixed top-10 left-10 md:left-16 z-50 pointer-events-auto">
         <Link
           href="/"
-          className="text-brand-navy font-jakarta font-black text-xl tracking-tighter"
+          className="text-jet-black font-jakarta font-black text-4xl tracking-tighter"
         >
-          Thibault<span className="text-brand-blue">.</span>
+          Thibault<span className="text-burnt-peach">.</span>
         </Link>
       </div>
 
@@ -51,8 +51,8 @@ export function Header() {
         className="fixed top-10 right-10 md:top-12 md:right-16 z-50 flex flex-col gap-[7px] p-2 group"
         aria-label="Open menu"
       >
-        <span className="block w-9 h-[2px] bg-brand-navy group-hover:w-6 transition-all duration-300" />
-        <span className="block w-5 h-[2px] bg-brand-navy group-hover:w-9 transition-all duration-300" />
+        <span className="block w-9 h-[3px] bg-jet-black group-hover:w-6 transition-all duration-300" />
+        <span className="block w-5 h-[3px] bg-jet-black group-hover:w-9 transition-all duration-300" />
       </motion.button>
 
       <AnimatePresence>
@@ -63,7 +63,7 @@ export function Header() {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               onClick={() => setIsOpen(false)}
-              className="fixed inset-0 z-50 bg-brand-navy/10 backdrop-blur-md"
+              className="fixed inset-0 z-50 bg-jet-black/10 backdrop-blur-md"
             />
 
             <motion.aside
@@ -75,13 +75,13 @@ export function Header() {
             >
               {/* Header Drawer */}
               <div className="flex justify-between items-center p-10 md:p-16">
-                <span className="text-[10px] font-bold uppercase tracking-[0.3em] text-brand-navy/30">
+                <span className="text-[10px] font-bold uppercase tracking-[0.3em] text-jet-black/30">
                   Menu
                 </span>
                 <button onClick={() => setIsOpen(false)} className="group p-2">
                   <div className="relative w-6 h-6">
-                    <span className="absolute top-1/2 left-0 w-6 h-[2px] bg-brand-navy rotate-45" />
-                    <span className="absolute top-1/2 left-0 w-6 h-[2px] bg-brand-navy -rotate-45" />
+                    <span className="absolute top-1/2 left-0 w-6 h-[2px] bg-jet-black rotate-45" />
+                    <span className="absolute top-1/2 left-0 w-6 h-[2px] bg-jet-black -rotate-45" />
                   </div>
                 </button>
               </div>
@@ -104,8 +104,8 @@ export function Header() {
                           className={cn(
                             "group flex items-center gap-4 text-4xl md:text-6xl font-extrabold tracking-tighter font-jakarta transition-all",
                             isActive
-                              ? "text-brand-blue"
-                              : "text-brand-navy hover:text-brand-blue",
+                              ? "text-burnt-peach"
+                              : "text-jet-black hover:text-burnt-peach",
                           )}
                         >
                           <span className="text-xs font-bold font-mono opacity-0 group-hover:opacity-100 transition-opacity">
@@ -121,7 +121,7 @@ export function Header() {
 
               {/* Footer Drawer */}
               <div className="p-10 md:p-16 flex flex-col gap-8">
-                <div className="h-[1px] bg-brand-navy/5" />
+                <div className="h-[1px] bg-jet-black/5" />
 
                 <div className="flex justify-between items-center">
                   {/* Lang Switcher */}
@@ -133,8 +133,8 @@ export function Header() {
                         className={cn(
                           "text-xs font-bold tracking-widest transition-colors",
                           locale === l
-                            ? "text-brand-blue"
-                            : "text-brand-navy/30 hover:text-brand-navy",
+                            ? "text-burnt-peach"
+                            : "text-jet-black/30 hover:text-jet-black",
                         )}
                       >
                         {l.toUpperCase()}
@@ -147,14 +147,14 @@ export function Header() {
                     <a
                       href="https://github.com"
                       target="_blank"
-                      className="text-[10px] font-bold uppercase tracking-widest text-brand-navy/40 hover:text-brand-blue"
+                      className="text-[10px] font-bold uppercase tracking-widest text-jet-black/40 hover:text-burnt-peach"
                     >
                       Github
                     </a>
                     <a
                       href="https://linkedin.com"
                       target="_blank"
-                      className="text-[10px] font-bold uppercase tracking-widest text-brand-navy/40 hover:text-brand-blue"
+                      className="text-[10px] font-bold uppercase tracking-widest text-jet-black/40 hover:text-burnt-peach"
                     >
                       Linkedin
                     </a>
