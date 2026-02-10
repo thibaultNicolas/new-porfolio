@@ -8,7 +8,7 @@ import { projects } from "@/data/projects";
 import { Link } from "@/i18n/routing";
 
 export default function AllProjectsPage() {
-  const t = useTranslations("projects");
+  const t = useTranslations();
   const locale = useLocale();
   const [hoveredId, setHoveredId] = useState<string | null>(null);
 
@@ -36,19 +36,19 @@ export default function AllProjectsPage() {
           <div className="flex flex-col gap-4">
             <span className="text-burnt-peach font-jakarta font-bold uppercase tracking-[0.4em] text-xs">
               {/* Traduction du badge (ex: 00 — FULL DIRECTORY) */}
-              00 — {t("viewMore")}
+              00 — {t("projects.viewMore")}
             </span>
             <motion.h1
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
               className="text-8xl md:text-[12vw] font-extrabold text-jet-black font-jakarta tracking-[-0.06em] leading-[0.75]"
             >
-              {t("portfolio")}
+              {t("projects.portfolio")}
               <span className="text-burnt-peach">.</span>
             </motion.h1>
             <p className="mt-8 text-jet-black/40 font-jakarta max-w-md text-lg italic leading-relaxed">
               {/* Assure-toi d'avoir la clé "subtitle" dans ton JSON projects */}
-              {t("subtitle")}
+              {t("projects.subtitle")}
             </p>
           </div>
         </header>
@@ -78,7 +78,7 @@ export default function AllProjectsPage() {
                   </h2>
                   {/* Role visible sur mobile seulement sous le titre */}
                   <span className="md:hidden text-xs font-bold uppercase tracking-widest text-burnt-peach">
-                    {project.role}
+                    {t(project.roleKey)}
                   </span>
                 </div>
               </div>
@@ -86,7 +86,7 @@ export default function AllProjectsPage() {
               {/* Role / Expertise (Desktop) */}
               <div className="col-span-3 text-right hidden md:block">
                 <span className="text-sm font-bold uppercase tracking-widest text-jet-black/20 font-jakarta group-hover:text-jet-black/60 transition-colors">
-                  {project.role}
+                  {t(project.roleKey)}
                 </span>
               </div>
             </Link>
@@ -136,7 +136,7 @@ export default function AllProjectsPage() {
             animate={{ opacity: 1 }}
             className="text-[2px] font-bold text-white uppercase tracking-tighter"
           >
-            {locale === "fr" ? "Voir" : "View"}
+            {t("projects.view")}
           </motion.span>
         )}
       </motion.div>
