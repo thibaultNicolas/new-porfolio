@@ -110,7 +110,8 @@ export function TechStack() {
                       <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5" />
                     </svg>
                   )}
-                  {category.category === "Tools & Others" && (
+                  {(category.category === "Tools & Others" ||
+                    category.category === "Outils & Autres") && (
                     <svg
                       width="40"
                       height="40"

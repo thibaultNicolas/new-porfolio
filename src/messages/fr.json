@@ -1,30 +1,33 @@
 {
   "nav": {
+    "menu": "Menu",
     "home": "Accueil",
     "about": "À propos",
     "experience": "Expérience",
     "projects": "Projets",
-    "stack": "Stack"  },
+    "stack": "Stack"
+  },
   "hero": {
     "greeting": "Hey, je suis Nicolas",
     "headline": "Développeur full‑stack",
     "headline2": "",
     "role": "Développeur Full Stack Senior",
     "specialization": "spécialisé dans les technologies web modernes.",
-    "ctaPrimary": "Voir les projets"  },
+    "ctaPrimary": "Voir les projets"
+  },
   "about": {
     "title": "À propos de moi",
     "paragraph1": "Je suis un développeur full stack senior qui fait le pont entre le design et l'ingénierie. Mon approche est orientée produit : chaque ligne de code sert un objectif business.",
-    "paragraph2": "J'ai passé les 8+ dernières années à construire des applications que les utilisateurs adorent et sur lesquelles les entreprises comptent. Des startups en phase de démarrage aux plateformes d'entreprise, j'ai vu ce qui fonctionne—et ce qui ne fonctionne pas.",
+    "paragraph2": "J'ai passé les 4+ dernières années à construire des applications que les utilisateurs adorent et sur lesquelles les entreprises comptent. Des startups en phase de démarrage aux plateformes d'entreprise, j'ai vu ce qui fonctionne—et ce qui ne fonctionne pas.",
     "paragraph3": "Ce qui me distingue ? Je pense comme un constructeur de produits, pas seulement comme un codeur. Je demande \"pourquoi\" avant \"comment\", je priorise l'impact sur la complexité, et je livre avec confiance.",
     "highlights": {
       "experience": {
-        "number": "8+",
+        "number": "4+",
         "label": "Années d'expérience",
         "description": "Construction d'applications prêtes pour la production"
       },
       "projects": {
-        "number": "50+",
+        "number": "20+",
         "label": "Projets livrés",
         "description": "Des startups à l'entreprise"
       },
@@ -45,7 +48,7 @@
         "period": "avr. 2025 - aujourd'hui",
         "description": [
           "Développement et maintenance d'un SaaS de gestion de l'expérience client et employé",
-          "Conception et développement de fonctionnalités web modulaires avec Vue.js et Node.js",
+          "Refonte complète de la plateforme avec React et Node.js (architecture, UI et performance)",
           "Optimisation des APIs et bases de données pour la performance et la scalabilité",
           "Design d'interfaces centrées utilisateur pour améliorer l'expérience et l'ergonomie",
           "Prompt engineering et intégration de modèles d'IA (OpenAI, Lovable, Cursor) pour la génération automatique de contenu spécifique"
@@ -112,7 +115,30 @@
     "viewProject": "Voir le projet →",
     "viewMore": "Voir tous les projets",
     "backToProjects": "Retour aux projets",
-    "portfolio": "Portfolio"
+    "portfolio": "Portfolio",
+    "stackLabel": "Stack",
+    "aboutProject": "À propos du projet",
+    "livePreview": "Voir en ligne",
+    "viewSource": "Voir le code source",
+    "nextProject": "Projet suivant",
+    "lexya": {
+      "role": "Lead Développeur Full Stack",
+      "description": "Refonte majeure d'une plateforme leader de vente de livres scolaires au Québec.",
+      "longDescription": "Collaboration étroite avec l'agence MamboMambo pour transformer l'identité visuelle de Lexya. Orchestration de la transition vers PayloadCMS et Next.js.",
+      "impact": "Architecture modernisée et gestion de contenu simplifiée pour l'équipe éditoriale."
+    },
+    "achete_ton_cell": {
+      "role": "Spécialiste E-commerce",
+      "description": "Écosystème hybride liant boutique en ligne et points de vente physiques.",
+      "longDescription": "Développement d'une solution Shopify sur mesure avec synchronisation complexe d'inventaire POS.",
+      "impact": "Unification de l'expérience client entre le Web et le retail physique."
+    },
+    "hockey_academie": {
+      "role": "Développeur Full Stack",
+      "description": "Plateforme de commerce et de réservation spécialisée pour le sport élite.",
+      "longDescription": "Conception d'une boutique Shopify optimisée pour la vente de produits et la gestion de services de réservation.",
+      "impact": "Automatisation du processus de réservation et meilleure visibilité des programmes."
+    }
   },
   "stack": {
     "title": "Stack technique",

@@ -1,5 +1,6 @@
 {
   "nav": {
+    "menu": "Menu",
     "home": "Home",
     "about": "About",
     "experience": "Experience",
@@ -17,16 +18,16 @@
   "about": {
     "title": "About Me",
     "paragraph1": "I'm a senior full stack developer who bridges the gap between design and engineering. My approach is product-first: every line of code serves a business goal.",
-    "paragraph2": "I've spent the last 8+ years building applications that users love and businesses rely on. From early-stage startups to enterprise platforms, I've seen what works—and what doesn't.",
+    "paragraph2": "I've spent the last 4+ years building applications that users love and businesses rely on. From early-stage startups to enterprise platforms, I've seen what works—and what doesn't.",
     "paragraph3": "What sets me apart? I think like a product builder, not just a coder. I ask \"why\" before \"how\", prioritize impact over complexity, and ship with confidence.",
     "highlights": {
       "experience": {
-        "number": "8+",
+        "number": "4+",
         "label": "Years of Experience",
         "description": "Building production-ready applications"
       },
       "projects": {
-        "number": "50+",
+        "number": "20+",
         "label": "Projects Delivered",
         "description": "From startups to enterprise"
       },
@@ -114,7 +115,30 @@
     "viewProject": "View Project →",
     "viewMore": "View all projects",
     "backToProjects": "Back to projects",
-    "portfolio": "Projects"
+    "portfolio": "Projects",
+    "stackLabel": "Stack",
+    "aboutProject": "About the project",
+    "livePreview": "Live Preview",
+    "viewSource": "View Source Code",
+    "nextProject": "Next Project",
+    "lexya": {
+      "role": "Lead Full Stack Developer",
+      "description": "Major overhaul of a leading textbook e-commerce platform in Quebec.",
+      "longDescription": "Close collaboration with MamboMambo agency to transform Lexya's visual identity into a cutting-edge digital experience. Orchestrated the transition to PayloadCMS and Next.js for total editorial flexibility and peak performance.",
+      "impact": "Modernized technical architecture, enabling seamless content management and an ultra-fast shopping experience."
+    },
+    "achete_ton_cell": {
+      "role": "E-commerce Specialist",
+      "description": "Hybrid e-commerce ecosystem linking online store and physical retail locations.",
+      "longDescription": "Developed a custom Shopify solution featuring complex inventory synchronization with in-store POS systems. Focused on mobile conversion and checkout optimization for a highly competitive electronics market.",
+      "impact": "Unified the customer experience between Web and physical retail, optimized through precise conversion data analysis."
+    },
+    "hockey_academie": {
+      "role": "Full Stack Developer",
+      "description": "Specialized e-commerce and booking platform for elite sports training.",
+      "longDescription": "Designed an optimized Shopify store for product sales and service management. Tailored the user experience to simplify complex bookings while maintaining a clean interface for parents and athletes.",
+      "impact": "Automated the booking process and significantly increased visibility for training programs."
+    }
   },
   "stack": {
     "title": "Tech Stack",
@@ -154,5 +178,8 @@
     "social_title": "Social",
     "time_title": "Local Time",
     "back_to_top": "Back to top"
+  },
+  "common": {
+    "viewProject": "View Project →"
   }
 }

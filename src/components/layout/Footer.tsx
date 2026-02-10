@@ -12,6 +12,7 @@ const socialLinks = [
 
 export function Footer() {
   const t = useTranslations("footer");
+  const tNav = useTranslations("nav");
   const locale = useLocale();
   const currentYear = new Date().getFullYear();
 
@@ -44,19 +45,19 @@ export function Footer() {
                   href="/"
                   className="hover:text-burnt-peach transition-colors w-fit"
                 >
-                  Index
+                  {tNav("home")}
                 </Link>
                 <Link
                   href="/projects"
                   className="hover:text-burnt-peach transition-colors w-fit"
                 >
-                  Projects
+                  {tNav("projects")}
                 </Link>
                 <Link
                   href="/about"
                   className="hover:text-burnt-peach transition-colors w-fit"
                 >
-                  About
+                  {tNav("about")}
                 </Link>
               </nav>
             </div>

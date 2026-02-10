@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import { Link, routing } from "@/i18n/routing";
 import { getTranslations } from "next-intl/server";
 import { Metadata } from "next";
+import Image from "next/image";
 
 /**
  * SEO Dynamique : Génère le titre de l'onglet selon le projet
@@ -13,17 +14,19 @@ export async function generateMetadata({
 }: {
   params: Promise<{ id: string; locale: string }>;
 }): Promise<Metadata> {
-  const { id } = await params;
+  const { id, locale } = await params;
   const project = projects.find((p) => p.id === id);
 
   if (!project) return { title: "Project Not Found" };
 
+  const t = await getTranslations({ locale });
+
   return {
     title: `${project.title} | Nicolas Thibault`,
-    description: project.description,
+    description: t(project.descriptionKey),
     openGraph: {
       title: project.title,
-      description: project.description,
+      description: t(project.descriptionKey),
       images: [project.image],
     },
   };
@@ -48,7 +51,7 @@ export default async function ProjectPage({
   params: Promise<{ id: string; locale: string }>;
 }) {
   const { id } = await params;
-  const t = await getTranslations("projects");
+  const t = await getTranslations();
 
   const projectIndex = projects.findIndex((p) => p.id === id);
   const project = projects[projectIndex];
@@ -70,29 +73,34 @@ export default async function ProjectPage({
             <span className="inline-block transition-transform group-hover:-translate-x-2 duration-300">
               ←
             </span>
-            {t("backToProjects")}
+            {t("projects.backToProjects")}
           </Link>
         </div>
 
         {/* Hero Section */}
         <div className="space-y-6 max-w-4xl">
           <span className="text-burnt-peach font-jakarta font-bold uppercase tracking-[0.2em] text-sm">
-            {project.role}
+            {t(project.roleKey)}
           </span>
           <h1 className="text-6xl md:text-8xl font-extrabold text-jet-black font-jakarta tracking-tighter leading-[0.9]">
             {project.title}
           </h1>
           <p className="text-xl md:text-2xl text-jet-black/60 font-medium leading-relaxed pt-4">
-            {project.impact}
+            {t(project.impactKey)}
           </p>
         </div>
 
-        {/* Placeholder pour Image / Mockup */}
-        <div className="mt-20 aspect-[16/8] bg-[#F8F9FA] rounded-[40px] overflow-hidden border border-jet-black/5 relative">
-          <div className="absolute inset-0 bg-gradient-to-br from-burnt-peach/5 to-transparent" />
-          {/* Note : Utilise <Image /> de next/image ici quand tes assets seront prêts 
-            pour profiter de l'optimisation automatique de Next.js.
-          */}
+        {/* Image / Mockup */}
+        <div className="mt-20 aspect-[16/8] bg-white rounded-[40px] overflow-hidden border border-jet-black/5 relative">
+          <Image
+            src={project.image}
+            alt={project.title}
+            fill
+            className="object-cover"
+            sizes="(min-width: 1024px) 80vw, 100vw"
+            priority
+          />
+          <div className="absolute inset-0 bg-gradient-to-br from-burnt-peach/10 to-transparent" />
         </div>
 
         {/* Content Grid */}
@@ -101,7 +109,7 @@ export default async function ProjectPage({
           <aside className="lg:col-span-4 space-y-12">
             <div>
               <h4 className="text-[10px] font-bold uppercase tracking-widest text-jet-black/30 mb-4">
-                Stack
+                {t("projects.stackLabel")}
               </h4>
               <div className="flex flex-wrap gap-2">
                 {project.technologies.map((tech) => (
@@ -123,7 +131,7 @@ export default async function ProjectPage({
                   rel="noopener noreferrer"
                   className="text-jet-black font-bold border-b border-jet-black/20 pb-1 hover:border-burnt-peach transition-colors inline-block w-fit"
                 >
-                  Live Preview ↗
+                  {t("projects.livePreview")} ↗
                 </a>
               )}
               {project.github && (
@@ -133,7 +141,7 @@ export default async function ProjectPage({
                   rel="noopener noreferrer"
                   className="text-jet-black/40 font-medium text-sm hover:text-jet-black transition-colors inline-block w-fit"
                 >
-                  View Source Code
+                  {t("projects.viewSource")}
                 </a>
               )}
             </div>
@@ -142,11 +150,11 @@ export default async function ProjectPage({
           {/* Main Content : Long Description */}
           <article className="lg:col-span-8">
             <h4 className="text-[10px] font-bold uppercase tracking-widest text-jet-black/30 mb-6">
-              About the project
+              {t("projects.aboutProject")}
             </h4>
             <div className="prose prose-xl font-jakarta text-jet-black/80 leading-relaxed max-w-none">
               <p className="whitespace-pre-line">
-                {project.longDescription || project.description}
+                {t(project.longDescriptionKey)}
               </p>
             </div>
           </article>
@@ -160,7 +168,7 @@ export default async function ProjectPage({
           className="group block py-40 px-6 text-center hover:bg-jet-black/[0.01] transition-colors"
         >
           <span className="text-sm font-bold uppercase tracking-widest text-jet-black/40 group-hover:text-burnt-peach transition-colors">
-            Next Project
+            {t("projects.nextProject")}
           </span>
           <h2 className="text-5xl md:text-8xl font-extrabold text-jet-black font-jakarta tracking-tighter mt-4 group-hover:scale-105 transition-transform duration-500 ease-out">
             {nextProject.title} →

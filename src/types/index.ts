@@ -3,15 +3,14 @@
 export interface Project {
   id: string;
   title: string;
-  description: string;
-  longDescription?: string;
+  descriptionKey: string;
+  longDescriptionKey: string;
+  roleKey: string;
+  impactKey: string;
   image: string;
   technologies: string[];
-  role: string;
-  impact: string;
-  link?: string;
-  github?: string;
-  featured?: boolean;
+  link: string;
+  featured: boolean;
 }
 
 export interface Experience {

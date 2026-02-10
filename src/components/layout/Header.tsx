@@ -76,7 +76,7 @@ export function Header() {
               {/* Header Drawer */}
               <div className="flex justify-between items-center p-10 md:p-16">
                 <span className="text-[10px] font-bold uppercase tracking-[0.3em] text-jet-black/30">
-                  Menu
+                  {t("menu")}
                 </span>
                 <button onClick={() => setIsOpen(false)} className="group p-2">
                   <div className="relative w-6 h-6">
