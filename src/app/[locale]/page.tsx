@@ -1,4 +1,3 @@
-import { Header, Footer } from "@/components/layout";
 import {
   Hero,
   About,
@@ -6,13 +5,11 @@ import {
   Experience,
   Projects,
   Process,
-  Contact,
 } from "@/components/sections";
 
 export default function HomePage() {
   return (
     <>
-      <Header />
       <main className="relative">
         <Hero />
         <About />
@@ -20,9 +17,7 @@ export default function HomePage() {
         <Projects />
         <TechStack />
         <Process />
-        <Contact />
       </main>
-      <Footer />
     </>
   );
 }

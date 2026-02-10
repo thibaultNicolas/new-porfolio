@@ -15,12 +15,14 @@ Portfolio développeur premium de niveau 2026, conçu pour impressionner les cli
 ## 🎨 Design System
 
 ### Couleurs Premium (Light Mode First)
+
 - **Fond** : Blanc (#ffffff) avec accents gris subtils
 - **Accent Noir** : #000000 (premium, editorial)
 - **Typography** : Geist Sans (moderne, clean)
 - **Spacing** : Scale éditoriale généreuse
 
 ### Animations
+
 - Animations intentionnelles et raffinées
 - Text reveal (caractère par caractère)
 - Scroll-triggered animations avec GSAP
@@ -47,7 +49,6 @@ src/
 │   │   ├── Projects.tsx     # Grid de projets avec hover effects
 │   │   ├── TechStack.tsx   # Stack technique avec micro-interactions
 │   │   ├── Process.tsx     # Processus de travail
-│   │   ├── Contact.tsx     # Section contact avec CTA
 │   │   └── index.ts
 │   ├── layout/              # Composants de layout
 │   │   ├── Header.tsx      # Navigation sticky avec menu mobile
@@ -75,12 +76,14 @@ src/
 ## ✨ Sections Implémentées
 
 ### ✅ Header / Navigation
+
 - Sticky header avec backdrop blur
 - Navigation smooth scroll
 - Menu mobile animé
 - Hover states premium
 
 ### ✅ Hero Section
+
 - Animation d'entrée fluide
 - Text reveal caractère par caractère
 - Background dynamique avec parallax
@@ -88,39 +91,39 @@ src/
 - Scroll indicator animé
 
 ### ✅ About Section
+
 - Scroll-triggered animations (GSAP)
 - Grid de highlights avec hover effects
 - Typography premium avec hierarchy claire
 
 ### ✅ Experience Section
+
 - Timeline verticale animée
 - Alternance gauche/droite sur desktop
 - Cards avec hover effects
 - Technologies et achievements
 
 ### ✅ Projects Section
+
 - Grid de projets avec hover reveal
 - Overlay animé au hover
 - Metadata (role, impact, stack)
 - Cards premium avec border animations
 
 ### ✅ Tech Stack Section
+
 - Layout moderne par catégories
 - Micro-interactions sur hover
 - Tags animés avec stagger
 
 ### ✅ Process Section
+
 - 4 étapes du processus de travail
 - Cards avec hover effects
 - Numérotation premium
 
-### ✅ Contact Section
-- CTA fort et clair
-- Copy email to clipboard
-- Links vers LinkedIn et GitHub
-- Design minimal et frictionless
-
 ### ✅ Footer
+
 - Minimal et élégant
 - Name + role
 - Social links avec animations

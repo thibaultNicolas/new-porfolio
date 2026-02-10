@@ -4,17 +4,15 @@
     "about": "About",
     "experience": "Experience",
     "projects": "Projects",
-    "stack": "Stack",
-    "contact": "Contact"
+    "stack": "Stack"
   },
   "hero": {
-    "headline": "Product-focused design-aware developer",
-    "headline2": "Building premium digital experiences",
-    "subheadline": "Transforming complex requirements into elegant, performant solutions.",
+    "greeting": "Hey, I'm Nicolas",
+    "headline": "Fullstack developer",
+    "headline2": "",
     "role": "Senior Full Stack Developer",
     "specialization": "specializing in modern web technologies.",
-    "ctaPrimary": "View Projects",
-    "ctaSecondary": "Contact"
+    "ctaPrimary": "View Projects"
   },
   "about": {
     "title": "About Me",
@@ -113,43 +111,48 @@
   "projects": {
     "title": "Projects",
     "subtitle": "Selected work showcasing product thinking and technical excellence",
-    "viewProject": "View Project →"
+    "viewProject": "View Project →",
+    "viewMore": "View all projects",
+    "backToProjects": "Back to projects",
+    "portfolio": "Projects"
   },
   "stack": {
     "title": "Tech Stack",
     "subtitle": "Modern tools and technologies I use to build exceptional products"
   },
   "process": {
-    "title": "How I Work",
-    "subtitle": "A structured approach that delivers results, not just code",
+    "badge": "Methodology",
+    "title": "How I work",
+    "subtitle": "A structured workflow to transform complex ideas into high-performance solutions.",
+    "step_label": "Step",
+    "marquee_text": "User-Centric • High-Performance • Reliable Systems • Modern Stack • ",
     "steps": {
       "understand": {
-        "title": "Understand",
-        "description": "Deep dive into your business goals, user needs, and technical constraints. Ask the right questions to uncover what really matters."
+        "title": "Discovery",
+        "description": "Deep dive into your needs and the project's technical challenges."
       },
       "design": {
-        "title": "Design",
-        "description": "Create solutions that balance user experience, technical feasibility, and business impact. No over-engineering, just the right approach."
+        "title": "Architecture",
+        "description": "System design and definition of the optimal user experience."
       },
       "build": {
-        "title": "Build",
-        "description": "Write clean, maintainable code with performance and scalability in mind. Ship incrementally, test continuously, iterate based on feedback."
+        "title": "Development",
+        "description": "Writing clean, scalable, and high-performing code with best-in-class tech."
       },
       "deliver": {
-        "title": "Deliver",
-        "description": "Ensure smooth deployment, comprehensive documentation, and knowledge transfer. Your success is my success."
+        "title": "Deployment",
+        "description": "Rigorous testing, launch, and continuous product optimization."
       }
     }
   },
-  "contact": {
-    "title": "Let's Work Together",
-    "description": "Have a project in mind? I'd love to hear about it. Send me a message and let's create something exceptional.",
-    "copyEmail": "Copy Email",
-    "emailCopied": "Email Copied!",
-    "available": "Available for freelance projects and full-time opportunities"
-  },
   "footer": {
     "role": "Senior Full Stack Developer",
-    "copyright": "All rights reserved."
+    "copyright": "All rights reserved.",
+    "cta_title": "Let's build something great.",
+    "cta_subtitle": "Available for freelance projects and full-time opportunities.",
+    "nav_title": "Navigation",
+    "social_title": "Social",
+    "time_title": "Local Time",
+    "back_to_top": "Back to top"
   }
 }

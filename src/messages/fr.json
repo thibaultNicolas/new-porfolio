@@ -4,18 +4,14 @@
     "about": "À propos",
     "experience": "Expérience",
     "projects": "Projets",
-    "stack": "Stack",
-    "contact": "Contact"
-  },
+    "stack": "Stack"  },
   "hero": {
-    "headline": "Développeur orienté produit et design",
-    "headline2": "Créant des expériences digitales premium",
-    "subheadline": "Transformer des besoins complexes en solutions élégantes et performantes.",
+    "greeting": "Hey, je suis Nicolas",
+    "headline": "Fullstack developer",
+    "headline2": "",
     "role": "Développeur Full Stack Senior",
     "specialization": "spécialisé dans les technologies web modernes.",
-    "ctaPrimary": "Voir les projets",
-    "ctaSecondary": "Contact"
-  },
+    "ctaPrimary": "Voir les projets"  },
   "about": {
     "title": "À propos de moi",
     "paragraph1": "Je suis un développeur full stack senior qui fait le pont entre le design et l'ingénierie. Mon approche est orientée produit : chaque ligne de code sert un objectif business.",
@@ -113,43 +109,48 @@
   "projects": {
     "title": "Projets",
     "subtitle": "Travaux sélectionnés mettant en avant la réflexion produit et l'excellence technique",
-    "viewProject": "Voir le projet →"
+    "viewProject": "Voir le projet →",
+    "viewMore": "Voir tous les projets",
+    "backToProjects": "Retour aux projets",
+    "portfolio": "Portfolio"
   },
   "stack": {
     "title": "Stack technique",
     "subtitle": "Outils et technologies modernes que j'utilise pour créer des produits exceptionnels"
   },
   "process": {
+    "badge": "Méthodologie",
     "title": "Comment je travaille",
-    "subtitle": "Une approche structurée qui livre des résultats, pas seulement du code",
+    "subtitle": "Un flux de travail structuré pour transformer des idées complexes en solutions performantes.",
+    "step_label": "Étape",
+    "marquee_text": "Centré Utilisateur • Performance • Systèmes Fiables • Stack Moderne • ",
     "steps": {
       "understand": {
-        "title": "Comprendre",
-        "description": "Plonger en profondeur dans vos objectifs business, besoins utilisateurs et contraintes techniques. Poser les bonnes questions pour découvrir ce qui compte vraiment."
+        "title": "Découverte",
+        "description": "Analyse approfondie de vos besoins et des défis techniques du projet."
       },
       "design": {
-        "title": "Concevoir",
-        "description": "Créer des solutions qui équilibrent expérience utilisateur, faisabilité technique et impact business. Pas de sur-ingénierie, juste la bonne approche."
+        "title": "Conception",
+        "description": "Architecture du système et définition de l'expérience utilisateur optimale."
       },
       "build": {
-        "title": "Construire",
-        "description": "Écrire du code propre et maintenable avec performance et scalabilité en tête. Livrer de manière incrémentale, tester continuellement, itérer basé sur les retours."
+        "title": "Développement",
+        "description": "Écriture d'un code propre, scalable et performant avec les meilleures technos."
       },
       "deliver": {
-        "title": "Livrer",
-        "description": "Assurer un déploiement fluide, une documentation complète et un transfert de connaissances. Votre succès est mon succès."
+        "title": "Livraison",
+        "description": "Tests rigoureux, déploiement et optimisation continue du produit."
       }
     }
   },
-  "contact": {
-    "title": "Travaillons ensemble",
-    "description": "Vous avez un projet en tête ? J'aimerais en entendre parler. Envoyez-moi un message et créons quelque chose d'exceptionnel.",
-    "copyEmail": "Copier l'email",
-    "emailCopied": "Email copié !",
-    "available": "Disponible pour projets freelance et opportunités à temps plein"
-  },
   "footer": {
     "role": "Développeur Full Stack Senior",
-    "copyright": "Tous droits réservés."
+    "copyright": "Tous droits réservés.",
+    "cta_title": "Bâtissons quelque chose de grand.",
+    "cta_subtitle": "Disponible pour des projets en freelance et des opportunités à temps plein.",
+    "nav_title": "Navigation",
+    "social_title": "Réseaux",
+    "time_title": "Heure locale",
+    "back_to_top": "Retour en haut"
   }
 }

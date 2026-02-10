@@ -1,140 +1,83 @@
+// Refined by Claude for nicolasthibault@hotmail.ca
 "use client";
 
 import { motion } from "framer-motion";
-import { useEffect, useRef } from "react";
 import { useTranslations } from "next-intl";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { Button } from "@/components/ui/Button";
-import { fadeInUp, textReveal, textRevealChar } from "@/lib/utils/animations";
 
-if (typeof window !== "undefined") {
-  gsap.registerPlugin(ScrollTrigger);
-}
+const fadeUp = {
+  hidden: { opacity: 0, y: 30 },
+  visible: (i: number) => ({
+    opacity: 1,
+    y: 0,
+    transition: {
+      delay: i * 0.15,
+      duration: 0.8,
+      ease: [0.22, 1, 0.36, 1] as const,
+    },
+  }),
+};
 
 export function Hero() {
   const t = useTranslations("hero");
-  const backgroundRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    if (!backgroundRef.current) return;
-
-    // Subtle parallax effect on background
-    gsap.to(backgroundRef.current, {
-      y: 50,
-      scrollTrigger: {
-        trigger: backgroundRef.current,
-        start: "top top",
-        end: "bottom top",
-        scrub: 1,
-      },
-    });
-  }, []);
 
   return (
-    <section
-      id="home"
-      className="relative min-h-screen flex items-center justify-center overflow-hidden bg-white"
-    >
-      {/* Subtle Animated Background */}
+    <section id="home" className="relative min-h-screen overflow-hidden">
+      {/* Gradient background — white top-left, blue bottom-right */}
       <div
-        ref={backgroundRef}
-        className="absolute inset-0 opacity-[0.02]"
+        className="absolute inset-0"
+        style={{
+          background:
+            "linear-gradient(135deg, white 35%, rgba(191,219,254,0.4) 45%, rgba(96,165,250,0.75) 80%, rgba(59,130,246,0.85) 100%)",
+        }}
+        aria-hidden="true"
+      />
+
+      {/* Blue stippled grain overlay */}
+      <div
+        className="absolute inset-0 z-[1] pointer-events-none mix-blend-overlay opacity-[0.85]"
         aria-hidden="true"
       >
-        <div className="absolute inset-0 bg-gradient-to-br from-gray-50 via-white to-gray-50" />
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-black rounded-full blur-[120px]" />
-        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-black rounded-full blur-[120px]" />
+        <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+          <filter id="noiseFilter">
+            <feTurbulence
+              type="fractalNoise"
+              baseFrequency="3"
+              numOctaves="10"
+              stitchTiles="stitch"
+            />
+          </filter>
+
+          <rect width="100%" height="100%" filter="url(#noiseFilter)" />
+        </svg>
       </div>
 
       {/* Content */}
-      <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-12 lg:px-16 py-32">
+      <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-12 lg:px-16 flex flex-col justify-center min-h-screen">
+        {/* Greeting + accent line — tight spacing */}
         <motion.div
+          custom={0}
           initial="hidden"
           animate="visible"
-          variants={fadeInUp}
-          className="text-center space-y-8"
+          variants={fadeUp}
+          className="mb-8 md:mb-10"
         >
-          {/* Main Headline */}
-          <motion.h1
-            variants={textReveal}
-            className="text-balance font-bold leading-[1.1] text-black"
-          >
-            {t("headline").split(" ").map((word, index) => (
-              <span key={index} className="inline-block mr-3">
-                {word.split("").map((char, charIndex) => (
-                  <motion.span
-                    key={charIndex}
-                    variants={textRevealChar}
-                    className="inline-block"
-                  >
-                    {char === " " ? "\u00A0" : char}
-                  </motion.span>
-                ))}
-              </span>
-            ))}
-            <br />
-            <motion.span
-              variants={textReveal}
-              className="gradient-text inline-block mt-4"
-            >
-              {t("headline2").split("").map((char, index) => (
-                <motion.span
-                  key={index}
-                  variants={textRevealChar}
-                  className="inline-block"
-                >
-                  {char === " " ? "\u00A0" : char}
-                </motion.span>
-              ))}
-            </motion.span>
-          </motion.h1>
-
-          {/* Subheadline */}
-          <motion.p
-            variants={fadeInUp}
-            className="text-xl md:text-2xl text-gray-600 max-w-2xl mx-auto font-light"
-          >
-            {t("subheadline")}
-            <br />
-            <span className="text-black font-medium">{t("role")}</span>{" "}
-            {t("specialization")}
-          </motion.p>
-
-          {/* CTAs */}
-          <motion.div
-            variants={fadeInUp}
-            className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-8"
-          >
-            <Button variant="primary" size="lg" as="a" href="#projects">
-              {t("ctaPrimary")}
-            </Button>
-            <Button variant="secondary" size="lg" as="a" href="#contact">
-              {t("ctaSecondary")}
-            </Button>
-          </motion.div>
+          <p className="text-lg md:text-2xl font-medium text-[#2B35AF] mb-3 font-[family-name:var(--font-plus-jakarta)]">
+            {t("greeting")}
+          </p>
+          <div className="w-36 h-[2px] bg-[#2B35AF]" aria-hidden="true" />
         </motion.div>
+
+        {/* Main headline — massive, extrabold, geometric */}
+        <motion.h1
+          custom={1}
+          initial="hidden"
+          animate="visible"
+          variants={fadeUp}
+          className="text-6xl sm:text-7xl md:text-8xl lg:text-9xl font-extrabold tracking-[-0.05em] leading-[0.88] text-[#2B35AF] max-w-5xl font-jakarta"
+        >
+          {t("headline")}
+        </motion.h1>
       </div>
-
-      {/* Scroll Indicator */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 2, duration: 1 }}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2"
-      >
-        <motion.div
-          animate={{ y: [0, 10, 0] }}
-          transition={{ duration: 2, repeat: Infinity }}
-          className="w-6 h-10 border-2 border-gray-300 rounded-full flex justify-center"
-        >
-          <motion.div
-            animate={{ y: [0, 12, 0] }}
-            transition={{ duration: 2, repeat: Infinity }}
-            className="w-1 h-3 bg-black rounded-full mt-2"
-          />
-        </motion.div>
-      </motion.div>
     </section>
   );
 }

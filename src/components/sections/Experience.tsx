@@ -1,110 +1,119 @@
+// Refined by Gemini for nicolasthibault@hotmail.ca
 "use client";
 
-import { motion } from "framer-motion";
+import { useEffect, useRef } from "react";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useTranslations } from "next-intl";
 import { experience } from "@/data/experience";
-import { fadeInUp, staggerContainer } from "@/lib/utils/animations";
+
+if (typeof window !== "undefined") {
+  gsap.registerPlugin(ScrollTrigger);
+}
 
 export function Experience() {
   const t = useTranslations("experience");
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const cards = gsap.utils.toArray<HTMLElement>(".experience-card");
+
+    // Animation de Stacking
+    cards.forEach((card, index) => {
+      ScrollTrigger.create({
+        trigger: card,
+        start: "top 10%", // La carte se fige à 10% du haut de l'écran
+        pin: true, // Elle reste bloquée
+        pinSpacing: false, // Les autres cartes remontent par-dessus
+        endTrigger: containerRef.current,
+        end: "bottom bottom",
+        invalidateOnRefresh: true,
+      });
+
+      // Optionnel : On réduit légèrement l'échelle et on assombrit les cartes du dessous
+      if (index !== cards.length - 1) {
+        gsap.to(card, {
+          scale: 0.95,
+          opacity: 0.5,
+          scrollTrigger: {
+            trigger: cards[index + 1],
+            start: "top 50%",
+            end: "top 10%",
+            scrub: true,
+          },
+        });
+      }
+    });
+
+    return () => ScrollTrigger.getAll().forEach((t) => t.kill());
+  }, []);
 
   return (
-    <section id="experience" className="section-padding bg-white">
-      <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-16">
-        <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
-          variants={staggerContainer}
-          className="space-y-12"
-        >
-          {/* Header */}
-          <motion.div variants={fadeInUp} className="text-center max-w-2xl mx-auto">
-            <h2 className="text-5xl md:text-6xl font-bold mb-4 text-black">
-              {t("title")}
-            </h2>
-            <p className="text-lg text-gray-600">
-              {t("subtitle")}
-            </p>
-          </motion.div>
+    <section ref={containerRef} className="relative bg-white pb-[20vh]">
+      <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-16 pt-32">
+        <h2 className="text-7xl md:text-9xl font-extrabold text-brand-navy font-jakarta tracking-[-0.06em] mb-24">
+          {t("title")}
+        </h2>
 
-          {/* Timeline */}
-          <div className="relative">
-            {/* Timeline Line */}
-            <div className="absolute left-8 md:left-1/2 top-0 bottom-0 w-0.5 bg-gray-200" />
+        <div className="flex flex-col gap-0">
+          {experience.map((exp, index) => (
+            <div
+              key={exp.id}
+              className="experience-card sticky-card w-full min-h-[60vh] md:min-h-[50vh] mb-12"
+            >
+              {/* Card Style inspiré de Tedy/Hero */}
+              <div className="w-full h-full bg-[#F8F9FA] border border-brand-navy/5 rounded-[40px] p-8 md:p-16 shadow-sm flex flex-col md:flex-row gap-12 relative overflow-hidden">
+                {/* Grain subtil sur chaque carte */}
+                <div className="absolute inset-0 opacity-[0.03] pointer-events-none mix-blend-multiply">
+                  <svg viewBox="0 0 200 200" className="w-full h-full">
+                    <filter id={`noise-${index}`}>
+                      <feTurbulence type="fractalNoise" baseFrequency="0.6" />
+                    </filter>
+                    <rect
+                      width="100%"
+                      height="100%"
+                      filter={`url(#noise-${index})`}
+                    />
+                  </svg>
+                </div>
 
-            {/* Timeline Items */}
-            <div className="space-y-12">
-              {experience.map((exp, index) => {
-                const expT = t.raw(`items.${exp.id}`);
-                const description = expT?.description || exp.description;
-                
-                return (
-                  <motion.div
-                    key={exp.id}
-                    variants={fadeInUp}
-                    className="relative pl-20 md:pl-0 md:flex md:items-start md:gap-12"
-                  >
-                    {/* Timeline Dot */}
-                    <div className="absolute left-6 md:left-1/2 w-4 h-4 -translate-x-1/2 bg-black rounded-full border-4 border-white z-10" />
+                {/* Contenu de la carte */}
+                <div className="flex-1 z-10">
+                  <span className="text-sm font-bold uppercase tracking-[0.2em] text-brand-blue/60 font-jakarta">
+                    {t(`items.${exp.id}.period`)}
+                  </span>
+                  <h3 className="text-5xl md:text-7xl font-extrabold text-brand-navy font-jakarta tracking-[-0.04em] mt-4 leading-none">
+                    {t(`items.${exp.id}.company`)}
+                  </h3>
+                  <p className="text-xl md:text-2xl font-medium text-brand-navy/60 mt-4 font-jakarta">
+                    {t(`items.${exp.id}.role`)}
+                  </p>
+                </div>
 
-                    {/* Content */}
-                    <div
-                      className={`md:w-1/2 ${
-                        index % 2 === 0 ? "md:pr-12 md:text-right" : "md:ml-auto md:pl-12"
-                      }`}
-                    >
-                      <div className="bg-white border border-gray-200 rounded-2xl p-8 hover:border-black transition-all duration-300">
-                        <div className="flex flex-col md:flex-row md:justify-between items-start md:items-center gap-2 mb-4">
-                          <h3 className="text-2xl font-bold text-black">
-                            {expT?.role || exp.role}
-                          </h3>
-                          <span className="text-sm text-gray-600 font-medium">
-                            {expT?.period || exp.period}
-                          </span>
-                        </div>
-                        <p className="text-lg font-semibold text-gray-800 mb-4">
-                          {expT?.company || exp.company}
-                        </p>
-                        <ul className="space-y-2">
-                          {Array.isArray(description) ? description.map((item: string, itemIndex: number) => (
-                            <li
-                              key={itemIndex}
-                              className="text-gray-700 text-sm leading-relaxed"
-                            >
-                              • {item}
-                            </li>
-                          )) : exp.description.map((item, itemIndex) => (
-                            <li
-                              key={itemIndex}
-                              className="text-gray-700 text-sm leading-relaxed"
-                            >
-                              • {item}
-                            </li>
-                          ))}
-                        </ul>
-                        {exp.technologies && (
-                          <div className="mt-6 pt-6 border-t border-gray-100">
-                            <div className="flex flex-wrap gap-2">
-                              {exp.technologies.map((tech) => (
-                                <span
-                                  key={tech}
-                                  className="px-3 py-1 bg-gray-50 text-gray-700 rounded-lg text-xs font-medium"
-                                >
-                                  {tech}
-                                </span>
-                              ))}
-                            </div>
-                          </div>
-                        )}
-                      </div>
-                    </div>
-                  </motion.div>
-                );
-              })}
+                <div className="flex-1 z-10">
+                  <ul className="space-y-6">
+                    {t
+                      .raw(`items.${exp.id}.description`)
+                      .map((item: string, i: number) => (
+                        <li
+                          key={i}
+                          className="text-lg text-brand-navy/80 font-jakarta font-medium leading-relaxed flex gap-4"
+                        >
+                          <span className="w-1.5 h-1.5 bg-brand-blue/40 rounded-full mt-2 shrink-0" />
+                          {item}
+                        </li>
+                      ))}
+                  </ul>
+                </div>
+
+                {/* Index massif en fond de carte */}
+                <span className="absolute -bottom-10 -right-4 text-[12rem] md:text-[20rem] font-extrabold text-brand-navy/[0.02] font-jakarta leading-none">
+                  0{index + 1}
+                </span>
+              </div>
             </div>
-          </div>
-        </motion.div>
+          ))}
+        </div>
       </div>
     </section>
   );

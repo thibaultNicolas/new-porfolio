@@ -1,3 +1,4 @@
+// Refined by Gemini for nicolasthibault@hotmail.ca
 "use client";
 
 import { motion } from "framer-motion";
@@ -5,7 +6,6 @@ import { useRef, useEffect } from "react";
 import { useTranslations } from "next-intl";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { fadeInUp, staggerContainer } from "@/lib/utils/animations";
 
 if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger);
@@ -36,83 +36,109 @@ export function About() {
   useEffect(() => {
     if (!sectionRef.current) return;
 
-    const elements = sectionRef.current.querySelectorAll(".animate-on-scroll");
-
-    elements.forEach((element) => {
-      gsap.fromTo(
-        element,
-        {
-          opacity: 0,
-          y: 60,
+    const ctx = gsap.context(() => {
+      // Animation pour le titre et les paragraphes
+      gsap.from(".reveal-text", {
+        y: 100,
+        opacity: 0,
+        duration: 1.2,
+        ease: "power4.out",
+        stagger: 0.1,
+        scrollTrigger: {
+          trigger: ".reveal-text",
+          start: "top 90%",
         },
-        {
-          opacity: 1,
-          y: 0,
-          duration: 1,
-          ease: "power3.out",
-          scrollTrigger: {
-            trigger: element,
-            start: "top 80%",
-            toggleActions: "play none none reverse",
-          },
-        }
-      );
-    });
+      });
+
+      // Animation pour les chiffres (Highlights)
+      gsap.from(".stat-item", {
+        x: -50,
+        opacity: 0,
+        duration: 1,
+        ease: "back.out(1.7)",
+        stagger: 0.2,
+        scrollTrigger: {
+          trigger: ".stats-container",
+          start: "top 80%",
+        },
+      });
+    }, sectionRef);
+
+    return () => ctx.revert();
   }, []);
 
   return (
     <section
       ref={sectionRef}
       id="about"
-      className="section-padding bg-white"
+      className="relative bg-white py-32 md:py-48 lg:py-64 overflow-hidden"
     >
-      <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-16">
-        <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.3 }}
-          variants={staggerContainer}
-          className="space-y-16"
-        >
-          {/* Header */}
-          <motion.div variants={fadeInUp} className="max-w-3xl">
-            <h2 className="text-5xl md:text-6xl font-bold mb-6 text-black">
-              {t("title")}
-            </h2>
-            <div className="space-y-4 text-lg text-gray-700 leading-relaxed">
-              <p>{t("paragraph1")}</p>
-              <p>{t("paragraph2")}</p>
-              <p>{t("paragraph3")}</p>
-            </div>
-          </motion.div>
+      {/* Texture grainée très subtile pour la continuité avec le Hero */}
+      <div className="absolute inset-0 pointer-events-none opacity-[0.03] mix-blend-multiply">
+        <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+          <filter id="aboutNoise">
+            <feTurbulence
+              type="fractalNoise"
+              baseFrequency="0.8"
+              numOctaves="4"
+            />
+          </filter>
+          <rect width="100%" height="100%" filter="url(#aboutNoise)" />
+        </svg>
+      </div>
 
-          {/* Highlights Grid */}
-          <motion.div
-            variants={fadeInUp}
-            className="grid grid-cols-1 md:grid-cols-3 gap-8"
-          >
-            {highlights.map((highlight, index) => (
-              <motion.div
-                key={index}
-                variants={fadeInUp}
-                className="animate-on-scroll group"
-              >
-                <div className="relative p-8 border border-gray-200 rounded-2xl bg-white hover:border-black transition-all duration-500">
-                  <div className="text-5xl font-bold text-black mb-2">
-                    {highlight.number}
-                  </div>
-                  <div className="text-xl font-semibold mb-2 text-black">
-                    {highlight.label}
-                  </div>
-                  <div className="text-gray-600 text-sm">
-                    {highlight.description}
-                  </div>
-                  <div className="absolute inset-0 bg-black/5 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+      <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-16 relative z-10">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-24">
+          {/* LEFT COLUMN: Large Title & Accents */}
+          <div className="lg:col-span-5 flex flex-col justify-between">
+            <div className="overflow-hidden">
+              <h2 className="reveal-text text-6xl md:text-8xl font-extrabold text-brand-navy font-jakarta tracking-[-0.06em] leading-[0.85]">
+                {t("title")}
+              </h2>
+            </div>
+
+            {/* Visual element: A large, soft blue circle in the background of the text */}
+            <div className="hidden lg:block w-32 h-32 rounded-full bg-brand-blue/5 blur-3xl mt-12" />
+          </div>
+
+          {/* RIGHT COLUMN: Bio Content */}
+          <div className="lg:col-span-7 flex flex-col justify-center">
+            <div className="space-y-10 text-xl md:text-2xl text-brand-navy/80 font-jakarta font-medium leading-[1.4] tracking-tight">
+              <div className="overflow-hidden">
+                <p className="reveal-text">{t("paragraph1")}</p>
+              </div>
+              <div className="overflow-hidden">
+                <p className="reveal-text opacity-70 text-lg md:text-xl">
+                  {t("paragraph2")}
+                </p>
+              </div>
+              <div className="overflow-hidden">
+                <p className="reveal-text opacity-70 text-lg md:text-xl">
+                  {t("paragraph3")}
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* BOTTOM SECTION: Minimalist Highlights */}
+        <div className="stats-container mt-32 md:mt-48 grid grid-cols-1 md:grid-cols-3 border-t border-brand-navy/5 pt-16 gap-12">
+          {highlights.map((highlight, index) => (
+            <div key={index} className="stat-item group">
+              <div className="flex flex-col gap-2">
+                <span className="text-sm font-bold uppercase tracking-[0.2em] text-brand-blue/60 font-jakarta">
+                  {highlight.label}
+                </span>
+                <div className="text-7xl md:text-8xl font-extrabold text-brand-navy font-jakarta tracking-[-0.07em] leading-none group-hover:scale-105 transition-transform duration-500 origin-left">
+                  {highlight.number}
                 </div>
-              </motion.div>
-            ))}
-          </motion.div>
-        </motion.div>
+                <p className="text-brand-navy/40 font-jakarta font-medium text-base max-w-[200px] mt-2">
+                  {highlight.description}
+                </p>
+              </div>
+            </div>
+          ))}
+        </div>
       </div>
     </section>
   );
