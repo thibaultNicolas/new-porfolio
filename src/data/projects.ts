@@ -100,4 +100,23 @@ export const projects: Project[] = [
     link: "https://espacebeautecp.com/",
     featured: false,
   },
+  {
+    id: "portfolio",
+    title: "Nicolas Thibault Portfolio",
+    descriptionKey: "projects.portfolio.description",
+    seoDescriptionKey: "projects.portfolio.seoDescription",
+    longDescriptionKey: "projects.portfolio.longDescription",
+    roleKey: "projects.portfolio.role",
+    impactKey: "projects.portfolio.impact",
+    image: "/images/projects/portfolio.png",
+    technologies: [
+      "Next.js",
+      "TypeScript",
+      "GSAP",
+      "Tailwind CSS",
+      "next-intl",
+    ],
+    link: "https://www.nicolas-thibault.ca/",
+    featured: true,
+  },
 ];

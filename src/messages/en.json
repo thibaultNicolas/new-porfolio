@@ -180,6 +180,13 @@
       "description": "Hybrid platform combining a professional product store with an online course academy.",
       "longDescription": "Developed a custom Shopify solution featuring a Learning Management System (LMS) integration. Created custom sections to streamline course access while optimizing the sales funnel for physical products.",
       "impact": "Centralized educational and commercial offerings, simplifying registration management and boosting cross-selling opportunities."
+    },
+    "portfolio": {
+      "role": "Designer & Full Stack Developer",
+      "description": "Personal portfolio showcasing selected projects, expertise, and process.",
+      "seoDescription": "Personal portfolio built to present case studies, skills, and a modern design system with strong performance and SEO.",
+      "longDescription": "Designed and built a high‑performance portfolio experience with multilingual content, dynamic projects, and smooth motion. Focused on clarity, storytelling, and a refined UI that highlights product thinking and technical depth.",
+      "impact": "Created a clear, conversion‑oriented showcase to communicate expertise, process, and the quality of work."
     }
   },
   "stack": {

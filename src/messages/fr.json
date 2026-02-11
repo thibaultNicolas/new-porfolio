@@ -180,6 +180,14 @@
       "description": "Plateforme hybride combinant boutique de produits professionnels et académie de cours en ligne.",
       "longDescription": "Développement d'une solution Shopify sur mesure incluant un système de gestion de l'apprentissage (LMS). J'ai conçu des sections personnalisées pour fluidifier l'accès aux formations tout en optimisant le tunnel de vente pour les produits physiques.",
       "impact": "Centralisation de l'offre éducative et commerciale, simplifiant la gestion des inscriptions et boostant les ventes croisées."
+    },
+    "portfolio": {
+      "role": "Designer & Développeur Full Stack",
+      "description": "Portfolio personnel présentant des projets sélectionnés, des compétences et la méthodologie.",
+      "seoDescription": "Portfolio personnel conçu pour présenter des études de cas, un design system moderne, et une base technique performante orientée SEO.",
+      "longDescription": "Conception et développement d'une expérience portfolio haut‑de‑gamme, multilingue et fluide. L'accent est mis sur la clarté, le storytelling et l'élégance visuelle pour valoriser l'expertise technique.",
+      "impact": "Mise en place d'une vitrine claire et orientée conversion pour communiquer l'expertise, le processus et la qualité du travail."
+    }
     }
   },
   "stack": {
