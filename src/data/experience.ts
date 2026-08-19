@@ -1,10 +1,20 @@
 import { Experience } from "@/types";
 
+/** Timeline entries shown in the Experience section (oldest → newest). */
+export const FEATURED_EXPERIENCE_IDS = [
+  "exp-4",
+  "exp-3",
+  "exp-2",
+  "exp-1",
+] as const;
+
+export type FeaturedExperienceId = (typeof FEATURED_EXPERIENCE_IDS)[number];
+
 export const experience: Experience[] = [
   {
     id: "exp-1",
     company: "InputKit",
-    role: "Développeur Full Stack",
+    role: "Développeur",
     period: "avr. 2025 - aujourd'hui",
     description: [
       "Développement et maintenance d'un SaaS de gestion de l'expérience client et employé",

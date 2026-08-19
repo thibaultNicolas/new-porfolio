@@ -1,10 +1,11 @@
-// Refined by Gemini for nicolasthibault@hotmail.ca
 "use client";
 
-import { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import { useTranslations, useLocale } from "next-intl";
-import { usePathname, useRouter, Link } from "@/i18n/routing";
+import { useEffect, useState } from "react";
+import { useLocale, useTranslations } from "next-intl";
+import { Link, routing, usePathname, useRouter } from "@/i18n/routing";
+import { CONTACT_EMAIL } from "@/lib/constants";
+import { useHeaderTone } from "@/lib/hooks/useHeaderTone";
+import { ThemeToggle } from "@/components/ui/ThemeToggle";
 import { cn } from "@/lib/utils";
 
 export function Header() {
@@ -13,6 +14,9 @@ export function Header() {
   const pathname = usePathname();
   const router = useRouter();
   const [isOpen, setIsOpen] = useState(false);
+  const isHome = pathname === "/";
+  const tone = useHeaderTone(isHome);
+  const isLight = tone === "light";
 
   useEffect(() => {
     document.body.style.overflow = isOpen ? "hidden" : "";
@@ -21,150 +25,133 @@ export function Header() {
     };
   }, [isOpen]);
 
-  // Menu mis à jour avec les vraies routes
+  useEffect(() => {
+    if (!isOpen) return;
+    const onKeyDown = (event: KeyboardEvent): void => {
+      if (event.key === "Escape") setIsOpen(false);
+    };
+    window.addEventListener("keydown", onKeyDown);
+    return () => window.removeEventListener("keydown", onKeyDown);
+  }, [isOpen]);
+
   const navItems = [
-    { href: "/", label: t("home"), isAnchor: true },
-    { href: "/projects", label: t("projects"), isAnchor: false },
-    { href: "/about", label: t("about"), isAnchor: false },
-    { href: "/#experience", label: t("experience"), isAnchor: true },
+    { href: "/#about", label: t("about") },
+    { href: "/#work", label: t("projects") },
+    { href: "/#services", label: t("stack") },
+    { href: "/#contact", label: t("contact") },
   ];
 
-  const switchLocale = (newLocale: string) => {
-    router.replace(pathname, { locale: newLocale });
-  };
+  const linkClass = isLight
+    ? "nav-link pb-0.5 text-[15px] text-paper/85 hover:text-paper"
+    : "nav-link pb-0.5 text-[15px] text-stone hover:text-ink";
+
+  const localeClass = (active: boolean): string =>
+    cn(
+      "min-h-11 uppercase transition-colors duration-300",
+      isLight
+        ? active
+          ? "text-paper"
+          : "text-paper/45 hover:text-paper"
+        : active
+          ? "text-ink"
+          : "text-stone/70 hover:text-ink",
+    );
 
   return (
     <>
-      {/* Logo / Nom - Optionnel mais recommandé pour la nav */}
-      <div className="fixed top-10 left-10 md:left-16 z-50 pointer-events-auto">
-        <Link
-          href="/"
-          className="text-jet-black font-jakarta font-black text-4xl tracking-tighter"
-        >
-          Thibault<span className="text-burnt-peach">.</span>
-        </Link>
-      </div>
-
-      {/* Hamburger Button */}
-      <motion.button
-        onClick={() => setIsOpen(true)}
-        className="fixed top-10 right-10 md:top-12 md:right-16 z-50 flex flex-col gap-[7px] p-2 group"
-        aria-label="Open menu"
-      >
-        <span className="block w-9 h-[3px] bg-jet-black group-hover:w-6 transition-all duration-300" />
-        <span className="block w-5 h-[3px] bg-jet-black group-hover:w-9 transition-all duration-300" />
-      </motion.button>
-
-      <AnimatePresence>
-        {isOpen && (
-          <>
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              onClick={() => setIsOpen(false)}
-              className="fixed inset-0 z-50 bg-jet-black/10 backdrop-blur-md"
-            />
-
-            <motion.aside
-              initial={{ x: "100%" }}
-              animate={{ x: 0 }}
-              exit={{ x: "100%" }}
-              transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-              className="fixed top-0 right-0 bottom-0 z-50 w-full md:w-[450px] bg-white shadow-2xl flex flex-col"
-            >
-              {/* Header Drawer */}
-              <div className="flex justify-between items-center p-10 md:p-16">
-                <span className="text-[10px] font-bold uppercase tracking-[0.3em] text-jet-black/30">
-                  {t("menu")}
-                </span>
-                <button onClick={() => setIsOpen(false)} className="group p-2">
-                  <div className="relative w-6 h-6">
-                    <span className="absolute top-1/2 left-0 w-6 h-[2px] bg-jet-black rotate-45" />
-                    <span className="absolute top-1/2 left-0 w-6 h-[2px] bg-jet-black -rotate-45" />
-                  </div>
-                </button>
-              </div>
-
-              {/* Navigation */}
-              <nav className="flex-1 px-10 md:px-16 flex flex-col justify-center">
-                <ul className="space-y-4">
-                  {navItems.map((item, index) => {
-                    const isActive = pathname === item.href;
-                    return (
-                      <motion.li
-                        key={item.href}
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ delay: index * 0.1 }}
-                      >
-                        <Link
-                          href={item.href}
-                          onClick={() => setIsOpen(false)}
-                          className={cn(
-                            "group flex items-center gap-4 text-4xl md:text-6xl font-extrabold tracking-tighter font-jakarta transition-all",
-                            isActive
-                              ? "text-burnt-peach"
-                              : "text-jet-black hover:text-burnt-peach",
-                          )}
-                        >
-                          <span className="text-xs font-bold font-mono opacity-0 group-hover:opacity-100 transition-opacity">
-                            0{index + 1}
-                          </span>
-                          {item.label}
-                        </Link>
-                      </motion.li>
-                    );
-                  })}
-                </ul>
-              </nav>
-
-              {/* Footer Drawer */}
-              <div className="p-10 md:p-16 flex flex-col gap-8">
-                <div className="h-[1px] bg-jet-black/5" />
-
-                <div className="flex justify-between items-center">
-                  {/* Lang Switcher */}
-                  <div className="flex items-center gap-4">
-                    {["fr", "en"].map((l) => (
-                      <button
-                        key={l}
-                        onClick={() => switchLocale(l)}
-                        className={cn(
-                          "text-xs font-bold tracking-widest transition-colors",
-                          locale === l
-                            ? "text-burnt-peach"
-                            : "text-jet-black/30 hover:text-jet-black",
-                        )}
-                      >
-                        {l.toUpperCase()}
-                      </button>
-                    ))}
-                  </div>
-
-                  {/* Socials rapides */}
-                  <div className="flex gap-4">
-                    <a
-                      href="https://github.com"
-                      target="_blank"
-                      className="text-[10px] font-bold uppercase tracking-widest text-jet-black/40 hover:text-burnt-peach"
-                    >
-                      Github
-                    </a>
-                    <a
-                      href="https://linkedin.com"
-                      target="_blank"
-                      className="text-[10px] font-bold uppercase tracking-widest text-jet-black/40 hover:text-burnt-peach"
-                    >
-                      Linkedin
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </motion.aside>
-          </>
+      <header
+        className={cn(
+          "relative z-50 w-full transition-[background-color,border-color] duration-500 ease-[cubic-bezier(0.22,1,0.36,1)]",
+          isHome
+            ? "border-transparent bg-transparent"
+            : "border-b border-line/60 bg-paper",
         )}
-      </AnimatePresence>
+      >
+        <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-6 md:h-20 md:px-12 lg:px-16">
+          <Link
+            href="/"
+            className={cn(
+              "font-heading text-xl font-medium tracking-tight transition-colors duration-300 md:text-2xl",
+              isLight ? "text-paper" : "text-ink",
+            )}
+          >
+            Thibault.
+          </Link>
+
+          <nav className="hidden items-center gap-10 md:flex" aria-label="Primary">
+            {navItems.map((item) => (
+              <Link key={item.href} href={item.href} className={linkClass}>
+                {item.label}
+              </Link>
+            ))}
+          </nav>
+
+          <div className="flex items-center gap-4 md:gap-6">
+            <ThemeToggle isHeaderLight={isLight} />
+
+            <div className="flex items-center gap-3 text-xs tracking-widest">
+              {routing.locales.map((item) => (
+                <button
+                  key={item}
+                  type="button"
+                  onClick={() => router.replace(pathname, { locale: item })}
+                  className={localeClass(locale === item)}
+                >
+                  {item}
+                </button>
+              ))}
+            </div>
+
+            <button
+              type="button"
+              className="relative flex min-h-11 min-w-11 flex-col items-center justify-center md:hidden"
+              aria-label={isOpen ? t("close") : t("open")}
+              aria-expanded={isOpen}
+              onClick={() => setIsOpen((open) => !open)}
+            >
+              <span
+                className={cn(
+                  "block h-px w-6 transition-transform duration-300",
+                  isLight ? "bg-paper" : "bg-ink",
+                  isOpen && "translate-y-[3px] rotate-45",
+                )}
+              />
+              <span
+                className={cn(
+                  "mt-1.5 block h-px w-6 transition-transform duration-300",
+                  isLight ? "bg-paper" : "bg-ink",
+                  isOpen && "-translate-y-[3px] -rotate-45",
+                )}
+              />
+            </button>
+          </div>
+        </div>
+      </header>
+
+      {isOpen ? (
+        <div className="fixed inset-0 z-[70] bg-ink px-6 pt-28 text-paper md:hidden">
+          <nav aria-label={t("menu")}>
+            <ul className="flex flex-col gap-6">
+              {navItems.map((item) => (
+                <li key={item.href}>
+                  <Link
+                    href={item.href}
+                    onClick={() => setIsOpen(false)}
+                    className="font-heading text-5xl font-medium tracking-tight"
+                  >
+                    {item.label}
+                  </Link>
+                </li>
+              ))}
+              <li>
+                <a href={`mailto:${CONTACT_EMAIL}`} className="text-lg text-paper/60">
+                  {CONTACT_EMAIL}
+                </a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      ) : null}
     </>
   );
 }

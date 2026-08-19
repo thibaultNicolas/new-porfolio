@@ -188,7 +188,7 @@ Chaque décision de design et technique renforce la crédibilité senior et la q
 - ✅ Convaincre les fondateurs/CTOs
 - ✅ Démontrer un niveau de compétence élevé
 
-**Pas de template générique** — Tout est personnalisé, intentionnel et premium.
+**Pas de template générique.** Tout est personnalisé, intentionnel et premium.
 
 ---
 

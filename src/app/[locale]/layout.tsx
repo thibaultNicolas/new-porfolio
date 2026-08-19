@@ -3,31 +3,34 @@ import { NextIntlClientProvider } from "next-intl";
 import { getMessages, getTranslations } from "next-intl/server";
 import { notFound } from "next/navigation";
 import { routing } from "@/i18n/routing";
-import { Geist, Geist_Mono, Inter, Plus_Jakarta_Sans } from "next/font/google";
+import { Archivo, Instrument_Serif, Space_Grotesk } from "next/font/google";
 import { SmoothScrollProvider } from "@/components/providers/SmoothScrollProvider";
-import { Header, Footer } from "@/components/layout"; // Importation des composants globaux
+import { ThemeProvider } from "@/components/providers/ThemeProvider";
+import { Header, Footer } from "@/components/layout";
+import { SiteDarkContinuum } from "@/components/layout/SiteDarkContinuum";
+import { ContactCta } from "@/components/sections";
+import { ScrollProgress } from "@/components/layout/ScrollProgress";
+import { themeInitScript } from "@/lib/theme/script";
 import "../globals.css";
 import type { Metadata } from "next";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const archivo = Archivo({
+  variable: "--font-archivo",
   subsets: ["latin"],
+  weight: ["400", "500", "600"],
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const spaceGrotesk = Space_Grotesk({
+  variable: "--font-space",
   subsets: ["latin"],
+  weight: ["400", "500"],
 });
 
-const inter = Inter({
-  variable: "--font-inter",
+const instrumentSerif = Instrument_Serif({
+  variable: "--font-serif",
   subsets: ["latin"],
-});
-
-const plusJakarta = Plus_Jakarta_Sans({
-  variable: "--font-plus-jakarta",
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700", "800"],
+  weight: "400",
+  style: ["normal", "italic"],
 });
 
 const siteUrl = "https://www.nicolas-thibault.ca";
@@ -54,8 +57,9 @@ export async function generateMetadata({
     alternates: {
       canonical: `/${locale}`,
       languages: {
-        fr: "/fr",
         en: "/en",
+        fr: "/fr",
+        "x-default": "/en",
       },
     },
     icons: {
@@ -95,26 +99,38 @@ export default async function LocaleLayout({
 }) {
   const { locale } = await params;
 
-  if (!routing.locales.includes(locale as any)) {
+  const isSupportedLocale = (routing.locales as readonly string[]).includes(
+    locale,
+  );
+
+  if (!isSupportedLocale) {
     notFound();
   }
 
   const messages = await getMessages();
 
   return (
-    <html lang={locale}>
+    <html lang={locale} suppressHydrationWarning>
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
+      </head>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${inter.variable} ${plusJakarta.variable} antialiased`}
+        className={`${archivo.variable} ${spaceGrotesk.variable} ${instrumentSerif.variable} antialiased`}
       >
         <NextIntlClientProvider messages={messages} locale={locale}>
-          <SmoothScrollProvider>
-            {/* Le Header doit être AU-DESSUS du contenu pour être visible partout */}
-            <Header />
+          <ThemeProvider>
+            <SmoothScrollProvider>
+              <ScrollProgress />
+              <Header />
 
-            <main>{children}</main>
+              <main>{children}</main>
 
-            <Footer />
-          </SmoothScrollProvider>
+              <SiteDarkContinuum>
+                <ContactCta />
+                <Footer />
+              </SiteDarkContinuum>
+            </SmoothScrollProvider>
+          </ThemeProvider>
         </NextIntlClientProvider>
       </body>
     </html>

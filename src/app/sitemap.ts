@@ -19,7 +19,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       url: `${siteUrl}/${locale}/projects`,
       lastModified: new Date(),
       changeFrequency: "weekly",
-      priority: 0.8,
+      priority: 0.9,
     });
 
     projects.forEach((project) => {

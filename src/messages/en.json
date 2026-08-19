@@ -1,36 +1,122 @@
 {
   "nav": {
     "menu": "Menu",
+    "close": "Close menu",
+    "open": "Open menu",
     "home": "Home",
     "about": "About",
     "experience": "Experience",
-    "projects": "Projects",
-    "stack": "Stack"
+    "projects": "Work",
+    "contact": "Contact",
+    "stack": "Services"
+  },
+  "theme": {
+    "light": "Switch to light mode",
+    "dark": "Switch to dark mode"
   },
   "hero": {
+    "location": "Quebec",
+    "headline": "I build products people <accent>actually</accent> use.",
+    "name": "Nicolas Thibault",
+    "role": "Web developer",
+    "cta": "Email me",
+    "scroll": "Scroll",
     "greeting": "Hey, I'm Nicolas",
-    "headline": "Fullstack developer",
     "headline2": "",
-    "role": "Senior Full Stack Developer",
     "specialization": "specializing in modern web technologies.",
-    "ctaPrimary": "View Projects"
+    "ctaPrimary": "View Projects",
+    "intro": "Introduction",
+    "body": "Web developer in Quebec. I design and ship web products that businesses rely on, from SaaS platforms to e-commerce.",
+    "ctaProject": "Start a project",
+    "ctaWork": "View my work",
+    "statProjectsLabel": "Production websites shipped",
+    "statProjectsValue": "20+",
+    "statYearsLabel": "Years shipping products",
+    "statYearsValue": "5+",
+    "available": "Available for freelance and full-time work",
+    "playlistTitle": "Now playing",
+    "playlistName": "Build mode 💻",
+    "openPlaylist": "Open playlist",
+    "openingPlaylist": "Opening in Spotify",
+    "portraitAlt": "Portrait of Nicolas Thibault"
   },
   "seo": {
-    "siteTitle": "Nicolas Thibault — Full‑stack Developer",
-    "siteDescription": "Portfolio of Nicolas Thibault, a full‑stack developer building modern, high‑performance web experiences with React, Next.js, Node.js, and a product‑first mindset.",
-    "homeTitle": "Full‑stack Developer in Quebec",
-    "homeDescription": "Senior full‑stack developer crafting modern web products, immersive UX, and scalable architectures for startups and businesses.",
+    "siteTitle": "Nicolas Thibault · Web Developer",
+    "siteDescription": "Portfolio of Nicolas Thibault, a web developer building modern, high‑performance web experiences with React, Next.js, Node.js, and a product‑first mindset.",
+    "homeTitle": "Web Developer in Quebec",
+    "homeDescription": "Senior web developer crafting modern web products, immersive UX, and scalable architectures for startups and businesses.",
     "projectsTitle": "Projects",
     "projectsDescription": "Selected projects showcasing product thinking, scalable engineering, and modern web technologies."
   },
   "about": {
+    "badge": "Experience",
+    "currentLabel": "Current role",
+    "headline": "A snapshot of my <accent>professional</accent> growth.",
+    "subtitle": "A summary of the roles, environments, and milestones that shaped how I design and ship digital products.",
+    "toggle": {
+      "experience": "Professional experience",
+      "education": "Education"
+    },
+    "education": {
+      "items": {
+        "edu-1": {
+          "tag": "2019-2021",
+          "title": "DEC, Computer Science Technology",
+          "summary": "Foundations in software development, databases, and system analysis with a focus on building maintainable applications.",
+          "imageAlt": "Computer science technology diploma"
+        },
+        "edu-2": {
+          "tag": "2021-2022",
+          "title": "Web Development",
+          "summary": "Intensive training in modern front-end and back-end stacks, from responsive UI to API design and deployment.",
+          "imageAlt": "Web development program"
+        },
+        "edu-3": {
+          "tag": "2023",
+          "title": "UX & Product Design",
+          "summary": "User research, interface design, and product thinking to bridge design decisions with engineering constraints.",
+          "imageAlt": "UX and product design training"
+        },
+        "edu-4": {
+          "tag": "2024",
+          "title": "AI Integration & Prompt Engineering",
+          "summary": "Practical workflows for integrating LLMs into products, from prompt design to production-ready AI features.",
+          "imageAlt": "AI integration training"
+        }
+      }
+    },
+    "pageTitle": "Info",
     "title": "About Me",
-    "paragraph1": "I'm a senior full stack developer who bridges the gap between design and engineering. My approach is product-first: every line of code serves a business goal.",
-    "paragraph2": "I've spent the last 4+ years building applications that users love and businesses rely on. From early-stage startups to enterprise platforms, I've seen what works—and what doesn't.",
-    "paragraph3": "What sets me apart? I think like a product builder, not just a coder. I ask \"why\" before \"how\", prioritize impact over complexity, and ship with confidence.",
+    "sections": {
+      "overview": "Overview",
+      "services": "Services",
+      "process": "Process",
+      "highlights": "Recognition"
+    },
+    "emailPrompt": "I'm always keen to hear about potential new projects so please don't hesitate to get in touch.",
+    "services": {
+      "items": [
+        "Web Development",
+        "Next.js & React Apps",
+        "SaaS Platforms",
+        "E-commerce (Shopify)",
+        "WordPress & CMS",
+        "API Design & Integration"
+      ]
+    },
+    "paragraph1": "Hi, I'm Nicolas, a senior web developer crafting modern web products where design meets engineering. My approach is product-first: every line of code serves a business goal.",
+    "paragraph2": "Over the last 5+ years I've built applications that users rely on and businesses depend on, from early-stage startups to enterprise platforms across SaaS, e-commerce, and internal tools.",
+    "paragraph3": "I think like a product builder, not just a coder. I ask \"why\" before \"how\", prioritize impact over complexity, and ship with confidence.",
+    "cta": "See the work",
+    "years": "2019-2026",
+    "identity": {
+      "initials": "NT",
+      "index": "01",
+      "caption": "Where design meets engineering"
+    },
     "highlights": {
       "experience": {
-        "number": "4+",
+        "number": "5+",
         "label": "Years of Experience",
         "description": "Building production-ready applications"
       },
@@ -47,13 +133,21 @@
     }
   },
   "experience": {
+    "badge": "My story",
+    "headline": "A <accent>journey</accent> through product engineering.",
+    "intro": "Over the years, I've refined my craft through teamwork and experimentation to build digital products people rely on.",
+    "quote": "Meaningful products are built through thoughtful systems and refined experiences.",
+    "quoteImageAlt": "Nicolas Thibault walking outdoors",
+    "roleAt": "{role} at {company}",
     "title": "Experience",
     "subtitle": "Building impactful products and leading technical teams",
+    "cardImageAlt": "Work at {company}",
     "items": {
       "exp-1": {
         "company": "InputKit",
-        "role": "Full Stack Developer",
+        "role": "Developer",
         "period": "Apr 2025 - Present",
+        "summary": "Building and scaling a customer experience SaaS with React, Node.js, and AI-powered workflows focused on usability and performance.",
         "description": [
           "Development and maintenance of a customer and employee experience management SaaS",
           "Design and development of modular web features with Vue.js and Node.js",
@@ -66,6 +160,7 @@
         "company": "Desjardins",
         "role": "Analyst-Programmer",
         "period": "Apr 2024 - Apr 2025",
+        "summary": "Designed and delivered complex internal systems with .NET and APIs, mentoring interns and driving code quality through reviews and best practices.",
         "description": [
           "Participation in the design and development of complex projects within internal systems",
           "Backend (.NET, APIs) and frontend development for robust and performant applications",
@@ -78,6 +173,7 @@
         "company": "Desjardins",
         "role": "Developer",
         "period": "Apr 2023 - Apr 2024",
+        "summary": "Maintained and evolved enterprise infrastructure and internal .NET applications, collaborating across teams to keep systems stable and reliable.",
         "description": [
           "Operation, maintenance and development of systems and infrastructures",
           "Development of internal applications with .NET",
@@ -88,6 +184,7 @@
         "company": "Imago Communication",
         "role": "Developer",
         "period": "May 2022 - Apr 2023",
+        "summary": "Built and integrated WordPress, Shopify, and Prestashop sites from mockups, handling deployment, DNS, and performance optimization.",
         "description": [
           "Development and integration of websites on WordPress, Shopify and Prestashop from graphic mockups",
           "Server and DNS management, regular maintenance and updates of sites",
@@ -99,6 +196,7 @@
         "company": "Imago Communication",
         "role": "Web Development Intern",
         "period": "Mar 2022 - May 2022",
+        "summary": "Developed WordPress websites and learned web development best practices alongside the team.",
         "description": [
           "WordPress website development",
           "Learning web development best practices",
@@ -109,6 +207,7 @@
         "company": "Imago Communication",
         "role": "Web Development Intern",
         "period": "Mar 2021 - May 2021",
+        "summary": "Introduced to web development and CMS workflows while supporting senior developers on client projects.",
         "description": [
           "WordPress website development",
           "Introduction to web development and CMS",
@@ -118,26 +217,40 @@
     }
   },
   "projects": {
+    "badge": "Work",
+    "headline": "Featured solutions & <accent>projects</accent>.",
+    "intro": "A selection of projects focused on clarity, usability, and meaningful, lasting positive impact.",
+    "archiveTitle": "All Projects",
+    "archiveHeadline": "<accent>All</accent> projects you'll love.",
+    "archiveIntro": "A selection of projects focused on clarity, usability, and meaningful, lasting positive impact.",
+    "archiveProjectCount": "Projects shipped",
+    "backToHome": "Back to home",
     "title": "Projects",
     "subtitle": "Selected work showcasing product thinking and technical excellence",
     "viewProject": "View Project →",
-    "viewMore": "View all projects",
+    "viewMore": "All projects",
     "backToProjects": "Back to projects",
     "portfolio": "Projects",
     "view": "View",
+    "checkItOut": "Check it out",
+    "prev": "Previous projects",
+    "next": "Next projects",
+    "carouselLabel": "Selected projects",
     "stackLabel": "Stack",
     "aboutProject": "About the project",
     "livePreview": "Live Preview",
     "viewSource": "View Source Code",
     "nextProject": "Next Project",
     "lexya": {
-      "role": "Lead Full Stack Developer",
+      "category": "Web",
+      "role": "Lead Developer",
       "description": "Major overhaul of a leading textbook e-commerce platform in Quebec.",
       "seoDescription": "Complete redesign and rebuild of Lexya’s textbook e‑commerce platform in Quebec, focused on performance, UX, and scalable content management.",
       "longDescription": "Close collaboration with MamboMambo agency to transform Lexya's visual identity into a cutting-edge digital experience. Orchestrated the transition to PayloadCMS and Next.js for total editorial flexibility and peak performance.",
       "impact": "Modernized technical architecture, enabling seamless content management and an ultra-fast shopping experience."
     },
     "achete_ton_cell": {
+      "category": "E-commerce",
       "role": "E-commerce Specialist",
       "description": "Hybrid e-commerce ecosystem linking online store and physical retail locations.",
       "seoDescription": "Custom Shopify ecosystem connecting online and in‑store sales, optimized for conversion, inventory sync, and retail operations.",
@@ -145,44 +258,51 @@
       "impact": "Unified the customer experience between Web and physical retail, optimized through precise conversion data analysis."
     },
     "hockey_academie": {
-      "role": "Full Stack Developer",
+      "category": "E-commerce",
+      "role": "Developer",
       "description": "Specialized e-commerce and booking platform for elite sports training.",
       "seoDescription": "Shopify‑based booking and e‑commerce platform for elite training programs, built to simplify reservations and drive visibility.",
       "longDescription": "Designed an optimized Shopify store for product sales and service management. Tailored the user experience to simplify complex bookings while maintaining a clean interface for parents and athletes.",
       "impact": "Automated the booking process and significantly increased visibility for training programs."
     },
     "chaparral_ev": {
+      "category": "WordPress",
       "role": "Web Developer & SEO Specialist",
       "description": "Showcase platform for a Quebec leader in recreational electric vehicles.",
       "longDescription": "Developed a full-featured WordPress site tailored for lead generation. Focused on information architecture and Organic SEO optimization to establish a strong digital presence in the EV market.",
       "impact": "Enhanced digital reach and created an intuitive browsing experience for high-end vehicle models."
     },
     "optimize_id": {
+      "category": "WordPress",
       "role": "Web Developer & Technical Consultant",
       "description": "High-performance showcase site for a branding and visual identity agency.",
       "longDescription": "Built an agile platform to highlight professional branding and signage services. Focused on page speed and local SEO optimization to drive B2B lead generation.",
       "impact": "Established a strong presence in the Quebec market and delivered a simplified management interface for the client."
     },
     "mleau": {
+      "category": "WordPress",
       "role": "WordPress Developer (Optimization)",
       "description": "Technical and SEO enhancements for a water treatment specialist.",
       "longDescription": "Targeted improvements on an existing WordPress site. Optimized the conversion funnel, enhanced mobile navigation, and implemented a technical SEO strategy to boost organic reach.",
       "impact": "Smoother user experience and improved search engine rankings without service interruption."
     },
     "gamechanger_hockey": {
+      "category": "E-commerce",
       "role": "Shopify & E-commerce Developer",
       "description": "Full-featured online store specializing in performance hockey equipment.",
       "longDescription": "Built a custom Shopify experience for a hockey accessory brand. Developed custom Liquid sections, optimized the checkout funnel, and implemented advanced inventory and payment management systems.",
       "impact": "Launched a robust sales platform with intuitive navigation, driving conversion and customer loyalty."
     },
     "espace_beaute_cp": {
+      "category": "E-commerce",
       "role": "E-commerce & LMS Developer",
       "description": "Hybrid platform combining a professional product store with an online course academy.",
       "longDescription": "Developed a custom Shopify solution featuring a Learning Management System (LMS) integration. Created custom sections to streamline course access while optimizing the sales funnel for physical products.",
       "impact": "Centralized educational and commercial offerings, simplifying registration management and boosting cross-selling opportunities."
     },
     "portfolio": {
-      "role": "Designer & Full Stack Developer",
+      "category": "Web",
+      "role": "Designer & Developer",
       "description": "Personal portfolio showcasing selected projects, expertise, and process.",
       "seoDescription": "Personal portfolio built to present case studies, skills, and a modern design system with strong performance and SEO.",
       "longDescription": "Designed and built a high‑performance portfolio experience with multilingual content, dynamic projects, and smooth motion. Focused on clarity, storytelling, and a refined UI that highlights product thinking and technical depth.",
@@ -192,6 +312,62 @@
   "stack": {
     "title": "Tech Stack",
     "subtitle": "Modern tools and technologies I use to build exceptional products"
+  },
+  "services": {
+    "badge": "Services",
+    "headline": "A comprehensive look at what I <accent>offer</accent> and how I deliver.",
+    "intro": "From product architecture to polished interfaces, I help teams ship web experiences that perform, convert, and scale.",
+    "cta": "Get in touch",
+    "items": {
+      "web_apps": {
+        "title": "Web Apps",
+        "description": "Responsive products with Next.js, React, and TypeScript, from MVP to production-ready launch."
+      },
+      "saas": {
+        "title": "SaaS Platforms",
+        "description": "Scalable architectures, APIs, and dashboards built for teams that need reliability day after day."
+      },
+      "ui_engineering": {
+        "title": "UI Engineering",
+        "description": "Design translated into accessible interfaces with motion, polish, and pixel-level attention."
+      },
+      "ecommerce": {
+        "title": "E-commerce",
+        "description": "Shopify storefronts and custom commerce flows optimized for conversion and long-term growth."
+      }
+    }
+  },
+  "toolsServices": {
+    "badge": "Tools & services",
+    "headline": "The <accent>stack</accent> behind meaningful work.",
+    "intro": "Every project, from SaaS platforms to e-commerce stores, is built with thoughtful architecture, refined interfaces, and a focus on performance, usability, and long-term maintainability.",
+    "centerLabel": "NT",
+    "items": {
+      "web_apps": {
+        "title": "Web Apps",
+        "description": "Building responsive products with Next.js, React, and TypeScript, from MVP to production."
+      },
+      "saas": {
+        "title": "SaaS Platforms",
+        "description": "Designing scalable architectures, APIs, and dashboards that teams rely on every day."
+      },
+      "ecommerce": {
+        "title": "E-commerce",
+        "description": "Shipping Shopify storefronts and custom commerce flows optimized for conversion."
+      },
+      "cms": {
+        "title": "CMS & WordPress",
+        "description": "Content-driven sites with flexible CMS setups, clean templates, and easy handoff."
+      },
+      "ui_engineering": {
+        "title": "UI Engineering",
+        "description": "Translating design into accessible interfaces with motion, polish, and pixel-level care."
+      },
+      "performance": {
+        "title": "Performance & SEO",
+        "description": "Optimizing Core Web Vitals, loading strategies, and search visibility for real impact."
+      }
+    }
   },
   "process": {
     "badge": "Methodology",
@@ -218,8 +394,22 @@
       }
     }
   },
+  "scrollIdentity": {
+    "row1": ["FROM", "IDEA", "TO", "PRODUCT"],
+    "row1Accent": "3",
+    "row2": ["BUILD", "YOUR", "DREAM"],
+    "row2Accent": "2"
+  },
+  "contactCta": {
+    "badge": "Available for new projects",
+    "title": "Let's build something <accent>scalable</accent>.",
+    "subtitle": "Tell me about your product, timeline, and goals. I'll reply within one business day.",
+    "emailCta": "Email me",
+    "linkedinCta": "LinkedIn",
+    "trust": "Freelance & full-time · Based in Quebec"
+  },
   "footer": {
-    "role": "Senior Full Stack Developer",
+    "role": "Senior Web Developer",
     "copyright": "All rights reserved.",
     "cta_title": "Let's build something great.",
     "cta_subtitle": "Available for freelance projects and full-time opportunities.",
@@ -227,6 +417,10 @@
     "social_title": "Social",
     "time_title": "Local Time",
     "back_to_top": "Back to top"
+  },
+  "trust": {
+    "heading": "Languages I work with",
+    "label": "Languages and tools: React, Next.js, Vue.js, TypeScript, Node.js, Tailwind, Shopify, WordPress, GSAP, and Git."
   },
   "common": {
     "viewProject": "View Project →"

@@ -9,10 +9,18 @@ const config: Config = {
   theme: {
     extend: {
       fontFamily: {
-        // On lie le nom "jakarta" à ta variable CSS
-        jakarta: ["var(--font-plus-jakarta)", "sans-serif"],
+        heading: ["var(--font-archivo)", "sans-serif"],
+        sans: ["var(--font-space)", "sans-serif"],
+        serif: ["var(--font-serif)", "serif"],
+        jakarta: ["var(--font-archivo)", "sans-serif"],
       },
       colors: {
+        paper: "#fafafa",
+        ink: "#09090b",
+        stone: "#475569",
+        accent: "#c45c38",
+        line: "#e4e4e7",
+        fg: "rgb(var(--theme-fg) / <alpha-value>)",
         "off-white": "#fafafa",
         "dusk-blue": {
           DEFAULT: "#3d5a80",
@@ -77,11 +85,17 @@ const config: Config = {
       },
       animation: {
         marquee: "marquee 60s linear infinite",
+        "marquee-loop": "marquee-loop 28s linear infinite",
+        "logo-marquee": "marquee-loop 40s linear infinite",
       },
       keyframes: {
         marquee: {
           "0%": { transform: "translateX(0%)" },
           "100%": { transform: "translateX(-100%)" },
+        },
+        "marquee-loop": {
+          "0%": { transform: "translateX(0%)" },
+          "100%": { transform: "translateX(-50%)" },
         },
       },
     },

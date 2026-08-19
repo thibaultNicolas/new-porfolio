@@ -1,5 +1,15 @@
 import { Project } from "@/types";
 
+/** Projects shown in the homepage featured grid (display order). */
+export const FEATURED_PROJECT_IDS = [
+  "lexya",
+  "achete-ton-cell",
+  "hockey-academie",
+  "chaparral_ev",
+] as const;
+
+export type FeaturedProjectId = (typeof FEATURED_PROJECT_IDS)[number];
+
 export const projects: Project[] = [
   {
     id: "lexya",
@@ -83,7 +93,7 @@ export const projects: Project[] = [
     longDescriptionKey: "projects.gamechanger_hockey.longDescription",
     roleKey: "projects.gamechanger_hockey.role",
     impactKey: "projects.gamechanger_hockey.impact",
-    image: "/images/projects/gamechanger.png",
+    image: "/images/projects/gamechangerhockey.png",
     technologies: ["Shopify", "Liquid", "E-commerce", "UI/UX"],
     link: "https://gamechangerhockey.ca/",
     featured: false,
@@ -95,7 +105,7 @@ export const projects: Project[] = [
     longDescriptionKey: "projects.espace_beaute_cp.longDescription",
     roleKey: "projects.espace_beaute_cp.role",
     impactKey: "projects.espace_beaute_cp.impact",
-    image: "/images/projects/espace_beaute.png",
+    image: "/images/projects/espacebeautecp.png",
     technologies: ["Shopify", "LMS Integration", "Liquid", "UX Design"],
     link: "https://espacebeautecp.com/",
     featured: false,

@@ -1,11 +1,5 @@
-import {
-  Hero,
-  About,
-  TechStack,
-  Experience,
-  Projects,
-  Process,
-} from "@/components/sections";
+import { Hero, About, Services, Projects, ScrollIdentity } from "@/components/sections";
+import { HomeDarkFlow } from "@/components/layout/HomeDarkFlow";
 import { getTranslations } from "next-intl/server";
 import type { Metadata } from "next";
 
@@ -23,8 +17,9 @@ export async function generateMetadata({
     alternates: {
       canonical: `/${locale}`,
       languages: {
-        fr: "/fr",
         en: "/en",
+        fr: "/fr",
+        "x-default": "/en",
       },
     },
   };
@@ -33,14 +28,13 @@ export async function generateMetadata({
 export default function HomePage() {
   return (
     <>
-      <main className="relative">
+      <HomeDarkFlow>
         <Hero />
         <About />
-        <Experience />
+        <Services />
         <Projects />
-        <TechStack />
-        <Process />
-      </main>
+        <ScrollIdentity />
+      </HomeDarkFlow>
     </>
   );
 }

@@ -78,7 +78,7 @@ export function Process() {
         <header className="process-header mb-24 grid grid-cols-1 lg:grid-cols-12 gap-8">
           <div className="lg:col-span-8">
             <span className="text-burnt-peach font-jakarta font-bold uppercase tracking-[0.4em] text-xs block mb-6">
-              04 — {t("badge")}
+              04 · {t("badge")}
             </span>
             <h2 className="text-6xl md:text-8xl font-extrabold text-jet-black font-jakarta tracking-tighter leading-[0.85]">
               {t("title")}

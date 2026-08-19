@@ -1,45 +1,31 @@
-// Refined by Gemini for nicolasthibault@hotmail.ca
 import { projects } from "@/data/projects";
 import { notFound } from "next/navigation";
 import { Link, routing } from "@/i18n/routing";
 import { getTranslations } from "next-intl/server";
-import { Metadata } from "next";
+import type { Metadata } from "next";
 import Image from "next/image";
 
-/**
- * SEO Dynamique : Génère le titre de l'onglet selon le projet
- */
 export async function generateMetadata({
   params,
 }: {
   params: Promise<{ id: string; locale: string }>;
 }): Promise<Metadata> {
   const { id, locale } = await params;
-  const project = projects.find((p) => p.id === id);
-
+  const project = projects.find((item) => item.id === id);
   if (!project) return { title: "Project Not Found" };
 
   const t = await getTranslations({ locale });
-  const title = `${project.title} | Nicolas Thibault — Full‑stack Developer`;
   const description = project.seoDescriptionKey
     ? t(project.seoDescriptionKey)
     : t(project.descriptionKey);
-  const imageUrl = project.image || "/images/og.jpeg";
 
   return {
-    title,
+    title: `${project.title} | Nicolas Thibault`,
     description,
     openGraph: {
       title: project.title,
       description,
-      images: [
-        {
-          url: imageUrl,
-          width: 1200,
-          height: 630,
-          alt: project.title,
-        },
-      ],
+      images: [{ url: project.image, width: 1200, height: 630, alt: project.title }],
     },
     alternates: {
       canonical: `/${locale}/projects/${project.id}`,
@@ -48,26 +34,13 @@ export async function generateMetadata({
         en: `/en/projects/${project.id}`,
       },
     },
-    twitter: {
-      card: "summary_large_image",
-      title: project.title,
-      description,
-      images: [imageUrl],
-    },
   };
 }
 
-/**
- * Build-time generation : Prévient l'erreur de chunking et booste la performance
- */
 export function generateStaticParams() {
-  const params: { locale: string; id: string }[] = [];
-  routing.locales.forEach((locale) => {
-    projects.forEach((project) => {
-      params.push({ locale, id: project.id });
-    });
-  });
-  return params;
+  return routing.locales.flatMap((locale) =>
+    projects.map((project) => ({ locale, id: project.id })),
+  );
 }
 
 export default async function ProjectPage({
@@ -77,129 +50,95 @@ export default async function ProjectPage({
 }) {
   const { id } = await params;
   const t = await getTranslations();
-
-  const projectIndex = projects.findIndex((p) => p.id === id);
+  const projectIndex = projects.findIndex((item) => item.id === id);
   const project = projects[projectIndex];
 
   if (!project) notFound();
 
-  // Navigation infinie : retourne au premier projet après le 50ème
   const nextProject = projects[(projectIndex + 1) % projects.length];
 
   return (
-    <main className="bg-white min-h-screen pb-20">
-      <section className="pt-32 pb-20 px-6 lg:px-16 max-w-7xl mx-auto">
-        {/* Navigation : Back Link */}
-        <div className="mb-12">
+    <>
+      <article className="bg-paper pb-8 pt-32">
+        <div className="mx-auto max-w-7xl px-6 md:px-12 lg:px-16">
           <Link
-            href="/projects"
-            className="group inline-flex items-center gap-3 text-jet-black/40 hover:text-burnt-peach transition-colors font-jakarta font-bold text-sm uppercase tracking-widest"
+            href="/#work"
+            className="nav-link text-sm text-stone hover:text-ink"
           >
-            <span className="inline-block transition-transform group-hover:-translate-x-2 duration-300">
-              ←
-            </span>
             {t("projects.backToProjects")}
           </Link>
-        </div>
 
-        {/* Hero Section */}
-        <div className="space-y-6 max-w-4xl">
-          <span className="text-burnt-peach font-jakarta font-bold uppercase tracking-[0.2em] text-sm">
+          <p className="mt-12 text-sm uppercase tracking-[0.16em] text-accent">
             {t(project.roleKey)}
-          </span>
-          <h1 className="text-6xl md:text-8xl font-extrabold text-jet-black font-jakarta tracking-tighter leading-[0.9]">
+          </p>
+          <h1 className="mt-4 max-w-[12ch] font-heading text-5xl font-medium tracking-tight text-ink md:text-7xl">
             {project.title}
           </h1>
-          <p className="text-xl md:text-2xl text-jet-black/60 font-medium leading-relaxed pt-4">
-            {t(project.impactKey)}
-          </p>
-        </div>
+          <p className="mt-6 max-w-2xl text-xl text-stone">{t(project.impactKey)}</p>
 
-        {/* Image / Mockup */}
-        <div className="mt-20 aspect-[16/8] bg-white rounded-[40px] overflow-hidden border border-jet-black/5 relative">
-          <Image
-            src={project.image}
-            alt={project.title}
-            fill
-            className="object-cover"
-            sizes="(min-width: 1024px) 80vw, 100vw"
-            priority
-          />
-          <div className="absolute inset-0 bg-gradient-to-br from-burnt-peach/10 to-transparent" />
-        </div>
+          <div className="relative mt-16 aspect-[16/9] overflow-hidden bg-ink">
+            <Image
+              src={project.image}
+              alt={project.title}
+              fill
+              priority
+              className="object-cover"
+              sizes="(min-width: 1024px) 80vw, 100vw"
+            />
+          </div>
 
-        {/* Content Grid */}
-        <div className="mt-24 grid grid-cols-1 lg:grid-cols-12 gap-16">
-          {/* Sidebar : Stack & Links */}
-          <aside className="lg:col-span-4 space-y-12">
-            <div>
-              <h4 className="text-[10px] font-bold uppercase tracking-widest text-jet-black/30 mb-4">
-                {t("projects.stackLabel")}
-              </h4>
-              <div className="flex flex-wrap gap-2">
-                {project.technologies.map((tech) => (
-                  <span
-                    key={tech}
-                    className="px-3 py-1 bg-jet-black/5 text-jet-black text-xs font-bold rounded-md"
-                  >
-                    {tech}
-                  </span>
-                ))}
+          <div className="mt-20 grid gap-16 lg:grid-cols-12">
+            <aside className="space-y-8 lg:col-span-4">
+              <div>
+                <p className="text-xs uppercase tracking-[0.18em] text-stone">
+                  {t("projects.stackLabel")}
+                </p>
+                <ul className="mt-4 flex flex-wrap gap-2">
+                  {project.technologies.map((tech) => (
+                    <li
+                      key={tech}
+                      className="border border-line px-3 py-1 text-sm text-ink"
+                    >
+                      {tech}
+                    </li>
+                  ))}
+                </ul>
               </div>
-            </div>
+              <a
+                href={project.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="nav-link inline-block text-ink"
+              >
+                {t("projects.livePreview")}
+              </a>
+            </aside>
 
-            <div className="flex flex-col gap-4">
-              {project.link && (
-                <a
-                  href={project.link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-jet-black font-bold border-b border-jet-black/20 pb-1 hover:border-burnt-peach transition-colors inline-block w-fit"
-                >
-                  {t("projects.livePreview")} ↗
-                </a>
-              )}
-              {project.github && (
-                <a
-                  href={project.github}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-jet-black/40 font-medium text-sm hover:text-jet-black transition-colors inline-block w-fit"
-                >
-                  {t("projects.viewSource")}
-                </a>
-              )}
-            </div>
-          </aside>
-
-          {/* Main Content : Long Description */}
-          <article className="lg:col-span-8">
-            <h4 className="text-[10px] font-bold uppercase tracking-widest text-jet-black/30 mb-6">
-              {t("projects.aboutProject")}
-            </h4>
-            <div className="prose prose-xl font-jakarta text-jet-black/80 leading-relaxed max-w-none">
-              <p className="whitespace-pre-line">
+            <div className="lg:col-span-8">
+              <p className="text-xs uppercase tracking-[0.18em] text-stone">
+                {t("projects.aboutProject")}
+              </p>
+              <p className="mt-6 whitespace-pre-line text-lg leading-relaxed text-ink">
                 {t(project.longDescriptionKey)}
               </p>
             </div>
-          </article>
+          </div>
         </div>
-      </section>
+      </article>
 
-      {/* Infinite Scroll Footer */}
-      <section className="mt-32 border-t border-jet-black/10">
+      {nextProject ? (
         <Link
           href={`/projects/${nextProject.id}`}
-          className="group block py-40 px-6 text-center hover:bg-jet-black/[0.01] transition-colors"
+          className="group block border-t border-line bg-paper py-24 text-center"
         >
-          <span className="text-sm font-bold uppercase tracking-widest text-jet-black/40 group-hover:text-burnt-peach transition-colors">
+          <span className="text-xs uppercase tracking-[0.18em] text-stone">
             {t("projects.nextProject")}
           </span>
-          <h2 className="text-5xl md:text-8xl font-extrabold text-jet-black font-jakarta tracking-tighter mt-4 group-hover:scale-105 transition-transform duration-500 ease-out">
-            {nextProject.title} →
-          </h2>
+          <span className="mt-4 block font-heading text-4xl font-medium tracking-tight text-ink transition-colors duration-300 group-hover:text-accent md:text-6xl">
+            {nextProject.title}
+          </span>
         </Link>
-      </section>
-    </main>
+      ) : null}
+    </>
   );
 }

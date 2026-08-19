@@ -483,6 +483,13 @@ import { cn } from "@/lib/utils";
 
 ---
 
+## ✍️ COPY & TYPOGRAPHIE
+
+- ❌ **Jamais de tiret cadratin (`—`)** dans les textes UI, traductions ou contenu du site
+- ✅ Utiliser une **virgule**, un **point**, un **tiret simple** (`-`) pour les plages de dates, ou un **point médian** (`·`) pour séparer titre et sous-titre
+
+---
+
 ## 📝 STYLE DE RÉPONSE CURSOR
 
 Quand tu génères du code pour ce projet :

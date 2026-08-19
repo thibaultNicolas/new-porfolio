@@ -1,0 +1,854 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Design audit — nicolas-thibault.ca × dennissnellenberg.com</title>
+  <style>
+    :root {
+      --dark: #1c1d20;
+      --darker: #141517;
+      --white: #ffffff;
+      --gray: #999d9e;
+      --blue: #455ce9;
+      --light: #e9eaeb;
+      --yours: #3d5a80;
+      --peach: #ee6c4d;
+      --pad: clamp(1.5rem, 4vw, 2.5rem);
+      --section: clamp(4rem, 16vh, 8rem);
+      --ease: cubic-bezier(0.7, 0, 0.3, 1);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--dark);
+      color: var(--white);
+      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+      font-size: 17px;
+      font-weight: 450;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+      border-bottom: 1px solid var(--blue);
+      transition: color 0.4s var(--ease), border-color 0.4s var(--ease);
+    }
+    a:hover { color: var(--blue); }
+
+    .wrap {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 0 var(--pad);
+    }
+
+    header.top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.75rem var(--pad);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: var(--dark);
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+
+    header.top p,
+    header.top nav {
+      font-size: 0.8rem;
+      color: var(--gray);
+    }
+
+    header.top nav { display: flex; gap: 1.5rem; }
+    header.top nav a { border: 0; color: var(--gray); }
+    header.top nav a:hover { color: var(--white); }
+
+    .hero {
+      padding: var(--section) 0 5rem;
+    }
+
+    .kicker {
+      font-size: 0.7rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--gray);
+      margin-bottom: 1.5rem;
+    }
+
+    h1 {
+      font-size: clamp(3.2rem, 9vw, 6.5rem);
+      font-weight: 450;
+      line-height: 0.95;
+      letter-spacing: -0.02em;
+      max-width: 14ch;
+    }
+
+    h1 em {
+      font-style: normal;
+      color: var(--blue);
+    }
+
+    .lead {
+      margin-top: 2.5rem;
+      max-width: 38rem;
+      font-size: 1.35rem;
+      line-height: 1.45;
+      color: var(--light);
+    }
+
+    .meta {
+      display: flex;
+      gap: 3rem;
+      margin-top: 3.5rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid rgba(255,255,255,0.12);
+      color: var(--gray);
+      font-size: 0.9rem;
+    }
+
+    .meta strong {
+      display: block;
+      color: var(--white);
+      font-weight: 450;
+      margin-bottom: 0.2rem;
+    }
+
+    section.block {
+      padding: var(--section) 0;
+      border-top: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .num {
+      font-size: 0.7rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--blue);
+      margin-bottom: 1rem;
+    }
+
+    h2 {
+      font-size: clamp(2rem, 4.5vw, 3.4rem);
+      font-weight: 450;
+      line-height: 1.05;
+      letter-spacing: -0.02em;
+      margin-bottom: 1.5rem;
+    }
+
+    h3 {
+      font-size: 1.15rem;
+      font-weight: 450;
+      margin-bottom: 0.75rem;
+    }
+
+    p.sub {
+      max-width: 40rem;
+      color: var(--gray);
+      margin-bottom: 2.5rem;
+    }
+
+    .split {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1px;
+      background: rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .split article {
+      background: var(--dark);
+      padding: 2rem 1.75rem 2.25rem;
+    }
+
+    .split .label {
+      font-size: 0.7rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--gray);
+      margin-bottom: 1.25rem;
+    }
+
+    .split ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.85rem;
+    }
+
+    .split li {
+      padding-left: 1.1rem;
+      position: relative;
+      color: var(--light);
+    }
+
+    .split li::before {
+      content: "";
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: var(--gray);
+      position: absolute;
+      left: 0;
+      top: 0.55em;
+    }
+
+    .split article.him li::before { background: var(--blue); }
+    .split article.you li::before { background: var(--peach); }
+
+    .verdict {
+      margin-top: 1.75rem;
+      padding-top: 1.25rem;
+      border-top: 1px solid rgba(255,255,255,0.08);
+      color: var(--gray);
+      font-size: 0.95rem;
+    }
+
+    .swatches {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 0.75rem;
+      margin-top: 1rem;
+    }
+
+    .swatch {
+      aspect-ratio: 1 / 1.15;
+      border-radius: 4px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 0.7rem;
+      font-size: 0.72rem;
+      color: var(--white);
+    }
+
+    .swatch span { display: block; opacity: 0.7; margin-top: 0.15rem; }
+
+    .type-row {
+      display: grid;
+      gap: 0;
+    }
+
+    .type-row + .type-row { border-top: 1px solid rgba(255,255,255,0.08); }
+
+    .type-row {
+      display: grid;
+      grid-template-columns: 7rem 1fr auto;
+      align-items: baseline;
+      gap: 1.5rem;
+      padding: 1.1rem 0;
+    }
+
+    .type-row .tag { color: var(--gray); font-size: 0.8rem; }
+    .type-row .spec { color: var(--gray); font-size: 0.8rem; white-space: nowrap; }
+
+    .display { font-size: clamp(2.4rem, 6vw, 4.5rem); line-height: 1; }
+    .h-lg { font-size: clamp(1.6rem, 3vw, 2.4rem); line-height: 1.1; }
+    .h-md { font-size: 1.4rem; }
+    .h-sm { font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase; }
+    .w800 { font-weight: 800; letter-spacing: -0.04em; }
+
+    .moves { display: flex; flex-direction: column; }
+
+    .move {
+      display: grid;
+      grid-template-columns: 3.5rem 1fr;
+      gap: 1.25rem;
+      padding: 1.75rem 0;
+      border-top: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .move:last-child { border-bottom: 1px solid rgba(255,255,255,0.1); }
+
+    .move .n {
+      font-size: 0.8rem;
+      color: var(--blue);
+      padding-top: 0.35rem;
+    }
+
+    .move p { color: var(--gray); margin-top: 0.4rem; max-width: 42rem; }
+
+    .dont {
+      background: var(--darker);
+      padding: 2rem 1.75rem;
+      margin-top: 2.5rem;
+    }
+
+    .dont ul {
+      list-style: none;
+      margin-top: 1rem;
+      display: grid;
+      gap: 0.7rem;
+      color: var(--gray);
+    }
+
+    .dont li::before { content: "— "; color: var(--white); }
+
+    footer.end {
+      padding: 4rem 0 5rem;
+      color: var(--gray);
+      font-size: 0.85rem;
+      display: flex;
+      justify-content: space-between;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .wire {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+
+    .frame {
+      border: 1px solid rgba(255,255,255,0.14);
+      min-height: 280px;
+      padding: 1.25rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .frame .bar {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.7rem;
+      color: var(--gray);
+      margin-bottom: 2.5rem;
+    }
+
+    .frame .title {
+      font-size: 2.4rem;
+      line-height: 0.95;
+      max-width: 10ch;
+    }
+
+    .frame .cta {
+      position: absolute;
+      right: 1.25rem;
+      bottom: 1.25rem;
+      width: 72px;
+      height: 72px;
+      border-radius: 50%;
+      background: var(--blue);
+      color: var(--white);
+      font-size: 0.65rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      line-height: 1.2;
+    }
+
+    .frame.yours {
+      background: linear-gradient(135deg, #eaf2f7, #ffffff);
+      color: #3d5a80;
+    }
+
+    .frame.yours .bar { color: #3d5a80; }
+    .frame.yours .title { font-weight: 800; letter-spacing: -0.05em; font-size: 2.1rem; }
+    .frame.yours .orb {
+      position: absolute;
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      background: rgba(238, 108, 77, 0.25);
+      filter: blur(24px);
+      right: 10%;
+      top: 20%;
+    }
+
+    .ia {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+    }
+
+    .ia ol {
+      list-style: none;
+      counter-reset: ia;
+    }
+
+    .ia li {
+      counter-increment: ia;
+      display: grid;
+      grid-template-columns: 2rem 1fr auto;
+      gap: 0.75rem;
+      padding: 0.85rem 0;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      align-items: baseline;
+    }
+
+    .ia li::before {
+      content: counter(ia, decimal-leading-zero);
+      color: var(--gray);
+      font-size: 0.8rem;
+    }
+
+    .ia .len { color: var(--gray); font-size: 0.8rem; }
+
+    .ia .kill { color: var(--peach); }
+
+    @media (max-width: 800px) {
+      .split, .wire, .ia, .swatches, .type-row { grid-template-columns: 1fr; }
+      .type-row .spec { display: none; }
+      .meta { flex-direction: column; gap: 1.25rem; }
+      header.top nav { display: none; }
+    }
+  </style>
+</head>
+<body>
+  <header class="top">
+    <p>Design audit · Aug 2026</p>
+    <nav>
+      <a href="#verdict">Verdict</a>
+      <a href="#system">System</a>
+      <a href="#pages">Pages</a>
+      <a href="#moves">Moves</a>
+    </nav>
+  </header>
+
+  <main class="wrap">
+    <div class="hero">
+      <p class="kicker">nicolas-thibault.ca &nbsp;×&nbsp; dennissnellenberg.com</p>
+      <h1>His site is quiet.<br />Yours is <em>busy.</em></h1>
+      <p class="lead">
+        Dennis designed a system and then got out of the way. You designed a collection of effects and then asked them to do the talking. The gap is not talent or stack. It is editing, restraint, and a single idea of what the page is for.
+      </p>
+      <div class="meta">
+        <div>
+          <strong>Sources</strong>
+          Live sites + his /styleguide
+        </div>
+        <div>
+          <strong>His page</strong>
+          ~4,800px · 5 sections
+        </div>
+        <div>
+          <strong>Yours</strong>
+          ~11,600px · 7 sections
+        </div>
+      </div>
+    </div>
+
+    <section class="block" id="verdict">
+      <p class="num">00 — The point</p>
+      <h2>He sells taste. You sell effort.</h2>
+      <p class="sub">
+        A freelance designer’s homepage has one job: make a stranger believe this person has better judgment than the last ten they interviewed. Dennis does that in the first viewport. You do it somewhere around the third glass card, if at all.
+      </p>
+
+      <div class="split">
+        <article class="him">
+          <p class="label">Dennis</p>
+          <ul>
+            <li>One custom sans, one weight (450). Size does the hierarchy.</li>
+            <li>Five colors. Blue is a signature, not a theme.</li>
+            <li>Hero is a composition: name, role, place, face, CTA.</li>
+            <li>Work is a typographic list. Images appear on hover.</li>
+            <li>The footer is a destination, not a sitemap.</li>
+            <li>Motion is magnetic, slow, and rare.</li>
+          </ul>
+          <p class="verdict">Feels like a person who would say no to a bad idea.</p>
+        </article>
+        <article class="you">
+          <p class="label">You</p>
+          <ul>
+            <li>Two fonts. Weight 800 on almost every heading.</li>
+            <li>Gradients, orbs, grain, glass, peach, and dusk-blue — all at once.</li>
+            <li>Hero is a title card. No face, no CTA, no place.</li>
+            <li>Work is a stack of rounded screenshot cards with overlays.</li>
+            <li>Footer has empty columns and a ghost wordmark.</li>
+            <li>Motion is everywhere, so none of it means anything.</li>
+          </ul>
+          <p class="verdict">Feels like a talented developer decorating a résumé.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="block" id="system">
+      <p class="num">01 — Color</p>
+      <h2>His palette is a decision. Yours is a moodboard.</h2>
+      <p class="sub">
+        From his styleguide: Dark, Gray, Blue, Light Gray, White. That is the entire brand. The blue (#455CE9) shows up on magnetic buttons, the ampersand, and links. Everything else is charcoal and paper.
+      </p>
+
+      <div class="split">
+        <article class="him">
+          <p class="label">Dennis — 5 tokens</p>
+          <div class="swatches">
+            <div class="swatch" style="background:#1c1d20;border:1px solid rgba(255,255,255,0.12)">Dark<span>#1C1D20</span></div>
+            <div class="swatch" style="background:#999d9e;color:#1c1d20">Gray<span>#999D9E</span></div>
+            <div class="swatch" style="background:#455ce9">Blue<span>#455CE9</span></div>
+            <div class="swatch" style="background:#e9eaeb;color:#1c1d20">Light<span>#E9EAEB</span></div>
+            <div class="swatch" style="background:#fff;color:#1c1d20">White<span>#FFFFFF</span></div>
+          </div>
+          <p class="verdict">Surfaces are flat. Sections flip dark → light → dark. No gradients. No glass. No blur.</p>
+        </article>
+        <article class="you">
+          <p class="label">You — competing systems</p>
+          <div class="swatches">
+            <div class="swatch" style="background:#293241">Jet<span>#293241</span></div>
+            <div class="swatch" style="background:#3d5a80">Dusk<span>#3D5A80</span></div>
+            <div class="swatch" style="background:#98c1d9;color:#1c1d20">Powder<span>#98C1D9</span></div>
+            <div class="swatch" style="background:#e0fbfc;color:#1c1d20">Cyan<span>#E0FBFC</span></div>
+            <div class="swatch" style="background:#ee6c4d">Peach<span>#EE6C4D</span></div>
+          </div>
+          <p class="verdict">Then radial gradients on every section, glass panels, grain overlays, and peach fighting blue. The page never rests.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="block">
+      <p class="num">02 — Type</p>
+      <h2>Stop using weight as hierarchy.</h2>
+      <p class="sub">
+        Dennis Sans at weight 450, always. Homepage display is 216px / 1.0 line-height. Styleguide H1 is ~88px. Labels are 10px uppercase. Body is ~17–21px. Tracking is normal. Nothing is extrabold. Nothing is tight.
+      </p>
+
+      <div class="split" style="margin-bottom: 2.5rem;">
+        <article class="him">
+          <p class="label">Dennis</p>
+          <div class="type-row">
+            <span class="tag">Display</span>
+            <span class="display">Snellenberg—</span>
+            <span class="spec">216px · 450</span>
+          </div>
+          <div class="type-row">
+            <span class="tag">H1</span>
+            <span class="h-lg">Heading H1</span>
+            <span class="spec">88px · 450</span>
+          </div>
+          <div class="type-row">
+            <span class="tag">H4</span>
+            <span class="h-md">A sentence, not a slogan.</span>
+            <span class="spec">33px · 450</span>
+          </div>
+          <div class="type-row">
+            <span class="tag">H5</span>
+            <span class="h-sm">Recent work</span>
+            <span class="spec">10px · uppercase</span>
+          </div>
+        </article>
+        <article class="you">
+          <p class="label">You</p>
+          <div class="type-row">
+            <span class="tag">H1</span>
+            <span class="h-lg w800">full-stack</span>
+            <span class="spec">128px · 800 · −0.05em</span>
+          </div>
+          <div class="type-row">
+            <span class="tag">H2</span>
+            <span class="h-lg w800">À propos</span>
+            <span class="spec">96px · 800 · −0.06em</span>
+          </div>
+          <div class="type-row">
+            <span class="tag">H3</span>
+            <span class="h-md w800">Lexya</span>
+            <span class="spec">~60px · 800</span>
+          </div>
+          <div class="type-row">
+            <span class="tag">UI</span>
+            <span class="h-sm">Voir le projet</span>
+            <span class="spec">10px · bold · tracked</span>
+          </div>
+        </article>
+      </div>
+
+      <p class="sub" style="margin-bottom:0">
+        Plus Jakarta ExtraBold with −0.05em tracking is a 2022 Webflow / Awwwards clone tell. It shouts. Dennis whispers at 216px and still wins, because the letterforms are allowed to be themselves. Pick one grotesque. Use two weights, maximum. Let size and color carry rank.
+      </p>
+    </section>
+
+    <section class="block" id="pages">
+      <p class="num">03 — Hero</p>
+      <h2>Yours is a splash. His is an introduction.</h2>
+      <p class="sub">
+        First viewport is where the stranger decides if they keep scrolling. Compare what each of you put on stage.
+      </p>
+
+      <div class="wire">
+        <div>
+          <p class="label" style="font-size:0.7rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--gray);margin-bottom:0.75rem">Dennis — first screen</p>
+          <div class="frame">
+            <div class="bar">
+              <span>Work &nbsp; About &nbsp; Contact</span>
+              <span>Menu</span>
+            </div>
+            <p style="font-size:0.95rem;color:var(--gray);margin-bottom:0.6rem">Freelance Designer <span style="color:var(--blue)">&amp;</span> Developer</p>
+            <p class="title">Dennis<br />Snellenberg—</p>
+            <p style="position:absolute;left:1.25rem;bottom:1.25rem;font-size:0.8rem;color:var(--gray)">Netherlands</p>
+            <div class="cta">Get in<br />touch</div>
+          </div>
+        </div>
+        <div>
+          <p class="label" style="font-size:0.7rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--gray);margin-bottom:0.75rem">You — first screen</p>
+          <div class="frame yours">
+            <div class="orb"></div>
+            <div class="bar">
+              <span style="font-weight:800">Thibault.</span>
+              <span>☰</span>
+            </div>
+            <p style="font-size:0.95rem;margin-bottom:0.6rem">Hey, je suis Nicolas</p>
+            <p class="title">Développeur<br />full-stack</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="split" style="margin-top: 2rem;">
+        <article class="him">
+          <p class="label">What he includes</p>
+          <ul>
+            <li>Visible text nav. No hamburger on desktop.</li>
+            <li>Role as a human sentence, not a job title lockup.</li>
+            <li>Name as the product. The em dash is a pause, not a flourish.</li>
+            <li>A photograph. A person, not a gradient.</li>
+            <li>Location. Grounds the brand.</li>
+            <li>One CTA, magnetic, impossible to miss.</li>
+            <li>A thin page scrollbar as chrome — the site has a body.</li>
+          </ul>
+        </article>
+        <article class="you">
+          <p class="label">What you omit</p>
+          <ul>
+            <li>Nav is hidden behind a hamburger. Four links do not need a drawer.</li>
+            <li>The greeting is small-talk. It does not position you.</li>
+            <li>The title is generic. A thousand Québec portfolios say this.</li>
+            <li>No portrait, no work, no place, no offer.</li>
+            <li>The CTA is missing. Availability is buried in the footer.</li>
+            <li>Orbs and grain are doing the job a photograph should do.</li>
+            <li>Low-contrast dusk-blue on pale cyan. The type is large and still timid.</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section class="block">
+      <p class="num">04 — Information architecture</p>
+      <h2>Cut the homepage in half.</h2>
+      <p class="sub">
+        Dennis has one idea per scroll. You have a full LinkedIn profile, a case-study grid, a tech inventory, and a process diagram before anyone is asked to write you. That is a pitch deck, not a homepage.
+      </p>
+
+      <div class="ia">
+        <div>
+          <h3>Dennis · ~4,800px</h3>
+          <ol>
+            <li>Hero — identity + CTA <span class="len">1 screen</span></li>
+            <li>Intro — manifesto + About <span class="len">½ screen</span></li>
+            <li>Work list — 4 names <span class="len">1 screen</span></li>
+            <li>More work — one button <span class="len">small</span></li>
+            <li>Footer — let’s work together <span class="len">1 screen</span></li>
+          </ol>
+        </div>
+        <div>
+          <h3>You · ~11,600px</h3>
+          <ol>
+            <li>Hero — title only <span class="len">1 screen</span></li>
+            <li>About — 3 paragraphs + stats <span class="len">long</span></li>
+            <li>Experience — 6 stacked cards <span class="kill">cut</span></li>
+            <li>Projects — 3 glass cards <span class="len">keep, rewrite</span></li>
+            <li>Tech stack — laundry list <span class="kill">cut</span></li>
+            <li>Process — 4 generic steps <span class="kill">cut</span></li>
+            <li>Footer — sitemap + ghost type <span class="len">rewrite</span></li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <section class="block">
+      <p class="num">05 — Work</p>
+      <h2>Cards are a confession of distrust.</h2>
+      <p class="sub">
+        Dennis trusts the name of the project. TWICE. The Damai. FABRIC™. Role and year sit in gray, on a hairline. Hover, and a magnetic “View” disc follows the cursor with the image inside it. The work is revealed, not wallpapered.
+      </p>
+
+      <div class="split">
+        <article class="him">
+          <p class="label">List, then media</p>
+          <ul>
+            <li>Typography is the interface. ~76px names, weight 450.</li>
+            <li>One row: name — role — year.</li>
+            <li>Images are a reward for curiosity, not a default.</li>
+            <li>“More work 11” is a count, not a banner.</li>
+            <li>No tech pills. The craft is in the site you’re on.</li>
+          </ul>
+        </article>
+        <article class="you">
+          <p class="label">Card, then more card</p>
+          <ul>
+            <li>16/10 screenshot in a 40px-radius glass frame.</li>
+            <li>Hover overlay: “Voir le projet” in tracked caps. 2018 Dribbble.</li>
+            <li>A second glass panel for the text. Why is copy in a card?</li>
+            <li>Tech chips (Next.js, TypeScript) as if the hiring manager needs badges.</li>
+            <li>Alternating left/right layout. Template rhythm. Predictable.</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section class="block">
+      <p class="num">06 — The rest of the scroll</p>
+      <h2>About, experience, stack, process, footer.</h2>
+
+      <div class="split">
+        <article class="him">
+          <p class="label">Intro</p>
+          <ul>
+            <li>One manifesto line at 33px: “Helping brands to stand out in the digital era.”</li>
+            <li>One supporting paragraph. Then a round “About me”.</li>
+            <li>He does not explain why he is different. The site already did.</li>
+          </ul>
+          <p class="verdict" style="margin-top:2rem">Footer</p>
+          <ul>
+            <li>“Let’s work together” as display type.</li>
+            <li>Giant magnetic Get in touch.</li>
+            <li>Email and phone as large pill links.</li>
+            <li>Version. Local time. Socials. The site feels alive and current.</li>
+          </ul>
+        </article>
+        <article class="you">
+          <p class="label">About + stats</p>
+          <ul>
+            <li>Three paragraphs of self-positioning. “Je demande pourquoi avant comment.”</li>
+            <li>“100% satisfaction” is a claim nobody believes. Cut it.</li>
+            <li>Glass stat cards under a grain overlay. Decoration on decoration.</li>
+          </ul>
+          <p class="verdict" style="margin-top:2rem">Experience / stack / process</p>
+          <ul>
+            <li>Pinned rainbow cards for every internship. Homepage is not a CV.</li>
+            <li>Stack lists jQuery next to Next.js. That is not curation.</li>
+            <li>Process: Découverte → Conception → Développement → Livraison. Agency filler.</li>
+            <li>Footer: unused grid cell, italic line, peach underline, 20vw ghost “THIBAULT”.</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section class="block">
+      <p class="num">07 — Motion and craft</p>
+      <h2>He animates objects. You animate the page.</h2>
+      <p class="sub">
+        Dennis: locomotive smooth scroll, a multilingual preloader, magnetic buttons with a 0.7s cubic-bezier(.7, 0, .3, 1), hover image that tracks the mouse. Four tricks, done perfectly.
+        You: GSAP + Framer Motion, orb drift, text reveal, card pin-stack, image scrub, hover scale, drawer slide, marquee. The page never sits still, so nothing can land.
+      </p>
+      <p class="sub" style="margin-bottom:0">
+        Also: his easing is a brand token (<code style="color:var(--white)">--animation-primary</code>). Yours is a different curve in every file. Pick one bezier and make it law.
+      </p>
+    </section>
+
+    <section class="block" id="moves">
+      <p class="num">08 — What to do</p>
+      <h2>Steal the system. Do not clone the site.</h2>
+      <p class="sub">
+        Ranked. Do these in order. Each one makes the next one cheaper.
+      </p>
+
+      <div class="moves">
+        <div class="move">
+          <span class="n">01</span>
+          <div>
+            <h3>Kill the atmosphere layer</h3>
+            <p>Remove radial gradients, floating orbs, grain SVGs, glass-panel, backdrop-blur, and box shadows from the homepage. Flat surfaces. Alternate charcoal and white the way he does. Your type will suddenly look twice as expensive.</p>
+          </div>
+        </div>
+        <div class="move">
+          <span class="n">02</span>
+          <div>
+            <h3>One typeface, two weights</h3>
+            <p>Drop the ExtraBold / −0.05em lockup. Keep Plus Jakarta or switch to a single grotesque. Weights: 450–500 for everything, 600 only if you must. Hierarchy = size + color. Labels = 10–11px, slight tracking, uppercase, gray.</p>
+          </div>
+        </div>
+        <div class="move">
+          <span class="n">03</span>
+          <div>
+            <h3>Rebuild the hero as a layout</h3>
+            <p>Visible nav (Work, About, Contact). A one-line role. Your name or a sharper claim as display type. A real photograph. Location: Québec. One round CTA: “Écrivez-moi” / “Get in touch”. That is the whole first screen.</p>
+          </div>
+        </div>
+        <div class="move">
+          <span class="n">04</span>
+          <div>
+            <h3>Homepage = Hero, Intro, Work, Footer</h3>
+            <p>Move experience, stack, and process off the home. Experience belongs on About. Stack belongs in project pages, if anywhere. Process is optional and currently generic — rewrite it or delete it.</p>
+          </div>
+        </div>
+        <div class="move">
+          <span class="n">05</span>
+          <div>
+            <h3>Work as a typographic list</h3>
+            <p>Name, role, year. Hairline rules. On hover, a magnetic disc with the project image (you already have GSAP). No glass cards, no tech pills, no “Voir le projet →” overlay. Let Lexya be a word, not a widget.</p>
+          </div>
+        </div>
+        <div class="move">
+          <span class="n">06</span>
+          <div>
+            <h3>One accent, used like a signature</h3>
+            <p>Keep burnt peach or pick a blue. Not both. Use it on the magnetic button, one character in the kicker, and link hover. If it appears more than three times per viewport, it has stopped meaning anything.</p>
+          </div>
+        </div>
+        <div class="move">
+          <span class="n">07</span>
+          <div>
+            <h3>Make the footer the close</h3>
+            <p>“Travaillons ensemble.” Display size. One giant round CTA. Email as a large pill. Local time (America/Toronto). LinkedIn / GitHub as text, not icons. Delete the unused grid cell and the ghost THIBAULT.</p>
+          </div>
+        </div>
+        <div class="move">
+          <span class="n">08</span>
+          <div>
+            <h3>Write less, and write harder</h3>
+            <p>Replace the three-paragraph about with one sentence you would say out loud. Cut “100% satisfaction” and “20+ projets”. Cut “Centré Utilisateur • Performance • …” marquee. Specificity is the aesthetic. “Lead on a Québec textbook platform” beats “I think like a product builder”.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="dont">
+        <h3>Do not</h3>
+        <ul>
+          <li>Copy his custom font, magnetic easing, or “Code by …” credit. That is his brand, not a kit.</li>
+          <li>Go dark just because he is dark. Dark works because everything else is quiet. Dark + orbs + glass is worse.</li>
+          <li>Add a preloader that says Bonjour / Hello until the rest of the site is as considered as the loader.</li>
+          <li>Keep every section and “simplify” the CSS. The sections are the problem.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="block">
+      <p class="num">09 — If you only change five files</p>
+      <h2>A practical cut list.</h2>
+      <div class="split">
+        <article>
+          <p class="label">Touch</p>
+          <ul>
+            <li><code>globals.css</code> — strip utility noise, set 5 tokens, one easing.</li>
+            <li><code>Hero.tsx</code> — layout, photo, CTA, kill orbs.</li>
+            <li><code>Header.tsx</code> — desktop text links; drawer on mobile only.</li>
+            <li><code>Projects.tsx</code> — list + magnetic hover, not cards.</li>
+            <li><code>Footer.tsx</code> — display CTA, pills, local time.</li>
+          </ul>
+        </article>
+        <article>
+          <p class="label">Remove from home</p>
+          <ul>
+            <li><code>Experience.tsx</code> → About page.</li>
+            <li><code>TechStack.tsx</code> → delete or tuck into About.</li>
+            <li><code>Process.tsx</code> → rewrite or drop.</li>
+            <li>About stats row → one sentence, or nothing.</li>
+            <li>Framer Motion in the header if GSAP already owns motion.</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="end wrap">
+    <p>Read against <a href="https://dennissnellenberg.com/" target="_blank" rel="noreferrer">dennissnellenberg.com</a> and his <a href="https://dennissnellenberg.com/styleguide" target="_blank" rel="noreferrer">styleguide</a>.</p>
+    <p>Not a clone brief. A restraint brief.</p>
+  </footer>
+</body>
+</html>
