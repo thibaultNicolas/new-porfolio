@@ -18,7 +18,7 @@ export function Header() {
   const [isOpen, setIsOpen] = useState(false);
   const isHome = pathname === "/";
   const sectionTone = useHeaderTone(isHome);
-  // Paper nav on copper (home hero) and on dark canvas. Ink/fg nav on light canvas.
+  // Paper nav on oxblood (home hero) and on dark canvas. Ink/fg nav on light canvas.
   const isLight = isHome
     ? sectionTone === "light" || theme === "dark"
     : theme === "dark";

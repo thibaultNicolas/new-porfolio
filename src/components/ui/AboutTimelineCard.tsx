@@ -34,7 +34,7 @@ export function AboutTimelineCard({
         className={cn(
           "about-timeline-card group relative overflow-hidden rounded-[1.5rem] border bg-white p-6 transition-[transform,box-shadow,border-color] duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] motion-reduce:transition-none md:p-8",
           current
-            ? "border-accent/40 shadow-[0_24px_60px_rgba(196,92,56,0.14)]"
+            ? "border-accent/40 shadow-[0_24px_60px_rgba(156,59,59,0.14)]"
             : "border-line shadow-[0_8px_32px_rgba(0,0,0,0.08)] hover:border-ink/15 hover:shadow-[0_20px_48px_rgba(0,0,0,0.12)]",
         )}
       >

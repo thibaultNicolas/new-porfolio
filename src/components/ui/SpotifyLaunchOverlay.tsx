@@ -122,7 +122,7 @@ export function SpotifyLaunchOverlay({
 
       <div
         ref={expanderPrimaryRef}
-        className="absolute z-[2] h-28 w-28 rounded-full bg-accent shadow-[0_0_120px_rgba(196,92,56,0.55)]"
+        className="absolute z-[2] h-28 w-28 rounded-full bg-accent shadow-[0_0_120px_rgba(156,59,59,0.55)]"
       />
       <div
         ref={expanderRingRef}

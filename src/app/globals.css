@@ -31,7 +31,7 @@
   --color-paper: #fafafa;
   --color-ink: #09090b;
   --color-stone: #475569;
-  --color-accent: #c45c38;
+  --color-accent: #9c3b3b;
   --color-line: #e4e4e7;
   --ease: cubic-bezier(0.22, 1, 0.36, 1);
 }
@@ -94,10 +94,10 @@ button {
   background:
     radial-gradient(
       140% 110% at 50% -12%,
-      #ff9a4a 0%,
-      #e56a32 20%,
-      #c45c38 40%,
-      #5a2216 62%,
+      #c46a6a 0%,
+      #b44a4a 20%,
+      #9c3b3b 40%,
+      #4a1818 62%,
       transparent 80%
     );
 }
@@ -106,10 +106,10 @@ button {
   background:
     radial-gradient(
       140% 110% at 50% -12%,
-      #ff9a4a 0%,
-      #e56a32 14%,
-      #c45c38 28%,
-      rgba(196, 92, 56, 0.14) 46%,
+      #c46a6a 0%,
+      #b44a4a 14%,
+      #9c3b3b 28%,
+      rgba(156, 59, 59, 0.14) 46%,
       transparent 72%
     );
 }
@@ -119,10 +119,10 @@ button {
   isolation: isolate;
   overflow: hidden;
   background:
-    radial-gradient(55% 40% at 0% 22%, rgba(255, 154, 74, 0.09) 0%, transparent 52%),
-    radial-gradient(50% 38% at 100% 38%, rgba(196, 92, 56, 0.08) 0%, transparent 50%),
-    radial-gradient(65% 42% at 18% 62%, rgba(255, 154, 74, 0.06) 0%, transparent 52%),
-    radial-gradient(60% 35% at 82% 78%, rgba(196, 92, 56, 0.07) 0%, transparent 50%),
+    radial-gradient(55% 40% at 0% 22%, rgba(196, 106, 106, 0.09) 0%, transparent 52%),
+    radial-gradient(50% 38% at 100% 38%, rgba(156, 59, 59, 0.08) 0%, transparent 50%),
+    radial-gradient(65% 42% at 18% 62%, rgba(196, 106, 106, 0.06) 0%, transparent 52%),
+    radial-gradient(60% 35% at 82% 78%, rgba(156, 59, 59, 0.07) 0%, transparent 50%),
     linear-gradient(
       180deg,
       rgb(var(--theme-canvas-base)) 0%,
@@ -133,10 +133,10 @@ button {
 
 [data-theme="light"] .home-dark-flow {
   background:
-    radial-gradient(55% 40% at 0% 22%, rgba(255, 154, 74, 0.12) 0%, transparent 52%),
-    radial-gradient(50% 38% at 100% 38%, rgba(196, 92, 56, 0.1) 0%, transparent 50%),
-    radial-gradient(65% 42% at 18% 62%, rgba(255, 154, 74, 0.08) 0%, transparent 52%),
-    radial-gradient(60% 35% at 82% 78%, rgba(196, 92, 56, 0.09) 0%, transparent 50%),
+    radial-gradient(55% 40% at 0% 22%, rgba(196, 106, 106, 0.12) 0%, transparent 52%),
+    radial-gradient(50% 38% at 100% 38%, rgba(156, 59, 59, 0.1) 0%, transparent 50%),
+    radial-gradient(65% 42% at 18% 62%, rgba(196, 106, 106, 0.08) 0%, transparent 52%),
+    radial-gradient(60% 35% at 82% 78%, rgba(156, 59, 59, 0.09) 0%, transparent 50%),
     linear-gradient(
       180deg,
       rgb(var(--theme-canvas-base)) 0%,
@@ -146,19 +146,19 @@ button {
 }
 
 [data-theme="light"] .home-dark-flow-orb--left-top {
-  background: rgba(255, 154, 74, 0.2);
+  background: rgba(196, 106, 106, 0.2);
 }
 
 [data-theme="light"] .home-dark-flow-orb--right-mid {
-  background: rgba(196, 92, 56, 0.16);
+  background: rgba(156, 59, 59, 0.16);
 }
 
 [data-theme="light"] .home-dark-flow-orb--left-mid {
-  background: rgba(255, 154, 74, 0.14);
+  background: rgba(196, 106, 106, 0.14);
 }
 
 [data-theme="light"] .home-dark-flow-orb--right-low {
-  background: rgba(196, 92, 56, 0.15);
+  background: rgba(156, 59, 59, 0.15);
 }
 
 .home-dark-flow-ambient {
@@ -177,7 +177,7 @@ button {
   left: -8%;
   width: min(42vw, 22rem);
   height: min(42vw, 22rem);
-  background: rgba(255, 154, 74, 0.13);
+  background: rgba(196, 106, 106, 0.13);
 }
 
 .home-dark-flow-orb--right-mid {
@@ -185,7 +185,7 @@ button {
   right: -10%;
   width: min(48vw, 26rem);
   height: min(48vw, 26rem);
-  background: rgba(196, 92, 56, 0.11);
+  background: rgba(156, 59, 59, 0.11);
 }
 
 .home-dark-flow-orb--left-mid {
@@ -193,7 +193,7 @@ button {
   left: -12%;
   width: min(44vw, 24rem);
   height: min(44vw, 24rem);
-  background: rgba(255, 154, 74, 0.08);
+  background: rgba(196, 106, 106, 0.08);
 }
 
 .home-dark-flow-orb--right-low {
@@ -201,7 +201,7 @@ button {
   right: -8%;
   width: min(50vw, 28rem);
   height: min(50vw, 28rem);
-  background: rgba(196, 92, 56, 0.1);
+  background: rgba(156, 59, 59, 0.1);
 }
 
 .home-dark-flow-grain {
@@ -383,8 +383,8 @@ body.spotify-launch-active main {
   background:
     radial-gradient(
       120% 80% at 50% 18%,
-      rgba(255, 154, 74, 0.34) 0%,
-      rgba(196, 92, 56, 0.22) 28%,
+      rgba(196, 106, 106, 0.34) 0%,
+      rgba(156, 59, 59, 0.22) 28%,
       transparent 62%
     ),
     linear-gradient(180deg, #120c0a 0%, #09090b 100%);
@@ -516,9 +516,9 @@ body.spotify-launch-active main {
   .service-card-shell-interactive:hover {
     transform: translateY(-6px);
     box-shadow:
-      0 0 0 1px rgba(255, 154, 74, 0.24),
+      0 0 0 1px rgba(196, 106, 106, 0.24),
       0 36px 90px rgba(0, 0, 0, 0.55),
-      0 18px 48px rgba(196, 92, 56, 0.24);
+      0 18px 48px rgba(156, 59, 59, 0.24);
   }
 }
 
@@ -631,10 +631,10 @@ body.spotify-launch-active main {
   background:
     radial-gradient(
       120% 95% at 50% -10%,
-      #ff9a4a 0%,
-      #e56a32 20%,
-      #c45c38 42%,
-      #5a2216 64%,
+      #c46a6a 0%,
+      #b44a4a 20%,
+      #9c3b3b 42%,
+      #4a1818 64%,
       #1a0d0a 100%
     ),
     linear-gradient(180deg, #1a0d0a 0%, #09090b 100%);
@@ -649,8 +649,8 @@ body.spotify-launch-active main {
 .service-card-hover-glow {
   background: radial-gradient(
     90% 70% at 50% 0%,
-    rgba(255, 154, 74, 0.32) 0%,
-    rgba(196, 92, 56, 0.14) 42%,
+    rgba(196, 106, 106, 0.32) 0%,
+    rgba(156, 59, 59, 0.14) 42%,
     transparent 72%
   );
 }

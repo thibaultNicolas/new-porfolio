@@ -18,7 +18,7 @@ const config: Config = {
         paper: "#fafafa",
         ink: "#09090b",
         stone: "#475569",
-        accent: "#c45c38",
+        accent: "#9c3b3b",
         line: "#e4e4e7",
         fg: "rgb(var(--theme-fg) / <alpha-value>)",
         "off-white": "#fafafa",
