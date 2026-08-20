@@ -14,16 +14,16 @@ export const experience: Experience[] = [
   {
     id: "exp-1",
     company: "InputKit",
-    role: "Développeur",
+    role: "Développeur Full Stack",
     period: "avr. 2025 - aujourd'hui",
     description: [
       "Développement et maintenance d'un SaaS de gestion de l'expérience client et employé",
-      "Conception et développement de fonctionnalités web modulaires avec Vue.js et Node.js",
-      "Optimisation des APIs et bases de données pour la performance et la scalabilité",
-      "Design d'interfaces centrées utilisateur pour améliorer l'expérience et l'ergonomie",
+      "Refonte complète de l'application en React, Node.js et Convex",
+      "Lead dev de la refonte du site internet en Next.js",
+      "Lead dev de Guide InputKit, une application Next.js et Convex",
       "Prompt engineering et intégration de modèles d'IA (OpenAI, Lovable, Cursor) pour la génération automatique de contenu spécifique",
     ],
-    technologies: ["Vue.js", "Vuetify", "Node.js", "JavaScript", "TypeScript"],
+    technologies: ["React", "Next.js", "Convex", "Node.js", "TypeScript"],
   },
   {
     id: "exp-2",

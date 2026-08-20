@@ -11,12 +11,13 @@ export async function ContactCta() {
 
   const title = t.rich("title", {
     accent: (chunks: ReactNode) => (
-      <em className="font-serif italic font-normal tracking-normal text-paper">{chunks}</em>
+      <em className="font-serif italic font-normal tracking-normal text-accent">{chunks}</em>
     ),
   });
 
   return (
     <section
+      id="contact"
       aria-labelledby="contact-cta-heading"
       className="contact-cta-shell relative overflow-hidden px-6 py-20 text-paper md:px-12 md:py-28 lg:px-16"
     >
@@ -51,7 +52,7 @@ export async function ContactCta() {
             <div className="mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row sm:gap-4">
               <a
                 href={`mailto:${CONTACT_EMAIL}`}
-                className="contact-cta-primary inline-flex min-h-11 min-w-[11rem] cursor-pointer items-center justify-center gap-2 rounded-full bg-paper px-7 text-sm font-semibold text-ink shadow-[0_8px_28px_rgba(0,0,0,0.28)] transition-[background-color,transform,box-shadow] duration-300 hover:bg-paper hover:shadow-[0_12px_40px_rgba(0,0,0,0.35)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-paper"
+                className="contact-cta-primary inline-flex min-h-11 min-w-[11rem] cursor-pointer items-center justify-center gap-2 rounded-full bg-paper px-7 text-sm font-semibold text-ink transition-[background-color,transform] duration-300 hover:bg-paper/90 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-paper"
               >
                 {t("emailCta")}
                 <ArrowIcon />

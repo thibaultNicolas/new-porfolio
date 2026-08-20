@@ -2,6 +2,7 @@
 export const TECH_LOGOS = [
   { id: "react", name: "React" },
   { id: "nextjs", name: "Next.js" },
+  { id: "convex", name: "Convex" },
   { id: "vue", name: "Vue.js" },
   { id: "typescript", name: "TypeScript" },
   { id: "nodejs", name: "Node.js" },

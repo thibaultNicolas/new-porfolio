@@ -25,6 +25,7 @@ export const skills: Skill[] = [
     items: [
       "Node.js",
       "Express",
+      "Convex",
       "PostgreSQL",
       "MongoDB",
       "GraphQL",

@@ -5,6 +5,7 @@ import { useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
+import { Link } from "@/i18n/routing";
 import { AboutExperienceRow } from "@/components/ui/AboutExperienceRow";
 
 gsap.registerPlugin(ScrollTrigger);
@@ -22,6 +23,7 @@ export interface AboutCopy {
   headline: ReactNode;
   subtitle: string;
   experienceItems: AboutExperienceItem[];
+  viewMore: string;
 }
 
 export function AboutMotion({ copy }: { copy: AboutCopy }) {
@@ -79,15 +81,12 @@ export function AboutMotion({ copy }: { copy: AboutCopy }) {
     >
       <div className="relative mx-auto max-w-7xl px-6 md:px-12 lg:px-16">
         <header className="about-intro-animate">
-          <span className="inline-flex rounded-full border border-fg/15 px-3.5 py-1 text-xs tracking-wide text-fg/70">
-            {copy.badge}
-          </span>
-
-          <div className="mt-8 grid gap-6 lg:mt-10 lg:grid-cols-12 lg:gap-12 lg:items-start">
-            <h2 className="font-heading text-4xl font-medium leading-[1.06] tracking-tight text-fg md:text-[2.75rem] lg:col-span-7 lg:text-[3.15rem]">
+          <p className="section-kicker">{copy.badge}</p>
+          <div className="mt-5 grid gap-6 lg:grid-cols-12 lg:items-start lg:gap-12">
+            <h2 className="section-title lg:col-span-7">
               {copy.headline}
             </h2>
-            <p className="max-w-md text-base leading-relaxed text-fg/55 md:text-lg lg:col-span-5 lg:justify-self-end lg:text-right">
+            <p className="section-intro md:text-lg lg:col-span-5 lg:justify-self-end lg:text-right">
               {copy.subtitle}
             </p>
           </div>
@@ -104,7 +103,29 @@ export function AboutMotion({ copy }: { copy: AboutCopy }) {
             />
           ))}
         </ol>
+
+        <div className="about-intro-animate mt-10">
+          <Link href="/about" className="cta-secondary">
+            {copy.viewMore}
+            <ArrowUpRightIcon />
+          </Link>
+        </div>
       </div>
     </section>
+  );
+}
+
+function ArrowUpRightIcon() {
+  return (
+    <svg viewBox="0 0 16 16" className="h-3.5 w-3.5" aria-hidden="true">
+      <path
+        d="M4 12L12 4M12 4H6M12 4V10"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
   );
 }

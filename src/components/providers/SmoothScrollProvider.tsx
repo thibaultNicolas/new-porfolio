@@ -8,13 +8,21 @@ import { usePathname } from "next/navigation";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const HEADER_OFFSET = -24;
+const HEADER_OFFSET = -96;
 
-function scrollToHash(lenis: Lenis, hash: string, immediate = false): void {
+function scrollToHash(lenis: Lenis, hash: string, immediate = false, attempts = 12): void {
   const id = decodeURIComponent(hash.replace("#", ""));
   if (!id) return;
+
   const target = document.getElementById(id);
-  if (!target) return;
+  if (!target) {
+    if (attempts <= 0) return;
+    requestAnimationFrame(() => {
+      scrollToHash(lenis, hash, immediate, attempts - 1);
+    });
+    return;
+  }
+
   lenis.scrollTo(target, { offset: HEADER_OFFSET, immediate });
 }
 
@@ -81,7 +89,11 @@ export function SmoothScrollProvider({ children }: { children: React.ReactNode }
     if (window.location.hash) {
       if (lenis) {
         scrollToHash(lenis, window.location.hash, true);
+        return;
       }
+
+      const id = decodeURIComponent(window.location.hash.replace("#", ""));
+      document.getElementById(id)?.scrollIntoView();
       return;
     }
 

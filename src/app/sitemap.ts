@@ -22,6 +22,20 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.9,
     });
 
+    entries.push({
+      url: `${siteUrl}/${locale}/services`,
+      lastModified: new Date(),
+      changeFrequency: "monthly",
+      priority: 0.8,
+    });
+
+    entries.push({
+      url: `${siteUrl}/${locale}/about`,
+      lastModified: new Date(),
+      changeFrequency: "monthly",
+      priority: 0.8,
+    });
+
     projects.forEach((project) => {
       entries.push({
         url: `${siteUrl}/${locale}/projects/${project.id}`,

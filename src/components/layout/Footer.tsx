@@ -9,25 +9,44 @@ export async function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer id="contact" className="site-footer-shell relative overflow-hidden text-fg">
+    <footer className="site-footer-shell relative overflow-hidden">
       <div className="mx-auto max-w-7xl px-6 pb-12 pt-12 md:px-12 lg:px-16">
         <div className="grid grid-cols-2 gap-12 md:grid-cols-3">
           <div>
-            <p className="text-xs uppercase tracking-[0.18em] text-fg/40">{t("nav_title")}</p>
+            <p className="text-xs uppercase tracking-[0.18em] text-current/40">
+              {t("nav_title")}
+            </p>
             <nav className="mt-5 flex flex-col gap-3">
-              <Link href="/" className="nav-link w-fit pb-0.5 hover:text-accent">
+              <Link
+                href="/"
+                className="nav-link w-fit pb-0.5 text-current hover:text-accent"
+              >
                 {tNav("home")}
               </Link>
-              <Link href="/#work" className="nav-link w-fit pb-0.5 hover:text-accent">
+              <Link
+                href="/projects"
+                className="nav-link w-fit pb-0.5 text-current hover:text-accent"
+              >
                 {tNav("projects")}
               </Link>
-              <Link href="/#about" className="nav-link w-fit pb-0.5 hover:text-accent">
+              <Link
+                href="/services"
+                className="nav-link w-fit pb-0.5 text-current hover:text-accent"
+              >
+                {tNav("stack")}
+              </Link>
+              <Link
+                href="/about"
+                className="nav-link w-fit pb-0.5 text-current hover:text-accent"
+              >
                 {tNav("about")}
               </Link>
             </nav>
           </div>
           <div>
-            <p className="text-xs uppercase tracking-[0.18em] text-fg/40">{t("social_title")}</p>
+            <p className="text-xs uppercase tracking-[0.18em] text-current/40">
+              {t("social_title")}
+            </p>
             <div className="mt-5 flex flex-col gap-3">
               {SOCIAL_LINKS.map((link) => (
                 <a
@@ -35,7 +54,7 @@ export async function Footer() {
                   href={link.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="nav-link w-fit pb-0.5 hover:text-accent"
+                  className="nav-link w-fit pb-0.5 text-current hover:text-accent"
                 >
                   {link.name}
                 </a>
@@ -43,7 +62,9 @@ export async function Footer() {
             </div>
           </div>
           <div className="col-span-2 flex items-end justify-between gap-4 md:col-span-1 md:flex-col md:items-end">
-            <p className="text-sm text-fg/40">© {currentYear} Nicolas Thibault</p>
+            <p className="text-sm text-current/40">
+              © {currentYear} Nicolas Thibault
+            </p>
             <BackToTop label={t("back_to_top")} />
           </div>
         </div>

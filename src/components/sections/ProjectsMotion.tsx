@@ -10,7 +10,6 @@ import {
   FeaturedProjectCard,
   type FeaturedProjectCardItem,
 } from "@/components/ui/FeaturedProjectCard";
-import { SectionKicker } from "@/components/ui/SectionKicker";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -86,18 +85,18 @@ export function ProjectsMotion({ items, copy }: ProjectsMotionProps) {
       <div className="relative mx-auto max-w-7xl px-6 md:px-12 lg:px-16">
         <header className="projects-header-animate flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">
           <div className="max-w-3xl">
-            <SectionKicker label={copy.badge} index="03" className="projects-header-animate" />
-            <h2 className="mt-4 font-heading text-4xl font-medium leading-[1.02] tracking-tight text-fg md:text-5xl lg:text-[3.35rem]">
+            <p className="section-kicker">{copy.badge}</p>
+            <h2 className="section-title mt-5">
               {copy.headline}
             </h2>
-            <p className="mt-5 max-w-2xl text-lg leading-relaxed text-fg/55 md:text-xl">
+            <p className="section-intro mt-5">
               {copy.intro}
             </p>
           </div>
 
           <Link
             href="/projects"
-            className="inline-flex min-h-11 shrink-0 items-center gap-2 self-start rounded-full border border-ink bg-ink px-5 py-3 text-sm tracking-wide text-paper transition-all duration-300 hover:bg-ink/90 hover:shadow-[0_12px_40px_rgba(0,0,0,0.25)] pill-ink lg:self-auto"
+            className="cta-secondary shrink-0 self-start lg:self-auto"
           >
             {copy.viewMore}
             <ArrowUpRightIcon />
@@ -109,6 +108,7 @@ export function ProjectsMotion({ items, copy }: ProjectsMotionProps) {
             <FeaturedProjectCard
               key={item.id}
               item={item}
+              priority={index < 2}
               className={index % 2 === 1 ? "md:mt-16 lg:mt-24" : undefined}
             />
           ))}

@@ -35,7 +35,7 @@
     "statYearsValue": "5+",
     "available": "Disponible en freelance et à temps plein",
     "playlistTitle": "En écoute",
-    "playlistName": "Mode build 💻",
+    "playlistName": "Mode build",
     "openPlaylist": "Ouvrir la playlist",
     "openingPlaylist": "Ouverture sur Spotify",
     "portraitAlt": "Portrait de Nicolas Thibault"
@@ -46,13 +46,44 @@
     "homeTitle": "Développeur web au Québec",
     "homeDescription": "Développeur web senior créant des produits web modernes, des UX immersives et des architectures scalables.",
     "projectsTitle": "Projets",
-    "projectsDescription": "Projets sélectionnés mettant en avant la réflexion produit, la scalabilité et les technos modernes."
+    "projectsDescription": "Projets sélectionnés mettant en avant la réflexion produit, la scalabilité et les technos modernes.",
+    "servicesTitle": "Services",
+    "servicesDescription": "Apps web, plateformes SaaS, UI engineering et e-commerce. Comment j'aide les équipes à livrer des produits performants et durables.",
+    "aboutTitle": "À propos",
+    "aboutDescription": "Développeur full stack au Québec. Je construis des produits IA utilisés par plus de 2 000 entreprises, ainsi que des apps web, du SaaS et de l'e-commerce."
   },
   "about": {
     "badge": "Expérience",
     "currentLabel": "Rôle actuel",
-    "headline": "Un aperçu de ma croissance <accent>professionnelle</accent>.",
-    "subtitle": "Un résumé des rôles, environnements et étapes qui ont façonné ma façon de concevoir et livrer des produits numériques.",
+    "headline": "Je conçois et livre des produits sur lesquels les équipes <accent>comptent</accent>.",
+    "subtitle": "Les rôles et contextes qui ont formé ma façon de construire pour de vrais usagers, pas pour des decks.",
+    "viewMore": "En savoir plus",
+    "pageTitle": "À propos",
+    "pageHeadline": "Des produits IA utilisés par <accent>plus de 2 000 entreprises</accent>.",
+    "pageIntro": "Développeur full stack au Québec. Je livre des apps web, du SaaS et de l'e-commerce qui doivent tenir en production.",
+    "pageCta": "Me contacter",
+    "linkedinCta": "LinkedIn",
+    "backToHome": "Retour à l'accueil",
+    "tocLabel": "Sur cette page",
+    "tocProfile": "Profil",
+    "tocExperience": "Expérience",
+    "tocEducation": "Formation",
+    "tocLanguages": "Langues",
+    "profileTitle": "Profil",
+    "location": "Québec, Canada",
+    "profileBody1": "Je suis Nicolas, développeur full stack basé au Québec. Je construis des produits IA utilisés par plus de 2 000 entreprises, avec un focus sur des interfaces que les gens peuvent vraiment utiliser.",
+    "profileBody2": "Chez InputKit, j'ai mené la refonte complète du SaaS d'expérience client en React, Node.js et Convex, du site Next.js et de Guide InputKit. Avant ça, j'ai construit des systèmes internes chez Desjardins et des sites clients chez Imago Communication.",
+    "experienceTitle": "Expérience",
+    "educationTitle": "Formation",
+    "languagesTitle": "Langues",
+    "focusTitle": "Ce que j'aime construire",
+    "focus1": "Des fonctionnalités IA dans de vrais produits, pas des démos",
+    "focus2": "Des plateformes web pour des entreprises du Québec, du hockey au commerce",
+    "focus3": "Du craft UI avec de la performance : Next.js, GSAP et des interfaces accessibles",
+    "languageFr": "Français",
+    "languageFrLevel": "Langue maternelle ou bilingue",
+    "languageEn": "Anglais",
+    "languageEnLevel": "Capacité professionnelle de travail",
     "toggle": {
       "experience": "Expérience professionnelle",
       "education": "Formation"
@@ -60,8 +91,9 @@
     "education": {
       "items": {
         "edu-1": {
-          "tag": "2019-2021",
+          "tag": "2019-2022",
           "title": "DEC, Techniques de l'informatique",
+          "school": "Cégep de Sainte-Foy",
           "summary": "Bases en développement logiciel, bases de données et analyse de systèmes, avec un focus sur des applications maintenables.",
           "imageAlt": "Diplôme en techniques de l'informatique"
         },
@@ -85,7 +117,6 @@
         }
       }
     },
-    "pageTitle": "Info",
     "title": "À propos de moi",
     "sections": {
       "overview": "Aperçu",
@@ -145,14 +176,14 @@
     "items": {
       "exp-1": {
         "company": "InputKit",
-        "role": "Développeur",
+        "role": "Développeur Full Stack",
         "period": "avr. 2025 - aujourd'hui",
-        "summary": "Développement et mise à l'échelle d'un SaaS d'expérience client avec React, Node.js et des workflows IA, avec un focus sur l'usage et la performance.",
+        "summary": "Lead de la refonte complète du SaaS d'expérience client en React, Node.js et Convex, du site Next.js et de Guide InputKit.",
         "description": [
           "Développement et maintenance d'un SaaS de gestion de l'expérience client et employé",
-          "Refonte complète de la plateforme avec React et Node.js (architecture, UI et performance)",
-          "Optimisation des APIs et bases de données pour la performance et la scalabilité",
-          "Design d'interfaces centrées utilisateur pour améliorer l'expérience et l'ergonomie",
+          "Refonte complète de l'application en React, Node.js et Convex",
+          "Lead dev de la refonte du site internet en Next.js",
+          "Lead dev de Guide InputKit, une application Next.js et Convex",
           "Prompt engineering et intégration de modèles d'IA (OpenAI, Lovable, Cursor) pour la génération automatique de contenu spécifique"
         ]
       },
@@ -318,22 +349,43 @@
     "headline": "Un aperçu de ce que j'<accent>offre</accent> et de ma façon de livrer.",
     "intro": "De l'architecture produit aux interfaces soignées, j'aide les équipes à livrer des expériences web performantes, convertissantes et évolutives.",
     "cta": "Me contacter",
+    "pageTitle": "Services",
+    "pageHeadline": "Ce que je <accent>construis</accent>, concrètement.",
+    "pageIntro": "Quatre façons d'aider les équipes à livrer des produits web rapides, clairs et prêts pour la production.",
+    "tocLabel": "Aller à un service",
+    "backToHome": "Retour à l'accueil",
     "items": {
       "web_apps": {
         "title": "Apps web",
-        "description": "Produits responsives avec Next.js, React et TypeScript, du MVP au lancement en production."
+        "description": "Produits responsives avec Next.js, React et TypeScript, du MVP au lancement en production.",
+        "body": "Je conçois et livre des apps web de niveau produit avec Next.js, React et TypeScript. Le travail couvre l'architecture, l'interface et un chemin de lancement du premier MVP jusqu'à une mise en production stable.",
+        "point1": "Architecture du MVP jusqu'au lancement",
+        "point2": "TypeScript, Next.js et React en conditions réelles",
+        "point3": "Interfaces responsives, rapides et accessibles"
       },
       "saas": {
         "title": "Plateformes SaaS",
-        "description": "Architectures scalables, APIs et tableaux de bord pensés pour des équipes qui comptent sur la fiabilité."
+        "description": "Architectures scalables, APIs et tableaux de bord pensés pour des équipes qui comptent sur la fiabilité.",
+        "body": "Je construis des produits SaaS sur lesquels les équipes peuvent compter: modèles de données clairs, APIs et tableaux de bord qui restent lisibles à mesure que le produit grandit. La fiabilité et la maintenabilité passent avant une réécriture six mois plus tard.",
+        "point1": "APIs, dashboards et architecture produit scalable",
+        "point2": "Fiabilité pour les équipes qui vivent dans le produit",
+        "point3": "De la marge pour grandir sans tout reconstruire"
       },
       "ui_engineering": {
         "title": "UI Engineering",
-        "description": "Traduction du design en interfaces accessibles, animées et soignées jusqu'au dernier pixel."
+        "description": "Traduction du design en interfaces accessibles, animées et soignées jusqu'au dernier pixel.",
+        "body": "Je traduis le design en interfaces qui tiennent dans le navigateur: composants accessibles, motion qui respecte les préférences de réduction de mouvement, et un niveau de finition visible sans nuire au produit.",
+        "point1": "Design systems implémentés en vrais composants",
+        "point2": "Motion qui respecte la réduction de mouvement",
+        "point3": "Soin pixel par pixel, code maintenable"
       },
       "ecommerce": {
         "title": "E-commerce",
-        "description": "Boutiques Shopify et parcours sur mesure optimisés pour la conversion et la croissance."
+        "description": "Boutiques Shopify et parcours sur mesure optimisés pour la conversion et la croissance.",
+        "body": "Je livre des boutiques Shopify et des parcours commerce sur mesure, avec un chemin d'achat clair. Catalogue, checkout et contenu restent alignés pour que la boutique grandisse sans devenir fragile.",
+        "point1": "Boutiques Shopify et parcours commerce sur mesure",
+        "point2": "Catalogue et checkout orientés conversion",
+        "point3": "Une vitrine qui peut grandir avec le catalogue"
       }
     }
   },
@@ -395,10 +447,10 @@
     }
   },
   "scrollIdentity": {
-    "row1": ["DE", "L'IDÉE", "AU", "PRODUIT"],
-    "row1Accent": "3",
-    "row2": ["BÂTIR", "VOTRE", "RÊVE"],
-    "row2Accent": "2"
+    "row1": ["LIVRER", "POUR", "DE VRAI"],
+    "row1Accent": "2",
+    "row2": ["DE", "L'IDÉE", "AU", "SHIP"],
+    "row2Accent": "3"
   },
   "contactCta": {
     "badge": "Disponible pour de nouveaux projets",
@@ -420,6 +472,6 @@
   },
   "trust": {
     "heading": "Langages que je maîtrise",
-    "label": "Langages et outils : React, Next.js, Vue.js, TypeScript, Node.js, Tailwind, Shopify, WordPress, GSAP et Git."
+    "label": "Langages et outils : React, Next.js, Convex, Vue.js, TypeScript, Node.js, Tailwind, Shopify, WordPress, GSAP et Git."
   }
 }

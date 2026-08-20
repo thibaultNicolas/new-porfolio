@@ -11,14 +11,6 @@ export const SOCIAL_LINKS = [
   },
 ] as const;
 
-export const HERO_TECH_PILLS = [
-  "Next.js",
-  "React",
-  "TypeScript",
-  "Node.js",
-  "Shopify",
-] as const;
-
 /** Drop the portrait in `public/images/hero-portrait.jpg`, then set this path. */
 export const HERO_PORTRAIT_SRC: string | null = null;
 

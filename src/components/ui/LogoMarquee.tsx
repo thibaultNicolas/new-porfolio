@@ -25,7 +25,7 @@ function LogoTrack({ items, hidden = false }: LogoTrackProps) {
       {items.map((item) => (
         <span
           key={item.id}
-          className="flex items-center gap-3 px-7 text-fg/35 transition-colors duration-300 hover:text-fg/60 md:gap-4 md:px-10"
+          className="logo-marquee-item flex items-center gap-3 px-7 transition-colors duration-300 md:gap-4 md:px-10"
         >
           <TechLogoMark id={item.id} />
           <span className="whitespace-nowrap font-heading text-xl font-medium tracking-tight md:text-2xl">

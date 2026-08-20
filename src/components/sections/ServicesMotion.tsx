@@ -7,7 +7,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
 import { Link } from "@/i18n/routing";
 import { ServicesBentoCard } from "@/components/ui/ServicesBentoCard";
-import { SectionKicker } from "@/components/ui/SectionKicker";
+import { getServiceAnchor } from "@/data/services";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -16,7 +16,6 @@ export interface ServiceItem {
   title: string;
   description: string;
   featured: boolean;
-  accent: string;
 }
 
 export interface ServicesCopy {
@@ -84,16 +83,16 @@ export function ServicesMotion({ copy }: { copy: ServicesCopy }) {
       <div className="relative mx-auto max-w-7xl px-6 md:px-12 lg:px-16">
         <div className="grid gap-14 lg:grid-cols-12 lg:gap-16 xl:gap-20">
           <div className="lg:sticky lg:top-28 lg:col-span-5 lg:self-start">
-            <SectionKicker label={copy.badge} index="02" className="services-intro-animate" />
-            <h2 className="services-intro-animate mt-6 font-heading text-4xl font-medium leading-[1.04] tracking-tight text-fg md:text-[2.75rem] lg:text-[3rem]">
+            <p className="services-intro-animate section-kicker">{copy.badge}</p>
+            <h2 className="services-intro-animate section-title mt-5">
               {copy.headline}
             </h2>
-            <p className="services-intro-animate mt-6 max-w-md text-lg leading-relaxed text-fg/55 md:text-xl">
+            <p className="services-intro-animate section-intro mt-6">
               {copy.intro}
             </p>
             <Link
               href="/#contact"
-              className="services-intro-animate services-cta pill-ink group mt-10 inline-flex min-h-11 items-center gap-2.5 rounded-full border border-fg/20 bg-fg/[0.06] px-7 py-3 text-sm font-medium tracking-wide text-fg transition-all duration-500 hover:border-[#ff9a4a]/45 hover:bg-[color-mix(in_oklab,var(--color-ink)_70%,#ff9a4a)] hover:shadow-[0_20px_50px_rgba(255,154,74,0.22)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-fg"
+              className="services-intro-animate cta-secondary group mt-10"
             >
               {copy.cta}
               <span className="inline-flex transition-transform duration-500 group-hover:translate-x-0.5 group-hover:-translate-y-0.5">
@@ -108,7 +107,7 @@ export function ServicesMotion({ copy }: { copy: ServicesCopy }) {
                 key={item.id}
                 title={item.title}
                 description={item.description}
-                accent={item.accent}
+                href={`/services#${getServiceAnchor(item.id)}`}
                 featured={item.featured}
                 className="services-card-animate"
               />

@@ -1,9 +1,6 @@
 export { Hero } from "./Hero";
 export { About } from "./About";
-export { TechStack } from "./TechStack";
-export { Experience } from "./Experience";
 export { Projects } from "./Projects";
 export { Services } from "./Services";
-export { Process } from "./Process";
 export { ContactCta } from "./ContactCta";
 export { ScrollIdentity } from "./ScrollIdentity";

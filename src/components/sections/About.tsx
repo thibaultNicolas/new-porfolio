@@ -26,6 +26,7 @@ export async function About() {
           description: tExperience(`items.${id}.summary`),
           current: index === 0,
         })),
+        viewMore: t("viewMore"),
       }}
     />
   );

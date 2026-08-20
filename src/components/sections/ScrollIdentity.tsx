@@ -13,7 +13,7 @@ const PHRASE_COPY_COUNT = 6;
 /** Lower = slower horizontal drift per scroll pixel. */
 const SCROLL_TRAVEL_MULTIPLIER = 0.45;
 /** Extra scroll distance beyond the section pass-through (higher = slower). */
-const SCROLL_RANGE_VIEWPORT_FACTOR = 2.75;
+const SCROLL_RANGE_VIEWPORT_FACTOR = 1.4;
 /** Higher scrub = smoother catch-up, less twitchy on fast scroll. */
 const SCRUB_SMOOTHING = 2.2;
 

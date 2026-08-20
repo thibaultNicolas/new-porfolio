@@ -23,7 +23,7 @@ export function ThemeToggle({ isHeaderLight = false, className }: ThemeTogglePro
         "inline-flex min-h-11 min-w-11 items-center justify-center rounded-full border transition-colors duration-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2",
         isHeaderLight
           ? "border-paper/20 text-paper hover:border-paper/40 hover:bg-paper/10 focus-visible:outline-paper"
-          : "border-line text-ink hover:border-ink/20 hover:bg-ink/5 focus-visible:outline-ink",
+          : "border-fg/15 text-fg hover:border-fg/30 hover:bg-fg/5 focus-visible:outline-fg",
         className,
       )}
     >

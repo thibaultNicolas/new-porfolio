@@ -3,7 +3,6 @@ import { ServicesMotion } from "@/components/sections/ServicesMotion";
 import {
   FEATURED_SERVICE_IDS,
   HIGHLIGHTED_SERVICE_ID,
-  SERVICE_ACCENTS,
 } from "@/data/services";
 
 export async function Services() {
@@ -14,7 +13,6 @@ export async function Services() {
     title: t(`items.${id}.title`),
     description: t(`items.${id}.description`),
     featured: id === HIGHLIGHTED_SERVICE_ID,
-    accent: SERVICE_ACCENTS[id],
   }));
 
   return (

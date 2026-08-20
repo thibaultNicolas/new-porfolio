@@ -5,6 +5,7 @@ import { useLocale, useTranslations } from "next-intl";
 import { Link, routing, usePathname, useRouter } from "@/i18n/routing";
 import { CONTACT_EMAIL } from "@/lib/constants";
 import { useHeaderTone } from "@/lib/hooks/useHeaderTone";
+import { useTheme } from "@/lib/hooks/useTheme";
 import { ThemeToggle } from "@/components/ui/ThemeToggle";
 import { cn } from "@/lib/utils";
 
@@ -13,10 +14,14 @@ export function Header() {
   const locale = useLocale();
   const pathname = usePathname();
   const router = useRouter();
+  const { theme } = useTheme();
   const [isOpen, setIsOpen] = useState(false);
   const isHome = pathname === "/";
-  const tone = useHeaderTone(isHome);
-  const isLight = tone === "light";
+  const sectionTone = useHeaderTone(isHome);
+  // Paper nav on copper (home hero) and on dark canvas. Ink/fg nav on light canvas.
+  const isLight = isHome
+    ? sectionTone === "light" || theme === "dark"
+    : theme === "dark";
 
   useEffect(() => {
     document.body.style.overflow = isOpen ? "hidden" : "";
@@ -35,15 +40,15 @@ export function Header() {
   }, [isOpen]);
 
   const navItems = [
-    { href: "/#about", label: t("about") },
-    { href: "/#work", label: t("projects") },
-    { href: "/#services", label: t("stack") },
+    { href: "/projects", label: t("projects") },
+    { href: "/services", label: t("stack") },
+    { href: "/about", label: t("about") },
     { href: "/#contact", label: t("contact") },
   ];
 
   const linkClass = isLight
     ? "nav-link pb-0.5 text-[15px] text-paper/85 hover:text-paper"
-    : "nav-link pb-0.5 text-[15px] text-stone hover:text-ink";
+    : "nav-link pb-0.5 text-[15px] text-fg/55 hover:text-fg";
 
   const localeClass = (active: boolean): string =>
     cn(
@@ -53,26 +58,21 @@ export function Header() {
           ? "text-paper"
           : "text-paper/45 hover:text-paper"
         : active
-          ? "text-ink"
-          : "text-stone/70 hover:text-ink",
+          ? "text-fg"
+          : "text-fg/45 hover:text-fg",
     );
 
   return (
     <>
       <header
-        className={cn(
-          "relative z-50 w-full transition-[background-color,border-color] duration-500 ease-[cubic-bezier(0.22,1,0.36,1)]",
-          isHome
-            ? "border-transparent bg-transparent"
-            : "border-b border-line/60 bg-paper",
-        )}
+        className="absolute inset-x-0 top-0 z-50 w-full border-transparent bg-transparent transition-[background-color,border-color,color] duration-500 ease-[cubic-bezier(0.22,1,0.36,1)]"
       >
         <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-6 md:h-20 md:px-12 lg:px-16">
           <Link
             href="/"
             className={cn(
               "font-heading text-xl font-medium tracking-tight transition-colors duration-300 md:text-2xl",
-              isLight ? "text-paper" : "text-ink",
+              isLight ? "text-paper" : "text-fg",
             )}
           >
             Thibault.
@@ -112,14 +112,14 @@ export function Header() {
               <span
                 className={cn(
                   "block h-px w-6 transition-transform duration-300",
-                  isLight ? "bg-paper" : "bg-ink",
+                  isLight ? "bg-paper" : "bg-fg",
                   isOpen && "translate-y-[3px] rotate-45",
                 )}
               />
               <span
                 className={cn(
                   "mt-1.5 block h-px w-6 transition-transform duration-300",
-                  isLight ? "bg-paper" : "bg-ink",
+                  isLight ? "bg-paper" : "bg-fg",
                   isOpen && "-translate-y-[3px] -rotate-45",
                 )}
               />

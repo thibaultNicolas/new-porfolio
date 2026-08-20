@@ -30,9 +30,9 @@ export default function HomePage() {
     <>
       <HomeDarkFlow>
         <Hero />
-        <About />
-        <Services />
         <Projects />
+        <Services />
+        <About />
         <ScrollIdentity />
       </HomeDarkFlow>
     </>

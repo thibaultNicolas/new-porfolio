@@ -9,14 +9,14 @@ const SECTION_TONES: Record<string, HeaderTone> = {
   about: "dark",
   services: "dark",
   work: "dark",
-  contact: "dark",
+  contact: "light",
 };
 
 const HOME_SECTION_IDS = [
   "home",
-  "about",
-  "services",
   "work",
+  "services",
+  "about",
   "contact",
 ] as const;
 
@@ -25,7 +25,6 @@ export function useHeaderTone(isHome: boolean): HeaderTone {
 
   useEffect(() => {
     if (!isHome) {
-      setTone("dark");
       return;
     }
 
@@ -56,6 +55,10 @@ export function useHeaderTone(isHome: boolean): HeaderTone {
     sections.forEach(({ element }) => observer.observe(element));
     return () => observer.disconnect();
   }, [isHome]);
+
+  if (!isHome) {
+    return "dark";
+  }
 
   return tone;
 }

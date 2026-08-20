@@ -35,7 +35,7 @@
     "statYearsValue": "5+",
     "available": "Available for freelance and full-time work",
     "playlistTitle": "Now playing",
-    "playlistName": "Build mode 💻",
+    "playlistName": "Build mode",
     "openPlaylist": "Open playlist",
     "openingPlaylist": "Opening in Spotify",
     "portraitAlt": "Portrait of Nicolas Thibault"
@@ -46,13 +46,44 @@
     "homeTitle": "Web Developer in Quebec",
     "homeDescription": "Senior web developer crafting modern web products, immersive UX, and scalable architectures for startups and businesses.",
     "projectsTitle": "Projects",
-    "projectsDescription": "Selected projects showcasing product thinking, scalable engineering, and modern web technologies."
+    "projectsDescription": "Selected projects showcasing product thinking, scalable engineering, and modern web technologies.",
+    "servicesTitle": "Services",
+    "servicesDescription": "Web apps, SaaS platforms, UI engineering, and e-commerce. How I help teams ship products that perform and last.",
+    "aboutTitle": "About",
+    "aboutDescription": "Full stack developer in Quebec. I build AI-integrated products used by 2,000+ companies, plus web apps, SaaS, and e-commerce."
   },
   "about": {
     "badge": "Experience",
     "currentLabel": "Current role",
-    "headline": "A snapshot of my <accent>professional</accent> growth.",
-    "subtitle": "A summary of the roles, environments, and milestones that shaped how I design and ship digital products.",
+    "headline": "I design and ship products teams <accent>rely</accent> on.",
+    "subtitle": "Roles and environments that shaped how I build for real users, not decks.",
+    "viewMore": "More about me",
+    "pageTitle": "About",
+    "pageHeadline": "AI-integrated products used by <accent>2,000+ companies</accent>.",
+    "pageIntro": "Full stack developer in Quebec. I ship web apps, SaaS, and e-commerce that have to hold up in production.",
+    "pageCta": "Get in touch",
+    "linkedinCta": "LinkedIn",
+    "backToHome": "Back to home",
+    "tocLabel": "On this page",
+    "tocProfile": "Profile",
+    "tocExperience": "Experience",
+    "tocEducation": "Education",
+    "tocLanguages": "Languages",
+    "profileTitle": "Profile",
+    "location": "Quebec, Canada",
+    "profileBody1": "I'm Nicolas, a full stack developer based in Quebec. I build AI-integrated products used by 2,000+ companies, with a focus on interfaces people can actually use.",
+    "profileBody2": "At InputKit I led the full rewrite of the customer experience SaaS in React, Node.js, and Convex, the Next.js website, and Guide InputKit. Before that I built internal systems at Desjardins and client sites at Imago Communication.",
+    "experienceTitle": "Experience",
+    "educationTitle": "Education",
+    "languagesTitle": "Languages",
+    "focusTitle": "What I like to build",
+    "focus1": "AI features in production products, not demos",
+    "focus2": "Web platforms for Quebec businesses, from hockey to retail",
+    "focus3": "UI craft with performance: Next.js, GSAP, and accessible interfaces",
+    "languageFr": "French",
+    "languageFrLevel": "Native or bilingual",
+    "languageEn": "English",
+    "languageEnLevel": "Professional working proficiency",
     "toggle": {
       "experience": "Professional experience",
       "education": "Education"
@@ -60,8 +91,9 @@
     "education": {
       "items": {
         "edu-1": {
-          "tag": "2019-2021",
+          "tag": "2019-2022",
           "title": "DEC, Computer Science Technology",
+          "school": "Cégep de Sainte-Foy",
           "summary": "Foundations in software development, databases, and system analysis with a focus on building maintainable applications.",
           "imageAlt": "Computer science technology diploma"
         },
@@ -85,7 +117,6 @@
         }
       }
     },
-    "pageTitle": "Info",
     "title": "About Me",
     "sections": {
       "overview": "Overview",
@@ -145,14 +176,14 @@
     "items": {
       "exp-1": {
         "company": "InputKit",
-        "role": "Developer",
+        "role": "Full Stack Developer",
         "period": "Apr 2025 - Present",
-        "summary": "Building and scaling a customer experience SaaS with React, Node.js, and AI-powered workflows focused on usability and performance.",
+        "summary": "Led the full rewrite of the customer experience SaaS in React, Node.js, and Convex, plus the Next.js website and Guide InputKit.",
         "description": [
           "Development and maintenance of a customer and employee experience management SaaS",
-          "Design and development of modular web features with Vue.js and Node.js",
-          "API and database optimization for performance and scalability",
-          "User-centered interface design to improve experience and ergonomics",
+          "Full rewrite of the application in React, Node.js, and Convex",
+          "Lead developer on the Next.js website redesign",
+          "Lead developer on Guide InputKit, a Next.js and Convex application",
           "Prompt engineering and integration of AI models (OpenAI, Lovable, Cursor) for automatic generation of specific content"
         ]
       },
@@ -318,22 +349,43 @@
     "headline": "A comprehensive look at what I <accent>offer</accent> and how I deliver.",
     "intro": "From product architecture to polished interfaces, I help teams ship web experiences that perform, convert, and scale.",
     "cta": "Get in touch",
+    "pageTitle": "Services",
+    "pageHeadline": "What I <accent>build</accent>, in practice.",
+    "pageIntro": "Four ways I help teams ship web products that stay fast, clear, and ready for production.",
+    "tocLabel": "Jump to a service",
+    "backToHome": "Back to home",
     "items": {
       "web_apps": {
         "title": "Web Apps",
-        "description": "Responsive products with Next.js, React, and TypeScript, from MVP to production-ready launch."
+        "description": "Responsive products with Next.js, React, and TypeScript, from MVP to production-ready launch.",
+        "body": "I design and ship product-grade web apps with Next.js, React, and TypeScript. The work covers architecture, interface implementation, and a launch path from first MVP to a stable production release.",
+        "point1": "Architecture from MVP to production launch",
+        "point2": "TypeScript, Next.js, and React in real products",
+        "point3": "Responsive interfaces that stay fast and accessible"
       },
       "saas": {
         "title": "SaaS Platforms",
-        "description": "Scalable architectures, APIs, and dashboards built for teams that need reliability day after day."
+        "description": "Scalable architectures, APIs, and dashboards built for teams that need reliability day after day.",
+        "body": "I build SaaS products that teams can rely on every day: clear data models, APIs, and dashboards that stay understandable as the product grows. Reliability and maintainability come first, so you are not rewriting the core six months later.",
+        "point1": "APIs, dashboards, and scalable product architecture",
+        "point2": "Reliability for teams that live in the product",
+        "point3": "Room to grow without a full rebuild"
       },
       "ui_engineering": {
         "title": "UI Engineering",
-        "description": "Design translated into accessible interfaces with motion, polish, and pixel-level attention."
+        "description": "Design translated into accessible interfaces with motion, polish, and pixel-level attention.",
+        "body": "I turn design into interfaces that hold up in the browser: accessible components, motion that respects reduced-motion preferences, and the kind of polish you notice without it getting in the way of the product.",
+        "point1": "Design systems implemented as real components",
+        "point2": "Motion with reduced-motion support",
+        "point3": "Pixel-level care that stays maintainable"
       },
       "ecommerce": {
         "title": "E-commerce",
-        "description": "Shopify storefronts and custom commerce flows optimized for conversion and long-term growth."
+        "description": "Shopify storefronts and custom commerce flows optimized for conversion and long-term growth.",
+        "body": "I ship Shopify storefronts and custom commerce flows with a clear path to purchase. Catalog, checkout, and content stay aligned so the store can grow without becoming fragile.",
+        "point1": "Shopify storefronts and custom commerce flows",
+        "point2": "Catalog and checkout work aimed at conversion",
+        "point3": "A storefront that can grow with the catalog"
       }
     }
   },
@@ -395,10 +447,10 @@
     }
   },
   "scrollIdentity": {
-    "row1": ["FROM", "IDEA", "TO", "PRODUCT"],
-    "row1Accent": "3",
-    "row2": ["BUILD", "YOUR", "DREAM"],
-    "row2Accent": "2"
+    "row1": ["SHIP", "REAL", "PRODUCTS"],
+    "row1Accent": "2",
+    "row2": ["FROM", "IDEA", "TO", "SHIP"],
+    "row2Accent": "3"
   },
   "contactCta": {
     "badge": "Available for new projects",
@@ -420,7 +472,7 @@
   },
   "trust": {
     "heading": "Languages I work with",
-    "label": "Languages and tools: React, Next.js, Vue.js, TypeScript, Node.js, Tailwind, Shopify, WordPress, GSAP, and Git."
+    "label": "Languages and tools: React, Next.js, Convex, Vue.js, TypeScript, Node.js, Tailwind, Shopify, WordPress, GSAP, and Git."
   },
   "common": {
     "viewProject": "View Project →"

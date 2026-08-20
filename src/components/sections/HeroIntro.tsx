@@ -1,6 +1,6 @@
 import type { ReactNode } from "react";
 import { Link } from "@/i18n/routing";
-import { CONTACT_EMAIL, HERO_TECH_PILLS } from "@/lib/constants";
+import { CONTACT_EMAIL } from "@/lib/constants";
 
 export interface HeroIntroCopy {
   headline: ReactNode;
@@ -23,17 +23,6 @@ export function HeroIntro({ copy }: { copy: HeroIntroCopy }) {
       <p className="mt-6 max-w-md text-base leading-relaxed text-fg/82 md:text-lg">
         {copy.body}
       </p>
-
-      <ul className="mt-6 flex flex-wrap gap-2">
-        {HERO_TECH_PILLS.map((tech) => (
-          <li
-            key={tech}
-            className="rounded-full border border-fg/15 px-3 py-1 text-xs text-fg/80 md:text-sm"
-          >
-            {tech}
-          </li>
-        ))}
-      </ul>
 
       <div className="mt-6 grid max-w-md grid-cols-2 gap-3">
         <article className="rounded-2xl border border-fg/15 px-5 py-4 text-fg">
@@ -58,12 +47,9 @@ export function HeroIntro({ copy }: { copy: HeroIntroCopy }) {
           {copy.ctaProject}
           <ArrowIcon />
         </a>
-        <Link
-          href="/#work"
-          className="inline-flex min-h-11 items-center gap-2 rounded-full border border-fg/20 px-5 text-sm text-fg/80 transition-colors duration-300 hover:border-fg/50 hover:text-fg"
-        >
+        <Link href="/#work" className="cta-secondary">
           {copy.ctaWork}
-          <span aria-hidden="true">+</span>
+          <ArrowIcon />
         </Link>
       </div>
     </div>

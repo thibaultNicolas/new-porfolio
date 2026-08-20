@@ -1,5 +1,6 @@
 import { getTranslations } from "next-intl/server";
 import type { Metadata } from "next";
+import { HomeDarkFlow } from "@/components/layout/HomeDarkFlow";
 import { ProjectsArchive } from "@/components/sections/ProjectsArchive";
 import { projects } from "@/data/projects";
 
@@ -42,24 +43,27 @@ export default async function ProjectsArchivePage() {
         title: project.title,
         href: `/projects/${project.id}`,
         image: project.image,
-        category: t(`${projectKey}.category`),
         description: t(`${projectKey}.description`),
+        tags: [...new Set(project.technologies.slice(0, 3))],
+        viewLabel: t("viewProject"),
       };
     });
 
   return (
-    <ProjectsArchive
-      items={items}
-      copy={{
-        badge: t("badge"),
-        headline: t.rich("archiveHeadline", {
-          accent: (chunks) => (
-            <span className="font-serif italic text-accent">{chunks}</span>
-          ),
-        }),
-        intro: t("archiveIntro"),
-        backLabel: t("backToHome"),
-      }}
-    />
+    <HomeDarkFlow>
+      <ProjectsArchive
+        items={items}
+        copy={{
+          badge: t("badge"),
+          headline: t.rich("archiveHeadline", {
+            accent: (chunks) => (
+              <span className="font-serif italic text-accent">{chunks}</span>
+            ),
+          }),
+          intro: t("archiveIntro"),
+          backLabel: t("backToHome"),
+        }}
+      />
+    </HomeDarkFlow>
   );
 }
